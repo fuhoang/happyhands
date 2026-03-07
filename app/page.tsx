@@ -60,25 +60,41 @@ export default function Home() {
           >
             <a
               href="#services"
-              className={`transition ${scrolled ? "hover:text-[#245239]" : "hover:text-white"}`}
+              className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
+                scrolled
+                  ? "hover:text-[#245239] after:bg-[#245239] hover:after:scale-x-100"
+                  : "hover:text-white after:bg-white hover:after:scale-x-100"
+              }`}
             >
               Services
             </a>
             <a
               href="#why-us"
-              className={`transition ${scrolled ? "hover:text-[#245239]" : "hover:text-white"}`}
+              className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
+                scrolled
+                  ? "hover:text-[#245239] after:bg-[#245239] hover:after:scale-x-100"
+                  : "hover:text-white after:bg-white hover:after:scale-x-100"
+              }`}
             >
               Why us
             </a>
             <a
               href="#testimonials"
-              className={`transition ${scrolled ? "hover:text-[#245239]" : "hover:text-white"}`}
+              className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
+                scrolled
+                  ? "hover:text-[#245239] after:bg-[#245239] hover:after:scale-x-100"
+                  : "hover:text-white after:bg-white hover:after:scale-x-100"
+              }`}
             >
               Reviews
             </a>
             <a
               href="#contact"
-              className={`transition ${scrolled ? "hover:text-[#245239]" : "hover:text-white"}`}
+              className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
+                scrolled
+                  ? "hover:text-[#245239] after:bg-[#245239] hover:after:scale-x-100"
+                  : "hover:text-white after:bg-white hover:after:scale-x-100"
+              }`}
             >
               Contact
             </a>
