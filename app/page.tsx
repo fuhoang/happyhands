@@ -1,6 +1,7 @@
- "use client";
+"use client";
 
 import { useEffect, useState } from "react";
+import BlurText from "@/components/BlurText";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -96,8 +97,7 @@ export default function Home() {
       </header>
 
       <section className="relative min-h-[78vh] w-full overflow-hidden pt-24">
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1563453392212-326f5e854473?auto=format&fit=crop&w=1600&q=80')] bg-cover bg-[center_right]" />
-        <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(0,0,0,0.66)_0%,rgba(0,0,0,0.4)_34%,rgba(0,0,0,0.08)_72%,rgba(0,0,0,0.02)_100%)]" />
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3360701/pexels-photo-3360701.jpeg?cs=srgb&dl=pexels-karolina-grabowska-3360701.jpg&fm=jpg')] bg-cover bg-[72%_center] bg-no-repeat" />
 
         <div className="relative mx-auto flex min-h-[78vh] w-full max-w-7xl items-center px-5 py-16 sm:px-8 lg:px-10">
           <div className="max-w-3xl">
@@ -105,13 +105,32 @@ export default function Home() {
               Bright energetic cleaning in your city
             </div>
 
-            <h1 className="mt-6 max-w-4xl text-5xl font-black leading-[0.9] tracking-[-0.07em] text-white sm:text-6xl lg:text-8xl">
-              Bold shine.
-              <br />
-              Fast refresh.
-              <br />
-              Happy Hands.
-            </h1>
+            <div className="mt-6 max-w-4xl text-5xl font-black leading-[0.9] tracking-[-0.07em] text-white sm:text-6xl lg:text-8xl">
+              <BlurText
+                as="h1"
+                text="Bold shine."
+                className="block"
+                delay={220}
+                duration={1300}
+                segmentClassName="will-change-transform"
+              />
+              <BlurText
+                as="div"
+                text="Fast refresh."
+                className="block"
+                delay={280}
+                duration={1450}
+                segmentClassName="will-change-transform"
+              />
+              <BlurText
+                as="div"
+                text="Happy Hands."
+                className="block"
+                delay={340}
+                duration={1600}
+                segmentClassName="will-change-transform bg-[linear-gradient(135deg,#d8ffe5_0%,#7dd8a0_45%,#ffffff_100%)] bg-clip-text text-transparent"
+              />
+            </div>
 
             <p className="mt-6 max-w-2xl text-base leading-8 text-white/88 sm:text-lg">
               Happy Hands has been delivering exceptional cleaning services for
