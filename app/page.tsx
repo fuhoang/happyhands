@@ -144,7 +144,7 @@ export default function Home() {
                 className="block"
                 delay={340}
                 duration={1600}
-                segmentClassName="will-change-transform bg-[linear-gradient(135deg,#d8ffe5_0%,#7dd8a0_45%,#ffffff_100%)] bg-clip-text text-transparent"
+                segmentClassName="will-change-transform bg-[linear-gradient(135deg,#8ed0a8_0%,#2f8a5a_45%,#dff5e8_100%)] bg-clip-text text-transparent"
               />
             </div>
 
@@ -185,7 +185,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="mx-auto w-full max-w-7xl px-5 pb-8 sm:px-8 lg:px-10">
+      <section className="mx-auto mt-10 w-full max-w-7xl px-5 pb-8 sm:px-8 lg:px-10">
         <div className="grid gap-4 rounded-md border-2 border-[#b8d6c1]/60 bg-white/90 p-5 shadow-[0_18px_45px_rgba(31,122,77,0.12)] sm:grid-cols-2 lg:grid-cols-4">
           <div className="rounded-sm bg-[#edf7f1] p-5">
             <p className="text-3xl font-black text-[#1f7a4d]">450+</p>
@@ -394,6 +394,12 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <footer className="border-t border-[#b8d6c1]/50 bg-white">
+        <div className="mx-auto w-full max-w-7xl px-5 py-6 text-center text-sm text-[#5f7d69] sm:px-8 lg:px-10">
+          <p>© Copyright Happy Hands 2026</p>
+        </div>
+      </footer>
     </main>
   );
 }
