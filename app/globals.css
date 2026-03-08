@@ -20,3 +20,32 @@ body {
   color: var(--foreground);
   font-family: var(--font-montserrat), Arial, Helvetica, sans-serif;
 }
+
+.hand-wave {
+  transform-origin: 70% 85%;
+  animation: handWave 1.35s cubic-bezier(0.22, 1, 0.36, 1) 0.3s 1 both;
+}
+
+@keyframes handWave {
+  0% {
+    transform: rotate(0deg);
+  }
+  16% {
+    transform: rotate(20deg) translateY(-1px);
+  }
+  32% {
+    transform: rotate(-14deg) translateY(0);
+  }
+  48% {
+    transform: rotate(18deg) translateY(-1px);
+  }
+  64% {
+    transform: rotate(-10deg) translateY(0);
+  }
+  82% {
+    transform: rotate(8deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}

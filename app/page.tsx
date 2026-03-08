@@ -32,8 +32,14 @@ export default function Home() {
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-lg font-semibold text-white shadow-[0_8px_18px_rgba(0,0,0,0.16)]">
-              H
+            <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white shadow-[0_8px_18px_rgba(0,0,0,0.16)]">
+              <svg
+                aria-hidden="true"
+                viewBox="0 0 24 24"
+                className="hand-wave h-8 w-8 fill-current"
+              >
+                <path d="M7.5 11.25V6.8a1.05 1.05 0 1 1 2.1 0v3.55h.9V5.8a1.05 1.05 0 1 1 2.1 0v4.55h.9V6.6a1.05 1.05 0 1 1 2.1 0v4.5h.9V8.1a1.05 1.05 0 1 1 2.1 0v6.15c0 3.25-2.3 5.95-5.4 6.45l-1.85.3A5.9 5.9 0 0 1 5.5 15.2v-1.65a1.8 1.8 0 0 1 2-1.8Z" />
+              </svg>
             </div>
             <div>
               <p
