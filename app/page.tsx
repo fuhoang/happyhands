@@ -32,7 +32,7 @@ export default function Home() {
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
           <div className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white shadow-[0_8px_18px_rgba(0,0,0,0.16)]">
+            <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#4f9a68,#b8dfb5)] text-white shadow-[0_8px_18px_rgba(0,0,0,0.16)]">
               <svg
                 aria-hidden="true"
                 viewBox="0 0 24 24"
@@ -44,14 +44,14 @@ export default function Home() {
             <div>
               <p
                 className={`text-base font-semibold tracking-[0.16em] uppercase ${
-                  scrolled ? "text-[#245239]" : "text-white"
+                  scrolled ? "text-[#4a7a58]" : "text-white"
                 }`}
               >
                 Happy Hands
               </p>
               <p
                 className={`text-sm font-medium ${
-                  scrolled ? "text-[#5f7d69]" : "text-white/78"
+                  scrolled ? "text-[#7b927d]" : "text-white/78"
                 }`}
               >
                 Cleaning Services
@@ -61,14 +61,14 @@ export default function Home() {
 
           <nav
             className={`hidden items-center gap-12 text-sm font-medium tracking-[0.08em] md:flex ${
-              scrolled ? "text-[#4d6f5a]" : "text-white/86"
+              scrolled ? "text-[#728b76]" : "text-white/86"
             }`}
           >
             <a
               href="#services"
               className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
                 scrolled
-                  ? "hover:text-[#245239] after:bg-[#245239] hover:after:scale-x-100"
+                  ? "hover:text-[#4a7a58] after:bg-[#4a7a58] hover:after:scale-x-100"
                   : "hover:text-white after:bg-white hover:after:scale-x-100"
               }`}
             >
@@ -78,7 +78,7 @@ export default function Home() {
               href="#why-us"
               className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
                 scrolled
-                  ? "hover:text-[#245239] after:bg-[#245239] hover:after:scale-x-100"
+                  ? "hover:text-[#4a7a58] after:bg-[#4a7a58] hover:after:scale-x-100"
                   : "hover:text-white after:bg-white hover:after:scale-x-100"
               }`}
             >
@@ -88,7 +88,7 @@ export default function Home() {
               href="#testimonials"
               className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
                 scrolled
-                  ? "hover:text-[#245239] after:bg-[#245239] hover:after:scale-x-100"
+                  ? "hover:text-[#4a7a58] after:bg-[#4a7a58] hover:after:scale-x-100"
                   : "hover:text-white after:bg-white hover:after:scale-x-100"
               }`}
             >
@@ -98,7 +98,7 @@ export default function Home() {
               href="#contact"
               className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
                 scrolled
-                  ? "hover:text-[#245239] after:bg-[#245239] hover:after:scale-x-100"
+                  ? "hover:text-[#4a7a58] after:bg-[#4a7a58] hover:after:scale-x-100"
                   : "hover:text-white after:bg-white hover:after:scale-x-100"
               }`}
             >
@@ -108,7 +108,7 @@ export default function Home() {
               href="mailto:happyhandscustomerservice@gmail.com"
               className={`inline-flex min-h-11 items-center justify-center rounded-sm px-5 text-xs font-semibold uppercase tracking-[0.16em] transition ${
                 scrolled
-                  ? "border border-[#b8d6c1] bg-white/70 text-[#245239] hover:bg-[#edf7f1]"
+                  ? "border border-[#c7ddc1] bg-white/70 text-[#4a7a58] hover:bg-[#f3f8ee]"
                   : "border border-white/28 bg-white/12 text-white hover:bg-white/18"
               }`}
             >
@@ -123,7 +123,7 @@ export default function Home() {
 
         <div className="relative mx-auto flex min-h-[78vh] w-full max-w-7xl items-center px-5 py-16 sm:px-8 lg:px-10">
           <div className="max-w-3xl">
-            <div className="inline-flex items-center rounded-sm border-2 border-[#8fd0a5] bg-[#edf7f1] px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-[#1f7a4d] shadow-[0_8px_20px_rgba(125,207,154,0.24)]">
+            <div className="inline-flex items-center rounded-sm border-2 border-[#b8dfb5] bg-[#f3f8ee] px-4 py-2 text-xs font-black uppercase tracking-[0.22em] text-[#4f9a68] shadow-[0_8px_20px_rgba(184,223,181,0.26)]">
               Bright energetic cleaning in your city
             </div>
 
@@ -168,20 +168,20 @@ export default function Home() {
             >
               <a
                 href="mailto:happyhandscustomerservice@gmail.com"
-                className="inline-flex min-h-14 items-center justify-center rounded-sm bg-[#1f7a4d] px-7 text-sm font-black text-white shadow-[0_18px_36px_rgba(31,122,77,0.28)] transition hover:-translate-y-0.5 hover:bg-[#17623d]"
+                className="inline-flex min-h-14 items-center justify-center rounded-sm bg-[#4f9a68] px-7 text-sm font-black text-white shadow-[0_18px_36px_rgba(79,154,104,0.24)] transition hover:-translate-y-0.5 hover:bg-[#43865a]"
               >
                 Book a free quote
               </a>
               <a
                 href="tel:+447973403788"
-                className="inline-flex min-h-14 items-center justify-center rounded-sm border-2 border-[#8fd0a5] bg-[#edf7f1] px-7 text-sm font-black text-[#245239] transition hover:-translate-y-0.5"
+                className="inline-flex min-h-14 items-center justify-center rounded-sm border-2 border-[#b8dfb5] bg-[#f3f8ee] px-7 text-sm font-black text-[#4a7a58] transition hover:-translate-y-0.5"
               >
                 Call 07973 403 788
               </a>
             </div>
 
             <div className="mt-8 max-w-md rounded-md border border-white/20 bg-white/14 p-5 text-white shadow-[0_18px_45px_rgba(0,0,0,0.14)] backdrop-blur-sm">
-              <p className="text-base font-black text-[#9ee0b3]">Fast booking process</p>
+              <p className="text-base font-black text-[#cbe9c1]">Fast booking process</p>
               <p className="mt-2 text-sm leading-6 text-white/85">
                 Share the property size, preferred day, and service type. Happy
                 Hands will reply with a tailored quote.
@@ -192,28 +192,28 @@ export default function Home() {
       </section>
 
       <section className="mx-auto mt-10 w-full max-w-7xl px-5 pb-8 sm:px-8 lg:px-10">
-        <div className="grid gap-4 rounded-md border-2 border-[#b8d6c1]/60 bg-white/90 p-5 shadow-[0_18px_45px_rgba(31,122,77,0.12)] sm:grid-cols-2 lg:grid-cols-4">
-          <div className="rounded-sm bg-[#edf7f1] p-5">
-            <p className="text-3xl font-black text-[#1f7a4d]">450+</p>
-            <p className="mt-2 text-sm font-medium leading-6 text-[#5f7d69]">
+        <div className="grid gap-4 rounded-md border-2 border-[#c7ddc1]/60 bg-white/90 p-5 shadow-[0_18px_45px_rgba(79,154,104,0.1)] sm:grid-cols-2 lg:grid-cols-4">
+          <div className="rounded-sm bg-[#f3f8ee] p-5">
+            <p className="text-3xl font-black text-[#4f9a68]">450+</p>
+            <p className="mt-2 text-sm font-medium leading-6 text-[#7b927d]">
               spaces cleaned each month
             </p>
           </div>
-          <div className="rounded-sm bg-[#f8fcf9] p-5">
-            <p className="text-3xl font-black text-[#1f7a4d]">4.9/5</p>
-            <p className="mt-2 text-sm font-medium leading-6 text-[#5f7d69]">
+          <div className="rounded-sm bg-[#fbfdf9] p-5">
+            <p className="text-3xl font-black text-[#4f9a68]">4.9/5</p>
+            <p className="mt-2 text-sm font-medium leading-6 text-[#7b927d]">
               average customer rating
             </p>
           </div>
-          <div className="rounded-sm bg-[#edf7f1] p-5">
-            <p className="text-3xl font-black text-[#1f7a4d]">Same day</p>
-            <p className="mt-2 text-sm font-medium leading-6 text-[#5f7d69]">
+          <div className="rounded-sm bg-[#f3f8ee] p-5">
+            <p className="text-3xl font-black text-[#4f9a68]">Same day</p>
+            <p className="mt-2 text-sm font-medium leading-6 text-[#7b927d]">
               quote responses when availability allows
             </p>
           </div>
-          <div className="rounded-sm bg-[#f8fcf9] p-5">
-            <p className="text-3xl font-black text-[#1f7a4d]">7 days</p>
-            <p className="mt-2 text-sm font-medium leading-6 text-[#5f7d69]">
+          <div className="rounded-sm bg-[#fbfdf9] p-5">
+            <p className="text-3xl font-black text-[#4f9a68]">7 days</p>
+            <p className="mt-2 text-sm font-medium leading-6 text-[#7b927d]">
               weekly booking availability
             </p>
           </div>
@@ -225,21 +225,21 @@ export default function Home() {
         className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10"
       >
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-[#1f7a4d]">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-[#4f9a68]">
             Services
           </p>
           <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] text-[#5a160d] sm:text-5xl">
             Cleaning packages built for homes, workspaces, and rental properties
           </h2>
-          <p className="mt-4 text-base leading-8 text-[#5f7d69]">
+          <p className="mt-4 text-base leading-8 text-[#7b927d]">
             Choose the service that fits your space, then get a fast quote with
             a schedule that works for you.
           </p>
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#4f9a68,#b8dfb5)] text-white">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                 <path d="M4 12h16" />
                 <path d="M6 8h12" />
@@ -248,14 +248,14 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="mt-5 text-2xl font-black">Home Cleaning</h3>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               Routine and deep-clean packages for kitchens, bathrooms,
               bedrooms, living rooms, and busy family spaces.
             </p>
           </article>
 
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-[#f3f8ee] p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#4f9a68,#b8dfb5)] text-white">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                 <rect x="4" y="5" width="16" height="14" rx="2" />
                 <path d="M8 19v-4" />
@@ -264,14 +264,14 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="mt-5 text-2xl font-black">Office Cleaning</h3>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               Flexible cleaning for studios, shops, and office spaces that need
               a polished look every day.
             </p>
           </article>
 
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#4f9a68,#b8dfb5)] text-white">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                 <path d="M6 18h12" />
                 <path d="M8 18V8h8v10" />
@@ -280,14 +280,14 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="mt-5 text-2xl font-black">Rental Turnovers</h3>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               Quick resets for Airbnb and short-term rentals with detail work
               that keeps every arrival guest-ready.
             </p>
           </article>
 
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-[#f3f8ee] p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#4f9a68,#b8dfb5)] text-white">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                 <path d="M4 7h16" />
                 <path d="M6 7v10" />
@@ -297,14 +297,14 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="mt-5 text-2xl font-black">Retail Cleaning</h3>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               Reliable cleaning for shops and retail spaces with polished floors,
               tidy displays, and a welcoming customer environment.
             </p>
           </article>
 
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#4f9a68,#b8dfb5)] text-white">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                 <path d="M4 12h16" />
                 <path d="M7 8h10" />
@@ -315,14 +315,14 @@ export default function Home() {
             <h3 className="mt-5 text-2xl font-black">
               Leisure and Hospitality Cleaning
             </h3>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               Cleaning support for hotels, restaurants, lounges, and leisure
               venues that need a spotless guest-ready presentation.
             </p>
           </article>
 
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-[#f3f8ee] p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#4f9a68,#b8dfb5)] text-white">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                 <path d="M12 4v16" />
                 <path d="M7 9h10" />
@@ -331,7 +331,7 @@ export default function Home() {
               </svg>
             </div>
             <h3 className="mt-5 text-2xl font-black">Event Cleaning</h3>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               Pre-event preparation, during-event upkeep, and post-event cleaning
               for venues that need fast, professional turnaround.
             </p>
@@ -343,8 +343,8 @@ export default function Home() {
         id="why-us"
         className="mx-auto grid w-full max-w-7xl gap-6 px-5 py-14 sm:px-8 lg:grid-cols-[0.8fr_1.2fr] lg:px-10"
       >
-        <div className="rounded-md bg-[linear-gradient(180deg,#1f7a4d_0%,#145235_100%)] p-8 text-white shadow-[0_24px_60px_rgba(31,122,77,0.24)]">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-[#bde6cb]">
+        <div className="rounded-md bg-[linear-gradient(180deg,#4f9a68_0%,#3f7d54_100%)] p-8 text-white shadow-[0_24px_60px_rgba(79,154,104,0.2)]">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-[#dcefd3]">
             Why clients return
           </p>
           <h2 className="mt-4 text-3xl font-black leading-tight">
@@ -357,30 +357,30 @@ export default function Home() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2">
-          <div className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7">
-            <p className="text-lg font-black text-[#1f7a4d]">Flexible scheduling</p>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+          <div className="rounded-md border-2 border-[#c7ddc1]/60 bg-white p-7">
+            <p className="text-lg font-black text-[#4f9a68]">Flexible scheduling</p>
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               One-time visits, weekly cleaning, and last-minute support for
               homes and business spaces.
             </p>
           </div>
-          <div className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7">
-            <p className="text-lg font-black text-[#1f7a4d]">Friendly communication</p>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+          <div className="rounded-md border-2 border-[#c7ddc1]/60 bg-[#f3f8ee] p-7">
+            <p className="text-lg font-black text-[#4f9a68]">Friendly communication</p>
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               Clear quotes, quick replies, and a simple booking experience from
               first message to final clean.
             </p>
           </div>
-          <div className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7">
-            <p className="text-lg font-black text-[#1f7a4d]">Attention to detail</p>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+          <div className="rounded-md border-2 border-[#c7ddc1]/60 bg-[#f3f8ee] p-7">
+            <p className="text-lg font-black text-[#4f9a68]">Attention to detail</p>
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               High-touch areas, finishing checks, and presentation-focused
               cleaning that makes a strong impression.
             </p>
           </div>
-          <div className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7">
-            <p className="text-lg font-black text-[#1f7a4d]">Direct contact</p>
-            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+          <div className="rounded-md border-2 border-[#c7ddc1]/60 bg-white p-7">
+            <p className="text-lg font-black text-[#4f9a68]">Direct contact</p>
+            <p className="mt-3 text-sm leading-7 text-[#7b927d]">
               Call 07973 403 788 or email
               {" "}
               happyhandscustomerservice@gmail.com to request a quote.
@@ -394,7 +394,7 @@ export default function Home() {
         className="mx-auto w-full max-w-7xl px-5 py-10 sm:px-8 lg:px-10"
       >
         <div className="mx-auto max-w-3xl text-center">
-          <p className="text-sm font-black uppercase tracking-[0.2em] text-[#1f7a4d]">
+          <p className="text-sm font-black uppercase tracking-[0.2em] text-[#4f9a68]">
             Testimonials
           </p>
           <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] sm:text-5xl">
@@ -403,32 +403,32 @@ export default function Home() {
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)]">
-            <p className="text-base leading-8 text-[#5f7d69]">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)]">
+            <p className="text-base leading-8 text-[#7b927d]">
               “Happy Hands made the place feel brand new. They were punctual,
               friendly, and the finish was excellent.”
             </p>
-            <p className="mt-5 text-sm font-black uppercase tracking-[0.12em] text-[#1f7a4d]">
+            <p className="mt-5 text-sm font-black uppercase tracking-[0.12em] text-[#4f9a68]">
               Sarah, homeowner
             </p>
           </article>
 
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)]">
-            <p className="text-base leading-8 text-[#5f7d69]">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-[#f3f8ee] p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)]">
+            <p className="text-base leading-8 text-[#7b927d]">
               “We needed reliable office cleaning and got exactly that. Clear
               communication, flexible booking, and consistently tidy results.”
             </p>
-            <p className="mt-5 text-sm font-black uppercase tracking-[0.12em] text-[#1f7a4d]">
+            <p className="mt-5 text-sm font-black uppercase tracking-[0.12em] text-[#4f9a68]">
               Daniel, studio manager
             </p>
           </article>
 
-          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)]">
-            <p className="text-base leading-8 text-[#5f7d69]">
+          <article className="rounded-md border-2 border-[#c7ddc1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(79,154,104,0.1)]">
+            <p className="text-base leading-8 text-[#7b927d]">
               “The rental turnaround was fast and detailed. Guests noticed how
               fresh everything felt as soon as they walked in.”
             </p>
-            <p className="mt-5 text-sm font-black uppercase tracking-[0.12em] text-[#1f7a4d]">
+            <p className="mt-5 text-sm font-black uppercase tracking-[0.12em] text-[#4f9a68]">
               Mia, host
             </p>
           </article>
@@ -436,9 +436,9 @@ export default function Home() {
       </section>
 
       <section className="mx-auto w-full max-w-7xl px-5 py-14 sm:px-8 lg:px-10">
-        <div className="rounded-md bg-[linear-gradient(135deg,#1f7a4d_0%,#2fa768_100%)] p-8 text-white shadow-[0_30px_70px_rgba(31,122,77,0.24)] sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
+        <div className="rounded-md bg-[linear-gradient(135deg,#4f9a68_0%,#7db28a_100%)] p-8 text-white shadow-[0_30px_70px_rgba(79,154,104,0.2)] sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
           <div className="max-w-2xl">
-            <p className="text-sm font-black uppercase tracking-[0.2em] text-[#d4f0de]">
+            <p className="text-sm font-black uppercase tracking-[0.2em] text-[#eef8ea]">
               Ready to book?
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] sm:text-5xl">
@@ -453,7 +453,7 @@ export default function Home() {
           <div className="mt-8 flex flex-col gap-3 lg:mt-0 lg:min-w-[18rem]">
             <a
               href="tel:+447973403788"
-              className="inline-flex min-h-14 items-center justify-center rounded-sm bg-white px-7 text-sm font-black text-[#245239] transition hover:-translate-y-0.5"
+              className="inline-flex min-h-14 items-center justify-center rounded-sm bg-white px-7 text-sm font-black text-[#4a7a58] transition hover:-translate-y-0.5"
             >
               Call 07973 403 788
             </a>
