@@ -150,7 +150,7 @@ export default function Home() {
                 className="block"
                 delay={340}
                 duration={1600}
-                segmentClassName="will-change-transform bg-[linear-gradient(135deg,#8ed0a8_0%,#2f8a5a_45%,#dff5e8_100%)] bg-clip-text text-transparent"
+                segmentClassName="will-change-transform text-[#2f8a5a]"
               />
             </div>
 
@@ -239,8 +239,13 @@ export default function Home() {
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
           <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-2xl text-white">
-              ✦
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                <path d="M4 12h16" />
+                <path d="M6 8h12" />
+                <path d="M8 16h8" />
+                <path d="M9 4h6l1 4H8l1-4Z" />
+              </svg>
             </div>
             <h3 className="mt-5 text-2xl font-black">Home Cleaning</h3>
             <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
@@ -250,8 +255,13 @@ export default function Home() {
           </article>
 
           <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-2xl text-white">
-              ■
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                <rect x="4" y="5" width="16" height="14" rx="2" />
+                <path d="M8 19v-4" />
+                <path d="M16 19v-4" />
+                <path d="M8 9h8" />
+              </svg>
             </div>
             <h3 className="mt-5 text-2xl font-black">Office Cleaning</h3>
             <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
@@ -261,13 +271,69 @@ export default function Home() {
           </article>
 
           <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-2xl text-white">
-              ○
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                <path d="M6 18h12" />
+                <path d="M8 18V8h8v10" />
+                <path d="M9 8V5h6v3" />
+                <path d="M10 11h4" />
+              </svg>
             </div>
             <h3 className="mt-5 text-2xl font-black">Rental Turnovers</h3>
             <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
               Quick resets for Airbnb and short-term rentals with detail work
               that keeps every arrival guest-ready.
+            </p>
+          </article>
+
+          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                <path d="M4 7h16" />
+                <path d="M6 7v10" />
+                <path d="M18 7v10" />
+                <path d="M6 17h12" />
+                <path d="M9 10h6" />
+              </svg>
+            </div>
+            <h3 className="mt-5 text-2xl font-black">Retail Cleaning</h3>
+            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+              Reliable cleaning for shops and retail spaces with polished floors,
+              tidy displays, and a welcoming customer environment.
+            </p>
+          </article>
+
+          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-white p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                <path d="M4 12h16" />
+                <path d="M7 8h10" />
+                <path d="M7 16h10" />
+                <path d="M6 6h12v12H6z" />
+              </svg>
+            </div>
+            <h3 className="mt-5 text-2xl font-black">
+              Leisure and Hospitality Cleaning
+            </h3>
+            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+              Cleaning support for hotels, restaurants, lounges, and leisure
+              venues that need a spotless guest-ready presentation.
+            </p>
+          </article>
+
+          <article className="rounded-md border-2 border-[#b8d6c1]/60 bg-[#edf7f1] p-7 shadow-[0_18px_45px_rgba(31,122,77,0.12)] transition hover:-translate-y-1">
+            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#1f7a4d,#7dcf9a)] text-white">
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                <path d="M12 4v16" />
+                <path d="M7 9h10" />
+                <path d="M5 20h14" />
+                <path d="M8 20v-5h8v5" />
+              </svg>
+            </div>
+            <h3 className="mt-5 text-2xl font-black">Event Cleaning</h3>
+            <p className="mt-3 text-sm leading-7 text-[#5f7d69]">
+              Pre-event preparation, during-event upkeep, and post-event cleaning
+              for venues that need fast, professional turnaround.
             </p>
           </article>
         </div>
