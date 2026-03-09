@@ -31,7 +31,7 @@ export default function Home() {
         }`}
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
-          <div className="flex items-center gap-3">
+          <a href="#" className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white shadow-[0_8px_18px_rgba(0,0,0,0.16)]">
               <svg
                 aria-hidden="true"
@@ -57,7 +57,7 @@ export default function Home() {
                 Cleaning Services
               </p>
             </div>
-          </div>
+          </a>
 
           <nav
             className={`hidden items-center gap-12 text-sm font-medium tracking-[0.08em] md:flex ${
