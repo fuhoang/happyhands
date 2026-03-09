@@ -29,12 +29,21 @@ This project uses a Gitflow-style workflow adapted to the repository branch rule
 ## Workflow
 
 1. Create feature work from `codex/develop`
-2. Merge feature branches back into `codex/develop`
-3. Create a `codex/release/...` branch from `codex/develop` when preparing a release
-4. Merge the release branch into `main`
-5. Merge the release branch back into `codex/develop`
-6. Create `codex/hotfix/...` from `main` for urgent production fixes
-7. Merge hotfixes into both `main` and `codex/develop`
+2. Open pull requests from `codex/feature/...` into `codex/develop`
+3. Merge feature branches back into `codex/develop`
+4. Create a `codex/release/...` branch from `codex/develop` when preparing a release
+5. Merge the release branch into `main`
+6. Merge the release branch back into `codex/develop`
+7. Create `codex/hotfix/...` from `main` for urgent production fixes
+8. Merge hotfixes into both `main` and `codex/develop`
+
+## Pull request targets
+
+- `codex/feature/...` -> `codex/develop`
+- `codex/release/...` -> `main`
+- `codex/hotfix/...` -> `main`
+
+After merging a hotfix or release into `main`, merge that branch back into `codex/develop` as well.
 
 ## Notes
 
