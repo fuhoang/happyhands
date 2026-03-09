@@ -482,7 +482,154 @@ export default function Home() {
 
       <footer className="border-t border-[#b8d6c1]/50 bg-white">
         <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 px-5 py-6 text-center text-sm text-[#5f7d69] sm:px-8 lg:px-10">
-          <div className="flex items-center gap-4 text-[#008000]">
+          <div className="grid w-full max-w-6xl gap-8 text-left md:grid-cols-2 xl:grid-cols-4">
+            <div>
+              <h3 className="mb-3 text-sm font-black uppercase tracking-[0.14em] text-[#008000]">
+                Explore
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#" className="transition hover:text-[#008000]">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a href="#why-us" className="transition hover:text-[#008000]">
+                    Why Us
+                  </a>
+                </li>
+                <li>
+                  <a href="#why-us" className="transition hover:text-[#008000]">
+                    About
+                  </a>
+                </li>
+                <li>
+                  <a href="#testimonials" className="transition hover:text-[#008000]">
+                    Testimonials
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="transition hover:text-[#008000]">
+                    Health and Safety
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="transition hover:text-[#008000]">
+                    Employee Treatment
+                  </a>
+                </li>
+                <li>
+                  <a href="#contact" className="transition hover:text-[#008000]">
+                    Contact
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-3 text-sm font-black uppercase tracking-[0.14em] text-[#008000]">
+                Services
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    After Builders Cleaning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    After Party Cleaning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    Carpet Cleaning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    End of Tenancy Cleaners London
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    Event Cleaning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    Fogging
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    Home Cleaning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    Office Cleaning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    Retail Cleaning
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    Rental Turnovers
+                  </a>
+                </li>
+                <li>
+                  <a href="#services" className="transition hover:text-[#008000]">
+                    Washing and Ironing
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-3 text-sm font-black uppercase tracking-[0.14em] text-[#008000]">
+                Case Studies
+              </h3>
+              <ul className="space-y-2">
+                <li>
+                  <a href="#" className="transition hover:text-[#008000]">
+                    Zebra Housing
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="transition hover:text-[#008000]">
+                    COVID-19 Zebra Housing
+                  </a>
+                </li>
+                <li>
+                  <a href="#" className="transition hover:text-[#008000]">
+                    Before and After
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            <div>
+              <h3 className="mb-3 text-sm font-black uppercase tracking-[0.14em] text-[#008000]">
+                Become a Happy Hand Cleaner!
+              </h3>
+              <p className="max-w-xs leading-7 text-[#6f8f6f]">
+                Hey, want to join our Happy Hands team and become a REAL
+                professional?
+              </p>
+              <a
+                href="#"
+                className="mt-4 inline-flex min-h-11 items-center justify-center rounded-sm bg-[#008000] px-5 text-sm font-black text-white transition hover:bg-[#006b00]"
+              >
+                Join Us
+              </a>
+            </div>
+          </div>
+
+          <div className="mt-8 flex items-center gap-4 text-[#008000]">
             <a
               href="#"
               aria-label="Facebook"
@@ -541,7 +688,7 @@ export default function Home() {
               </svg>
             </a>
           </div>
-          <p>© Copyright Happy Hands 2026</p>
+          <p className="mt-6">© Copyright Happy Hands 2026</p>
         </div>
       </footer>
     </main>
