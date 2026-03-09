@@ -11,9 +11,17 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Happy Hands | Cleaning Services",
-  description:
-    "Happy Hands offers home, office, and rental cleaning services with flexible scheduling and friendly support.",
+  title: "Your App",
+  description: "Cleaning services platform",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [{ url: "/apple-touch-icon.png" }],
+  },
+  manifest: "/site.webmanifest",
 };
 
 export default function RootLayout({
