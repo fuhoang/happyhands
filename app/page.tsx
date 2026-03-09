@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import BlurText from "@/components/BlurText";
-import ElectricBorder from "@/components/ElectricBorder";
+import StarBorder from "@/components/StarBorder";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -238,10 +238,10 @@ export default function Home() {
           </p>
         </div>
 
-        <div className="mt-10 grid items-start gap-5 lg:grid-cols-3">
-          <ElectricBorder color="#008000" speed={0.45} chaos={0.045} borderRadius={6} className="rounded-md">
-            <article className="rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
+        <div className="mt-10 grid gap-5 lg:grid-cols-3">
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                   <path d="M4 12h16" />
                   <path d="M6 8h12" />
@@ -255,11 +255,11 @@ export default function Home() {
                 bedrooms, living rooms, and busy family spaces.
               </p>
             </article>
-          </ElectricBorder>
+          </StarBorder>
 
-          <ElectricBorder color="#008000" speed={0.45} chaos={0.045} borderRadius={6} className="rounded-md">
-            <article className="rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                   <rect x="4" y="5" width="16" height="14" rx="2" />
                   <path d="M8 19v-4" />
@@ -273,11 +273,11 @@ export default function Home() {
                 a polished look every day.
               </p>
             </article>
-          </ElectricBorder>
+          </StarBorder>
 
-          <ElectricBorder color="#008000" speed={0.45} chaos={0.045} borderRadius={6} className="rounded-md">
-            <article className="rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                   <path d="M6 18h12" />
                   <path d="M8 18V8h8v10" />
@@ -291,11 +291,11 @@ export default function Home() {
                 that keeps every arrival guest-ready.
               </p>
             </article>
-          </ElectricBorder>
+          </StarBorder>
 
-          <ElectricBorder color="#008000" speed={0.45} chaos={0.045} borderRadius={6} className="rounded-md">
-            <article className="rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                   <path d="M4 7h16" />
                   <path d="M6 7v10" />
@@ -310,11 +310,11 @@ export default function Home() {
                 tidy displays, and a welcoming customer environment.
               </p>
             </article>
-          </ElectricBorder>
+          </StarBorder>
 
-          <ElectricBorder color="#008000" speed={0.45} chaos={0.045} borderRadius={6} className="rounded-md">
-            <article className="rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                   <path d="M4 12h16" />
                   <path d="M7 8h10" />
@@ -330,11 +330,11 @@ export default function Home() {
                 venues that need a spotless guest-ready presentation.
               </p>
             </article>
-          </ElectricBorder>
+          </StarBorder>
 
-          <ElectricBorder color="#008000" speed={0.45} chaos={0.045} borderRadius={6} className="rounded-md">
-            <article className="rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
                 <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
                   <path d="M12 4v16" />
                   <path d="M7 9h10" />
@@ -348,7 +348,7 @@ export default function Home() {
                 for venues that need fast, professional turnaround.
               </p>
             </article>
-          </ElectricBorder>
+          </StarBorder>
         </div>
       </section>
 
