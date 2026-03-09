@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import BlurText from "@/components/BlurText";
+import StarBorder from "@/components/StarBorder";
 
 export default function Home() {
   const [scrolled, setScrolled] = useState(false);
@@ -31,7 +32,7 @@ export default function Home() {
         }`}
       >
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
-          <div className="flex items-center gap-3">
+          <a href="#" className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white shadow-[0_8px_18px_rgba(0,0,0,0.16)]">
               <svg
                 aria-hidden="true"
@@ -57,7 +58,7 @@ export default function Home() {
                 Cleaning Services
               </p>
             </div>
-          </div>
+          </a>
 
           <nav
             className={`hidden items-center gap-12 text-sm font-medium tracking-[0.08em] md:flex ${
@@ -238,104 +239,116 @@ export default function Home() {
         </div>
 
         <div className="mt-10 grid gap-5 lg:grid-cols-3">
-          <article className="rounded-md border-2 border-[#b7ddb7]/60 bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
-                <path d="M4 12h16" />
-                <path d="M6 8h12" />
-                <path d="M8 16h8" />
-                <path d="M9 4h6l1 4H8l1-4Z" />
-              </svg>
-            </div>
-            <h3 className="mt-5 text-2xl font-black">Home Cleaning</h3>
-            <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
-              Routine and deep-clean packages for kitchens, bathrooms,
-              bedrooms, living rooms, and busy family spaces.
-            </p>
-          </article>
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                  <path d="M4 12h16" />
+                  <path d="M6 8h12" />
+                  <path d="M8 16h8" />
+                  <path d="M9 4h6l1 4H8l1-4Z" />
+                </svg>
+              </div>
+              <h3 className="mt-5 text-2xl font-black">Home Cleaning</h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
+                Routine and deep-clean packages for kitchens, bathrooms,
+                bedrooms, living rooms, and busy family spaces.
+              </p>
+            </article>
+          </StarBorder>
 
-          <article className="rounded-md border-2 border-[#b7ddb7]/60 bg-[#f3fff3] p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
-                <rect x="4" y="5" width="16" height="14" rx="2" />
-                <path d="M8 19v-4" />
-                <path d="M16 19v-4" />
-                <path d="M8 9h8" />
-              </svg>
-            </div>
-            <h3 className="mt-5 text-2xl font-black">Office Cleaning</h3>
-            <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
-              Flexible cleaning for studios, shops, and office spaces that need
-              a polished look every day.
-            </p>
-          </article>
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                  <rect x="4" y="5" width="16" height="14" rx="2" />
+                  <path d="M8 19v-4" />
+                  <path d="M16 19v-4" />
+                  <path d="M8 9h8" />
+                </svg>
+              </div>
+              <h3 className="mt-5 text-2xl font-black">Office Cleaning</h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
+                Flexible cleaning for studios, shops, and office spaces that need
+                a polished look every day.
+              </p>
+            </article>
+          </StarBorder>
 
-          <article className="rounded-md border-2 border-[#b7ddb7]/60 bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
-                <path d="M6 18h12" />
-                <path d="M8 18V8h8v10" />
-                <path d="M9 8V5h6v3" />
-                <path d="M10 11h4" />
-              </svg>
-            </div>
-            <h3 className="mt-5 text-2xl font-black">Rental Turnovers</h3>
-            <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
-              Quick resets for Airbnb and short-term rentals with detail work
-              that keeps every arrival guest-ready.
-            </p>
-          </article>
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                  <path d="M6 18h12" />
+                  <path d="M8 18V8h8v10" />
+                  <path d="M9 8V5h6v3" />
+                  <path d="M10 11h4" />
+                </svg>
+              </div>
+              <h3 className="mt-5 text-2xl font-black">Rental Turnovers</h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
+                Quick resets for Airbnb and short-term rentals with detail work
+                that keeps every arrival guest-ready.
+              </p>
+            </article>
+          </StarBorder>
 
-          <article className="rounded-md border-2 border-[#b7ddb7]/60 bg-[#f3fff3] p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
-                <path d="M4 7h16" />
-                <path d="M6 7v10" />
-                <path d="M18 7v10" />
-                <path d="M6 17h12" />
-                <path d="M9 10h6" />
-              </svg>
-            </div>
-            <h3 className="mt-5 text-2xl font-black">Retail Cleaning</h3>
-            <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
-              Reliable cleaning for shops and retail spaces with polished floors,
-              tidy displays, and a welcoming customer environment.
-            </p>
-          </article>
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                  <path d="M4 7h16" />
+                  <path d="M6 7v10" />
+                  <path d="M18 7v10" />
+                  <path d="M6 17h12" />
+                  <path d="M9 10h6" />
+                </svg>
+              </div>
+              <h3 className="mt-5 text-2xl font-black">Retail Cleaning</h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
+                Reliable cleaning for shops and retail spaces with polished floors,
+                tidy displays, and a welcoming customer environment.
+              </p>
+            </article>
+          </StarBorder>
 
-          <article className="rounded-md border-2 border-[#b7ddb7]/60 bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
-                <path d="M4 12h16" />
-                <path d="M7 8h10" />
-                <path d="M7 16h10" />
-                <path d="M6 6h12v12H6z" />
-              </svg>
-            </div>
-            <h3 className="mt-5 text-2xl font-black">
-              Leisure and Hospitality Cleaning
-            </h3>
-            <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
-              Cleaning support for hotels, restaurants, lounges, and leisure
-              venues that need a spotless guest-ready presentation.
-            </p>
-          </article>
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                  <path d="M4 12h16" />
+                  <path d="M7 8h10" />
+                  <path d="M7 16h10" />
+                  <path d="M6 6h12v12H6z" />
+                </svg>
+              </div>
+              <h3 className="mt-5 text-2xl font-black">
+                Leisure and Hospitality Cleaning
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
+                Cleaning support for hotels, restaurants, lounges, and leisure
+                venues that need a spotless guest-ready presentation.
+              </p>
+            </article>
+          </StarBorder>
 
-          <article className="rounded-md border-2 border-[#b7ddb7]/60 bg-[#f3fff3] p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition hover:-translate-y-1">
-            <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white">
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
-                <path d="M12 4v16" />
-                <path d="M7 9h10" />
-                <path d="M5 20h14" />
-                <path d="M8 20v-5h8v5" />
-              </svg>
-            </div>
-            <h3 className="mt-5 text-2xl font-black">Event Cleaning</h3>
-            <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
-              Pre-event preparation, during-event upkeep, and post-event cleaning
-              for venues that need fast, professional turnaround.
-            </p>
-          </article>
+          <StarBorder as="div" color="#4f4f4f" speed="4.5s" thickness={4} className="service-star h-full">
+            <article className="group flex h-full flex-col rounded-md bg-white p-7 shadow-[0_18px_45px_rgba(0,128,0,0.08)] transition">
+              <div className="flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white transition duration-300 group-hover:scale-110 group-hover:-translate-y-1">
+                <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-2">
+                  <path d="M12 4v16" />
+                  <path d="M7 9h10" />
+                  <path d="M5 20h14" />
+                  <path d="M8 20v-5h8v5" />
+                </svg>
+              </div>
+              <h3 className="mt-5 text-2xl font-black">Event Cleaning</h3>
+              <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
+                Pre-event preparation, during-event upkeep, and post-event cleaning
+                for venues that need fast, professional turnaround.
+              </p>
+            </article>
+          </StarBorder>
         </div>
       </section>
 
