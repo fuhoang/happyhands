@@ -468,7 +468,66 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-[#b8d6c1]/50 bg-white">
-        <div className="mx-auto w-full max-w-7xl px-5 py-6 text-center text-sm text-[#5f7d69] sm:px-8 lg:px-10">
+        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 px-5 py-6 text-center text-sm text-[#5f7d69] sm:px-8 lg:px-10">
+          <div className="flex items-center gap-4 text-[#008000]">
+            <a
+              href="#"
+              aria-label="Facebook"
+              className="transition hover:opacity-75"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.4c0-.8.2-1.4 1.4-1.4H16V5.5c-.2 0-.9-.1-1.8-.1-1.8 0-3 1.1-3 3.2v2.6H9V14h2.4v7h2.1Z" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="Instagram"
+              className="transition hover:opacity-75"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-2">
+                <rect x="3.5" y="3.5" width="17" height="17" rx="4" />
+                <circle cx="12" cy="12" r="4" />
+                <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="LinkedIn"
+              className="transition hover:opacity-75"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M6.2 8.3a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2ZM4.8 9.8h2.8V19H4.8V9.8Zm4.4 0H12v1.3h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19h-2.8v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2V19H9.2V9.8Z" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="X"
+              className="transition hover:opacity-75"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M18.9 4H21l-4.6 5.3L22 20h-4.4l-3.5-4.8L9.9 20H7.8l4.9-5.7L2 4h4.5l3.2 4.4L13.5 4h2.1Zm-1.5 14.2h1.2L5.9 5.7H4.6l12.8 12.5Z" />
+              </svg>
+            </a>
+            <a
+              href="#"
+              aria-label="WhatsApp"
+              className="transition hover:opacity-75"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
+                <path d="M12 4a8 8 0 0 0-6.9 12l-1 4 4.1-1A8 8 0 1 0 12 4Zm0 14.5c-1.2 0-2.3-.3-3.3-.9l-.2-.1-2.4.6.6-2.3-.1-.2a6.5 6.5 0 1 1 5.4 2.9Zm3.6-4.8c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1l-.4.5c-.1.1-.2.1-.4.1-.2-.1-.8-.3-1.5-.9-.6-.5-1-1.1-1.1-1.3-.1-.2 0-.3.1-.4l.3-.3.2-.3c.1-.1 0-.3 0-.4l-.7-1.6c-.1-.3-.2-.3-.4-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.5 2.4 3.8 3.2.5.2.9.3 1.2.4.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1Z" />
+              </svg>
+            </a>
+            <a
+              href="mailto:happyhandscustomerservice@gmail.com"
+              aria-label="Email"
+              className="transition hover:opacity-75"
+            >
+              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-2">
+                <rect x="3" y="5" width="18" height="14" rx="2" />
+                <path d="m4 7 8 6 8-6" />
+              </svg>
+            </a>
+          </div>
           <p>© Copyright Happy Hands 2026</p>
         </div>
       </footer>
