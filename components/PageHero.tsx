@@ -15,7 +15,7 @@ export default function PageHero({
   description,
   image,
   children,
-  overlayClassName = "bg-[linear-gradient(135deg,rgba(15,77,15,0.72)_0%,rgba(24,96,24,0.62)_55%,rgba(47,138,47,0.52)_100%)]",
+  overlayClassName = "bg-[linear-gradient(135deg,rgba(32,96,48,0.66)_0%,rgba(64,148,86,0.52)_55%,rgba(156,218,164,0.3)_100%)]",
 }: PageHeroProps) {
   return (
     <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
