@@ -499,7 +499,7 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#why-us" className="transition hover:text-[#008000]">
+                  <a href="/about" className="transition hover:text-[#008000]">
                     About
                   </a>
                 </li>
