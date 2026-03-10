@@ -1,3 +1,4 @@
+import Link from "next/link";
 import Plasma from "@/components/Plasma";
 
 export default function HealthAndSafetyPage() {
@@ -5,7 +6,7 @@ export default function HealthAndSafetyPage() {
     <main className="min-h-screen bg-white text-[#1f2a1f]">
       <header className="sticky top-0 z-50 w-full border-b border-[#b8d6c1]/50 bg-white/95 shadow-[0_10px_28px_rgba(0,128,0,0.06)] backdrop-blur-md">
         <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
-          <a href="/" className="flex items-center gap-3">
+          <Link href="/" className="flex items-center gap-3">
             <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white shadow-[0_8px_18px_rgba(0,0,0,0.16)]">
               <svg aria-hidden="true" viewBox="0 0 24 24" className="hand-wave h-8 w-8 fill-current">
                 <path d="M7.5 11.25V6.8a1.05 1.05 0 1 1 2.1 0v3.55h.9V5.8a1.05 1.05 0 1 1 2.1 0v4.55h.9V6.6a1.05 1.05 0 1 1 2.1 0v4.5h.9V8.1a1.05 1.05 0 1 1 2.1 0v6.15c0 3.25-2.3 5.95-5.4 6.45l-1.85.3A5.9 5.9 0 0 1 5.5 15.2v-1.65a1.8 1.8 0 0 1 2-1.8Z" />
@@ -17,18 +18,18 @@ export default function HealthAndSafetyPage() {
               </p>
               <p className="text-sm font-medium text-[#5f7d5f]">Cleaning Services</p>
             </div>
-          </a>
+          </Link>
 
           <nav className="hidden items-center gap-12 text-sm font-medium tracking-[0.08em] text-[#5f7d5f] md:flex">
-            <a href="/#services" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
+            <Link href="/#services" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Services
-            </a>
-            <a href="/#testimonials" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
+            </Link>
+            <Link href="/#testimonials" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Reviews
-            </a>
-            <a href="/#contact" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
+            </Link>
+            <Link href="/#contact" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Contact
-            </a>
+            </Link>
             <a
               href="mailto:happyhandscustomerservice@gmail.com"
               className="inline-flex min-h-11 items-center justify-center rounded-sm border border-[#b7ddb7] bg-white/70 px-5 text-xs font-semibold uppercase tracking-[0.16em] text-[#008000] transition hover:bg-[#f3fff3]"
@@ -231,11 +232,11 @@ export default function HealthAndSafetyPage() {
                 Explore
               </h3>
               <ul className="space-y-2">
-                <li><a href="/about" className="transition hover:text-[#008000]">About</a></li>
-                <li><a href="/#testimonials" className="transition hover:text-[#008000]">Testimonials</a></li>
-                <li><a href="/health-and-safety" className="transition hover:text-[#008000]">Health and Safety</a></li>
+                <li><Link href="/about" className="transition hover:text-[#008000]">About</Link></li>
+                <li><Link href="/#testimonials" className="transition hover:text-[#008000]">Testimonials</Link></li>
+                <li><Link href="/health-and-safety" className="transition hover:text-[#008000]">Health and Safety</Link></li>
                 <li><a href="#" className="transition hover:text-[#008000]">Employee Treatment</a></li>
-                <li><a href="/#contact" className="transition hover:text-[#008000]">Contact</a></li>
+                <li><Link href="/#contact" className="transition hover:text-[#008000]">Contact</Link></li>
               </ul>
             </div>
 
@@ -244,16 +245,16 @@ export default function HealthAndSafetyPage() {
                 Services
               </h3>
               <ul className="space-y-2">
-                <li><a href="/#services" className="transition hover:text-[#008000]">After Builders Cleaning</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">After Party Cleaning</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">Carpet Cleaning</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">End of Tenancy Cleaners London</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">Event Cleaning</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">Fogging</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">Home Cleaning</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">Office Cleaning</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">Retail Cleaning</a></li>
-                <li><a href="/#services" className="transition hover:text-[#008000]">Washing and Ironing</a></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">After Builders Cleaning</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">After Party Cleaning</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">Carpet Cleaning</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">End of Tenancy Cleaners London</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">Event Cleaning</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">Fogging</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">Home Cleaning</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">Office Cleaning</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">Retail Cleaning</Link></li>
+                <li><Link href="/#services" className="transition hover:text-[#008000]">Washing and Ironing</Link></li>
               </ul>
             </div>
 
