@@ -1,5 +1,6 @@
 import Link from "next/link";
-export default function HealthAndSafetyPage() {
+
+export default function ContactPage() {
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
       <header className="sticky top-0 z-50 w-full border-b border-[#b8d6c1]/50 bg-white/95 shadow-[0_10px_28px_rgba(0,128,0,0.06)] backdrop-blur-md">
@@ -25,7 +26,7 @@ export default function HealthAndSafetyPage() {
             <Link href="/#testimonials" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Reviews
             </Link>
-            <Link href="/contact" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
+            <Link href="/contact" className="relative pb-1 text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#008000] after:content-['']">
               Contact
             </Link>
             <a
@@ -39,161 +40,181 @@ export default function HealthAndSafetyPage() {
       </header>
 
       <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/4108711/pexels-photo-4108711.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center bg-no-repeat" />
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center bg-no-repeat" />
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,77,15,0.72)_0%,rgba(24,96,24,0.62)_55%,rgba(47,138,47,0.52)_100%)]" />
         <div className="absolute -left-16 top-10 h-56 w-56 rounded-full bg-white/6 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#9edf9e]/8 blur-3xl" />
         <div className="relative mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:px-10">
           <p className="text-sm font-black uppercase tracking-[0.18em] text-white/80">
-            Happy Hands Standards
+            Get in Touch
           </p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
-            Health and Safety
+            Contact Happy Hands
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/82">
-            We maintain clear health and safety procedures to protect our
-            clients, our staff, and every environment we work in across London
-            and the Home Counties.
+            Speak to our team about domestic, commercial, retail, hospitality,
+            event, and specialist cleaning services across London and the Home
+            Counties.
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:px-10">
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
           <div>
             <h2 className="text-3xl font-black tracking-[-0.04em]">
-              Our approach
+              How to reach us
             </h2>
             <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              Health and safety is built into every part of our service. From
-              staff training and risk awareness to site-specific procedures, we
-              work to ensure our cleaning operations are carried out safely,
-              consistently, and responsibly.
+              If you need a quote, want to discuss a cleaning requirement, or
+              would like to ask about availability, use the details below to
+              contact Happy Hands directly.
             </p>
-            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              Our team follows clear working methods, uses suitable equipment
-              and products, and respects the specific requirements of each
-              client site. We aim to reduce risk, maintain professional
-              standards, and give clients confidence in the way we work.
-            </p>
+
+            <div className="mt-8 space-y-5">
+              <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
+                  Postal Address
+                </p>
+                <div className="mt-3 space-y-1 text-base leading-8 text-[#163316]">
+                  <p>Happy Hands Cleaning Services Ltd</p>
+                  <p>PO Box 30418</p>
+                  <p>London</p>
+                  <p>NW6 7FX</p>
+                </div>
+              </article>
+
+              <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
+                  Telephone and Mobile
+                </p>
+                <div className="mt-3 space-y-3 text-sm leading-7 text-[#5f7d5f]">
+                  <p>
+                    <span className="font-black text-[#163316]">Accounts:</span>{" "}
+                    <a href="tel:01992470222" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      01992 470 222
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-black text-[#163316]">Sales (Domestic Cleaning):</span>{" "}
+                    <a href="tel:02084524060" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      0208 452 4060
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-black text-[#163316]">Sales (Building &amp; Maintenance):</span>{" "}
+                    <a href="tel:02084524060" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      0208 452 4060
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-black text-[#163316]">Fax:</span>{" "}
+                    <a href="tel:01992470222" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      01992 470 222
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-black text-[#163316]">Mobile:</span>{" "}
+                    <a href="tel:+447973403788" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      07973 403 788
+                    </a>{" "}
+                    or{" "}
+                    <a href="tel:+447970211028" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      07970 211 028
+                    </a>
+                  </p>
+                </div>
+              </article>
+
+              <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
+                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
+                  Digital Contact
+                </p>
+                <div className="mt-3 space-y-3 text-sm leading-7 text-[#5f7d5f]">
+                  <p>
+                    <span className="font-black text-[#163316]">Skype:</span>{" "}
+                    <span className="font-semibold text-[#163316]">happy.hands</span>
+                  </p>
+                  <p>
+                    <span className="font-black text-[#163316]">E-mail:</span>{" "}
+                    <a href="mailto:happyhandscustomerservice@gmail.com" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      happyhandscustomerservice@gmail.com
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-black text-[#163316]">E-mail:</span>{" "}
+                    <a href="mailto:mirelahappyhands@gmail.com" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      mirelahappyhands@gmail.com
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-black text-[#163316]">E-mail:</span>{" "}
+                    <a href="mailto:jacquie@happy-hands.biz" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      jacquie@happy-hands.biz
+                    </a>
+                  </p>
+                  <p>
+                    <span className="font-black text-[#163316]">Alternative email:</span>{" "}
+                    <a href="mailto:happyhandsdirectors@gmail.com" className="font-semibold text-[#008000] transition hover:text-[#006600]">
+                      happyhandsdirectors@gmail.com
+                    </a>
+                  </p>
+                </div>
+              </article>
+            </div>
           </div>
 
           <div className="self-start rounded-md border border-[#d7e6d7] bg-[#f7fbf7] p-8">
             <h2 className="text-2xl font-black tracking-[-0.04em] text-[#008000]">
-              Core priorities
+              Registered and office details
             </h2>
-            <ul className="mt-5 space-y-3 text-sm leading-7 text-[#5f7d5f]">
-              <li>Safe working practices on every site</li>
-              <li>Appropriate staff training and supervision</li>
-              <li>Careful use of products and equipment</li>
-              <li>Consistent standards and accountability</li>
-            </ul>
+            <div className="mt-5 space-y-6 text-sm leading-7 text-[#5f7d5f]">
+              <div>
+                <p className="font-black text-[#163316]">Registered Office</p>
+                <div className="mt-2 space-y-1">
+                  <p>Happy Hands Cleaning Services Ltd</p>
+                  <p>7 Plaza Parade</p>
+                  <p>Maida Vale</p>
+                  <p>London</p>
+                  <p>NW6 5RP</p>
+                </div>
+              </div>
+
+              <div>
+                <p className="font-black text-[#163316]">Company details</p>
+                <div className="mt-2 space-y-1">
+                  <p>Company Reg No. 7190269</p>
+                  <p>VAT Reg No. 888 5636 53</p>
+                </div>
+              </div>
+
+              <div>
+                <p className="font-black text-[#163316]">Additional office</p>
+                <div className="mt-2 space-y-1">
+                  <p>Happy Hands Cleaning Services Ltd</p>
+                  <p>Suite 2</p>
+                  <p>1 Golders Green Road</p>
+                  <p>LONDON</p>
+                  <p>NW11 8DY</p>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:px-10">
-        <div className="grid gap-5 md:grid-cols-3">
-          <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Training
-            </p>
-            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Team readiness
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              Staff are trained to follow safe cleaning procedures, site
-              expectations, and professional working standards.
-            </p>
-          </article>
-
-          <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Compliance
-            </p>
-            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Clear procedures
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              We support consistent processes for risk awareness, safe use of
-              materials, and responsible work on client premises.
-            </p>
-          </article>
-
-          <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Responsibility
-            </p>
-            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Client confidence
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              Our focus is to deliver dependable cleaning while protecting
-              people, property, and the quality of the environments we serve.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:px-10">
-        <div className="rounded-md border border-[#d7e6d7] bg-white p-8 sm:p-10">
-          <h2 className="text-3xl font-black tracking-[-0.04em]">
-            Fogging Health &amp; Safety Record
-          </h2>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-[#5f7d5f]">
-            Documents relating to our fogging health and safety in the
-            workplace:
-          </p>
-          <ul className="mt-5 space-y-3 text-base leading-8 text-[#5f7d5f]">
-            <li>
-              -{" "}
-              <a
-                href="https://happy-hands.biz/2020/wp-content/uploads/2021/02/VIVID-105-Laboratory-Testing-of-Residual-Activity.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-[#008000] underline decoration-[#b7ddb7] underline-offset-4 transition hover:text-[#006600]"
-              >
-                Laboratory Testing of the Residual Activity of Vivid™ SENSE
-              </a>
-            </li>
-            <li>
-              -{" "}
-              <a
-                href="https://happy-hands.biz/2020/wp-content/uploads/2021/02/VIVID-105-Performance-Report.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-[#008000] underline decoration-[#b7ddb7] underline-offset-4 transition hover:text-[#006600]"
-              >
-                Vivid™ SENSE Fogging Solution Data Sheet
-              </a>
-            </li>
-            <li>
-              -{" "}
-              <a
-                href="https://happy-hands.biz/2020/wp-content/uploads/2021/02/VIVID-105-COSHH-Sheet.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-[#008000] underline decoration-[#b7ddb7] underline-offset-4 transition hover:text-[#006600]"
-              >
-                COSHH-ASSESSMENT Vivid™ SENSE Disinfectant Fogging Solution
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:px-10">
         <div className="rounded-md bg-[linear-gradient(135deg,#008000_0%,#26a626_100%)] p-8 text-white sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
           <div className="max-w-2xl">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-[#f4fff1]">
-              Work with Happy Hands
+              Ready to book
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em]">
-              Need a cleaning team with strong standards?
+              Request your cleaning quote
             </h2>
             <p className="mt-4 text-base leading-8 text-white/85">
-              Speak to us about cleaning support backed by professional
-              processes, reliable staff, and consistent site care.
+              Tell us the property type, service needed, and preferred timing,
+              and Happy Hands will get back to you with a tailored response.
             </p>
           </div>
 
@@ -202,13 +223,13 @@ export default function HealthAndSafetyPage() {
               href="tel:+447973403788"
               className="inline-flex min-h-14 items-center justify-center rounded-sm bg-white px-7 text-sm font-black text-[#008000] transition hover:bg-[#f3fff3]"
             >
-              Call 07973 403 788
+              Call now
             </a>
             <a
               href="mailto:happyhandscustomerservice@gmail.com"
               className="inline-flex min-h-14 items-center justify-center rounded-sm border-2 border-white/40 bg-white/10 px-7 text-sm font-black text-white transition hover:bg-white/15"
             >
-              Email our team
+              Email us
             </a>
           </div>
         </div>
@@ -225,7 +246,7 @@ export default function HealthAndSafetyPage() {
                 <li><Link href="/about" className="transition hover:text-[#008000]">About</Link></li>
                 <li><Link href="/#testimonials" className="transition hover:text-[#008000]">Testimonials</Link></li>
                 <li><Link href="/health-and-safety" className="transition hover:text-[#008000]">Health and Safety</Link></li>
-                <li><a href="/employee-treatment" className="transition hover:text-[#008000]">Employee Treatment</a></li>
+                <li><Link href="/employee-treatment" className="transition hover:text-[#008000]">Employee Treatment</Link></li>
                 <li><Link href="/contact" className="transition hover:text-[#008000]">Contact</Link></li>
               </ul>
             </div>
