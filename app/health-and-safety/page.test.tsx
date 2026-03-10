@@ -10,7 +10,9 @@ describe("HealthAndSafetyPage", () => {
     ).toBeInTheDocument();
 
     expect(
-      screen.getByRole("heading", { name: "Fogging Health & Safety Record" }),
+      screen.getByRole("heading", {
+        name: "Supporting documents for fogging health and safety.",
+      }),
     ).toBeInTheDocument();
 
     expect(
