@@ -252,7 +252,7 @@ export default function Home() {
           <p className="text-sm font-black uppercase tracking-[0.2em] text-[#efffec]">
             Why clients return
           </p>
-          <h2 className="mt-4 site-h2">
+          <h2 className="mt-4 site-h2 text-white">
             Cleaning that feels upbeat, dependable, and instantly visible.
           </h2>
           <p className="mt-4 text-sm leading-7 text-white/80">
@@ -346,7 +346,7 @@ export default function Home() {
             <p className="text-sm font-black uppercase tracking-[0.2em] text-[#f7fff4]">
               Ready to book?
             </p>
-            <h2 className="mt-3 site-h2-lg">
+            <h2 className="mt-3 site-h2-lg text-white">
               Get a fast quote from Happy Hands today
             </h2>
             <p className="mt-4 text-base leading-8 text-white/85">
