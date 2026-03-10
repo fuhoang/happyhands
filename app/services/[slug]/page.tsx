@@ -1,7 +1,24 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import ServicesNavMenu from "@/components/ServicesNavMenu";
+import { serviceMap, services } from "@/lib/services";
 
-export default function ContactPage() {
+export function generateStaticParams() {
+  return services.map((service) => ({ slug: service.slug }));
+}
+
+export default async function ServiceDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const service = serviceMap[slug];
+
+  if (!service) {
+    notFound();
+  }
+
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
       <header className="sticky top-0 z-50 w-full border-b border-[#b8d6c1]/50 bg-white/95 shadow-[0_10px_28px_rgba(0,128,0,0.06)] backdrop-blur-md">
@@ -25,7 +42,7 @@ export default function ContactPage() {
             <Link href="/#testimonials" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Reviews
             </Link>
-            <Link href="/contact" className="relative pb-1 text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:bg-[#008000] after:content-['']">
+            <Link href="/contact" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Contact
             </Link>
             <a
@@ -39,166 +56,53 @@ export default function ContactPage() {
       </header>
 
       <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center bg-no-repeat" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${service.heroImage}')` }}
+        />
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,77,15,0.72)_0%,rgba(24,96,24,0.62)_55%,rgba(47,138,47,0.52)_100%)]" />
         <div className="absolute -left-16 top-10 h-56 w-56 rounded-full bg-white/6 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#9edf9e]/8 blur-3xl" />
         <div className="relative mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:px-10">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-white/80">
-            Get in Touch
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-8 mt-1 flex flex-wrap items-center gap-2 text-sm font-black tracking-[0.08em] text-white/78"
+          >
+            <Link href="/" className="transition hover:text-white">
+              Home
+            </Link>
+            <span className="text-white/45">/</span>
+            <Link href="/services" className="transition hover:text-white">
+              Services
+            </Link>
+            <span className="text-white/45">/</span>
+            <span className="text-white">{service.title}</span>
+          </nav>
+          <p className="mt-4 text-sm font-black uppercase tracking-[0.18em] text-white/80">
+            Happy Hands Service
           </p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
-            Contact Happy Hands
+            {service.title}
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/82">
-            Speak to our team about domestic, commercial, retail, hospitality,
-            event, and specialist cleaning services across London and the Home
-            Counties.
+            {service.summary}
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:px-10">
-        <div className="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
-          <div>
-            <h2 className="text-3xl font-black tracking-[-0.04em]">
-              How to reach us
-            </h2>
-            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              If you need a quote, want to discuss a cleaning requirement, or
-              would like to ask about availability, use the details below to
-              contact Happy Hands directly.
+        <div>
+          <h2 className="text-3xl font-black tracking-[-0.04em]">
+            Service overview
+          </h2>
+          <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
+            {service.intro}
+          </p>
+          {service.body?.map((paragraph) => (
+            <p key={paragraph} className="mt-5 text-base leading-8 text-[#5f7d5f]">
+              {paragraph}
             </p>
-
-            <div className="mt-8 space-y-5">
-              <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-                  Postal Address
-                </p>
-                <div className="mt-3 space-y-1 text-base leading-8 text-[#163316]">
-                  <p>Happy Hands Cleaning Services Ltd</p>
-                  <p>PO Box 30418</p>
-                  <p>London</p>
-                  <p>NW6 7FX</p>
-                </div>
-              </article>
-
-              <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-                  Telephone and Mobile
-                </p>
-                <div className="mt-3 space-y-3 text-sm leading-7 text-[#5f7d5f]">
-                  <p>
-                    <span className="font-black text-[#163316]">Accounts:</span>{" "}
-                    <a href="tel:01992470222" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      01992 470 222
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-black text-[#163316]">Sales (Domestic Cleaning):</span>{" "}
-                    <a href="tel:02084524060" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      0208 452 4060
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-black text-[#163316]">Sales (Building &amp; Maintenance):</span>{" "}
-                    <a href="tel:02084524060" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      0208 452 4060
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-black text-[#163316]">Fax:</span>{" "}
-                    <a href="tel:01992470222" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      01992 470 222
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-black text-[#163316]">Mobile:</span>{" "}
-                    <a href="tel:+447973403788" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      07973 403 788
-                    </a>{" "}
-                    or{" "}
-                    <a href="tel:+447970211028" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      07970 211 028
-                    </a>
-                  </p>
-                </div>
-              </article>
-
-              <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-                <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-                  Digital Contact
-                </p>
-                <div className="mt-3 space-y-3 text-sm leading-7 text-[#5f7d5f]">
-                  <p>
-                    <span className="font-black text-[#163316]">Skype:</span>{" "}
-                    <span className="font-semibold text-[#163316]">happy.hands</span>
-                  </p>
-                  <p>
-                    <span className="font-black text-[#163316]">E-mail:</span>{" "}
-                    <a href="mailto:happyhandscustomerservice@gmail.com" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      happyhandscustomerservice@gmail.com
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-black text-[#163316]">E-mail:</span>{" "}
-                    <a href="mailto:mirelahappyhands@gmail.com" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      mirelahappyhands@gmail.com
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-black text-[#163316]">E-mail:</span>{" "}
-                    <a href="mailto:jacquie@happy-hands.biz" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      jacquie@happy-hands.biz
-                    </a>
-                  </p>
-                  <p>
-                    <span className="font-black text-[#163316]">Alternative email:</span>{" "}
-                    <a href="mailto:happyhandsdirectors@gmail.com" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                      happyhandsdirectors@gmail.com
-                    </a>
-                  </p>
-                </div>
-              </article>
-            </div>
-          </div>
-
-          <div className="self-start rounded-md border border-[#d7e6d7] bg-[#f7fbf7] p-8">
-            <h2 className="text-2xl font-black tracking-[-0.04em] text-[#008000]">
-              Registered and office details
-            </h2>
-            <div className="mt-5 space-y-6 text-sm leading-7 text-[#5f7d5f]">
-              <div>
-                <p className="font-black text-[#163316]">Registered Office</p>
-                <div className="mt-2 space-y-1">
-                  <p>Happy Hands Cleaning Services Ltd</p>
-                  <p>7 Plaza Parade</p>
-                  <p>Maida Vale</p>
-                  <p>London</p>
-                  <p>NW6 5RP</p>
-                </div>
-              </div>
-
-              <div>
-                <p className="font-black text-[#163316]">Company details</p>
-                <div className="mt-2 space-y-1">
-                  <p>Company Reg No. 7190269</p>
-                  <p>VAT Reg No. 888 5636 53</p>
-                </div>
-              </div>
-
-              <div>
-                <p className="font-black text-[#163316]">Additional office</p>
-                <div className="mt-2 space-y-1">
-                  <p>Happy Hands Cleaning Services Ltd</p>
-                  <p>Suite 2</p>
-                  <p>1 Golders Green Road</p>
-                  <p>LONDON</p>
-                  <p>NW11 8DY</p>
-                </div>
-              </div>
-            </div>
-          </div>
+          ))}
         </div>
       </section>
 
@@ -209,27 +113,26 @@ export default function ContactPage() {
               Ready to book
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em]">
-              Request your cleaning quote
+              Request a tailored quote for {service.title.toLowerCase()}.
             </h2>
             <p className="mt-4 text-base leading-8 text-white/85">
-              Tell us the property type, service needed, and preferred timing,
-              and Happy Hands will get back to you with a tailored response.
+              Speak to Happy Hands about availability, property details, and the cleaning support you need.
             </p>
           </div>
 
           <div className="mt-8 flex flex-col gap-3 lg:mt-0 lg:min-w-[18rem]">
-            <a
-              href="tel:+447973403788"
+            <Link
+              href="/contact"
               className="inline-flex min-h-14 items-center justify-center rounded-sm bg-white px-7 text-sm font-black text-[#008000] transition hover:bg-[#f3fff3]"
             >
-              Call now
-            </a>
-            <a
-              href="mailto:happyhandscustomerservice@gmail.com"
+              Contact Happy Hands
+            </Link>
+            <Link
+              href="/services"
               className="inline-flex min-h-14 items-center justify-center rounded-sm border-2 border-white/40 bg-white/10 px-7 text-sm font-black text-white transition hover:bg-white/15"
             >
-              Email us
-            </a>
+              Back to all services
+            </Link>
           </div>
         </div>
       </section>
@@ -255,16 +158,13 @@ export default function ContactPage() {
                 Services
               </h3>
               <ul className="space-y-2">
-                <li><Link href="/services/after-builders-cleaning" className="transition hover:text-[#008000]">After Builders Cleaning</Link></li>
-                <li><Link href="/services/after-party-cleaning" className="transition hover:text-[#008000]">After Party Cleaning</Link></li>
-                <li><Link href="/services/carpet-cleaning" className="transition hover:text-[#008000]">Carpet Cleaning</Link></li>
-                <li><Link href="/services/end-of-tenancy-cleaners-london" className="transition hover:text-[#008000]">End of Tenancy Cleaners London</Link></li>
-                <li><Link href="/services/event-cleaning" className="transition hover:text-[#008000]">Event Cleaning</Link></li>
-                <li><Link href="/services/fogging" className="transition hover:text-[#008000]">Fogging</Link></li>
-                <li><Link href="/services/home-cleaning" className="transition hover:text-[#008000]">Home Cleaning</Link></li>
-                <li><Link href="/services/office-cleaning" className="transition hover:text-[#008000]">Office Cleaning</Link></li>
-                <li><Link href="/services/retail-cleaning" className="transition hover:text-[#008000]">Retail Cleaning</Link></li>
-                <li><Link href="/services/washing-and-ironing" className="transition hover:text-[#008000]">Washing and Ironing</Link></li>
+                {services.map((item) => (
+                  <li key={item.slug}>
+                    <Link href={`/services/${item.slug}`} className="transition hover:text-[#008000]">
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 
