@@ -1,6 +1,24 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import ServicesNavMenu from "@/components/ServicesNavMenu";
-export default function EmployeeTreatmentPage() {
+import { serviceMap, services } from "@/lib/services";
+
+export function generateStaticParams() {
+  return services.map((service) => ({ slug: service.slug }));
+}
+
+export default async function ServiceDetailPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const service = serviceMap[slug];
+
+  if (!service) {
+    notFound();
+  }
+
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
       <header className="sticky top-0 z-50 w-full border-b border-[#b8d6c1]/50 bg-white/95 shadow-[0_10px_28px_rgba(0,128,0,0.06)] backdrop-blur-md">
@@ -38,156 +56,83 @@ export default function EmployeeTreatmentPage() {
       </header>
 
       <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
-        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center bg-no-repeat" />
+        <div
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{ backgroundImage: `url('${service.heroImage}')` }}
+        />
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,77,15,0.72)_0%,rgba(24,96,24,0.62)_55%,rgba(47,138,47,0.52)_100%)]" />
         <div className="absolute -left-16 top-10 h-56 w-56 rounded-full bg-white/6 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#9edf9e]/8 blur-3xl" />
         <div className="relative mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:px-10">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-white/80">
-            Happy Hands Standards
+          <nav
+            aria-label="Breadcrumb"
+            className="mb-8 mt-1 flex flex-wrap items-center gap-2 text-sm font-black tracking-[0.08em] text-white/78"
+          >
+            <Link href="/" className="transition hover:text-white">
+              Home
+            </Link>
+            <span className="text-white/45">/</span>
+            <Link href="/services" className="transition hover:text-white">
+              Services
+            </Link>
+            <span className="text-white/45">/</span>
+            <span className="text-white">{service.title}</span>
+          </nav>
+          <p className="mt-4 text-sm font-black uppercase tracking-[0.18em] text-white/80">
+            Happy Hands Service
           </p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
-            Employee Treatment
+            {service.title}
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/82">
-            We believe strong service begins with fair treatment, clear
-            processes, and respect for every member of the Happy Hands team.
+            {service.summary}
           </p>
         </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:px-10">
-        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
-          <div>
-            <h2 className="text-3xl font-black tracking-[-0.04em]">
-              Our commitment
-            </h2>
-            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              Happy Hands is built on trust. We operate an ethical business in
-              which all employees are treated fairly and with the respect they
-              deserve.
+        <div>
+          <h2 className="text-3xl font-black tracking-[-0.04em]">
+            Service overview
+          </h2>
+          <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
+            {service.intro}
+          </p>
+          {service.body?.map((paragraph) => (
+            <p key={paragraph} className="mt-5 text-base leading-8 text-[#5f7d5f]">
+              {paragraph}
             </p>
-            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              We follow all the correct procedures in the employment process
-              from start to finish to ensure that both parties (employees and
-              employer) are fully covered according to employee and employer
-              protection laws.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              Happy Hands does not employ contract staff. All employees are
-              afforded a full employment contract when starting up with us.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              All our staff members are fully vetted before they are signed up
-              including DBS enhanced checks. This is an extra measure to
-              provide our customers with peace of mind when allowing an
-              employee onto their premises.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              When signing up with Happy Hands, all staff members are required
-              to submit copies of their identity which includes documents such
-              as National Insurance Number, Proof of Address, full colour photo
-              and a copy of their Passport. Furthermore, we now require proof
-              of settlement in the UK. We do not share this information with
-              any third party, ensuring we are fully General Data Protection
-              Regulation (GDPR) compliant.
-            </p>
-            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              Similarly, we are committed to preserving the dignity of our
-              employees by paying an equitable wage. We go above and beyond for
-              each person who works for us by enrolling them in a pension plan
-              from the day they start. All employees are given the prerequisite
-              number of days holiday leave per year, and they are permitted the
-              standard number of sick leave days per year as laid out in the UK
-              employment laws.
-            </p>
-          </div>
-
-          <div className="self-start rounded-md border border-[#d7e6d7] bg-[#f7fbf7] p-8">
-            <h2 className="text-2xl font-black tracking-[-0.04em] text-[#008000]">
-              Key principles
-            </h2>
-            <ul className="mt-5 space-y-3 text-sm leading-7 text-[#5f7d5f]">
-              <li>Respectful and fair treatment</li>
-              <li>Clear employment procedures</li>
-              <li>Support for long-term staff retention</li>
-              <li>Professional standards for every team member</li>
-            </ul>
-          </div>
+          ))}
         </div>
       </section>
 
       <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:px-10">
-        <div className="grid gap-5 md:grid-cols-3">
-          <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Contracts
-            </p>
-            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Proper employment
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              We follow correct employment processes and provide staff with
-              clear working terms and expectations from the start.
-            </p>
-          </article>
-
-          <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Vetting
-            </p>
-            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Careful checks
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              Team members are vetted and reviewed carefully to maintain trust,
-              reliability, and client peace of mind.
-            </p>
-          </article>
-
-          <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
-            <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Support
-            </p>
-            <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Fair conditions
-            </h3>
-            <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              We focus on equitable treatment, dependable communication, and
-              stable conditions that help retain strong long-term staff.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:px-10">
         <div className="rounded-md bg-[linear-gradient(135deg,#008000_0%,#26a626_100%)] p-8 text-white sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
           <div className="max-w-2xl">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-[#f4fff1]">
-              Work with Happy Hands
+              Ready to book
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em]">
-              Want to work with a professional team?
+              Request a tailored quote for {service.title.toLowerCase()}.
             </h2>
             <p className="mt-4 text-base leading-8 text-white/85">
-              Speak to us if you are looking for a cleaning company built on
-              clear standards, reliable service, and fair treatment of staff.
+              Speak to Happy Hands about availability, property details, and the cleaning support you need.
             </p>
           </div>
 
           <div className="mt-8 flex flex-col gap-3 lg:mt-0 lg:min-w-[18rem]">
-            <a
-              href="tel:+447973403788"
+            <Link
+              href="/contact"
               className="inline-flex min-h-14 items-center justify-center rounded-sm bg-white px-7 text-sm font-black text-[#008000] transition hover:bg-[#f3fff3]"
             >
-              Call 07973 403 788
-            </a>
-            <a
-              href="mailto:happyhandscustomerservice@gmail.com"
+              Contact Happy Hands
+            </Link>
+            <Link
+              href="/services"
               className="inline-flex min-h-14 items-center justify-center rounded-sm border-2 border-white/40 bg-white/10 px-7 text-sm font-black text-white transition hover:bg-white/15"
             >
-              Email our team
-            </a>
+              Back to all services
+            </Link>
           </div>
         </div>
       </section>
@@ -213,16 +158,13 @@ export default function EmployeeTreatmentPage() {
                 Services
               </h3>
               <ul className="space-y-2">
-                <li><Link href="/services/after-builders-cleaning" className="transition hover:text-[#008000]">After Builders Cleaning</Link></li>
-                <li><Link href="/services/after-party-cleaning" className="transition hover:text-[#008000]">After Party Cleaning</Link></li>
-                <li><Link href="/services/carpet-cleaning" className="transition hover:text-[#008000]">Carpet Cleaning</Link></li>
-                <li><Link href="/services/end-of-tenancy-cleaners-london" className="transition hover:text-[#008000]">End of Tenancy Cleaners London</Link></li>
-                <li><Link href="/services/event-cleaning" className="transition hover:text-[#008000]">Event Cleaning</Link></li>
-                <li><Link href="/services/fogging" className="transition hover:text-[#008000]">Fogging</Link></li>
-                <li><Link href="/services/home-cleaning" className="transition hover:text-[#008000]">Home Cleaning</Link></li>
-                <li><Link href="/services/office-cleaning" className="transition hover:text-[#008000]">Office Cleaning</Link></li>
-                <li><Link href="/services/retail-cleaning" className="transition hover:text-[#008000]">Retail Cleaning</Link></li>
-                <li><Link href="/services/washing-and-ironing" className="transition hover:text-[#008000]">Washing and Ironing</Link></li>
+                {services.map((item) => (
+                  <li key={item.slug}>
+                    <Link href={`/services/${item.slug}`} className="transition hover:text-[#008000]">
+                      {item.title}
+                    </Link>
+                  </li>
+                ))}
               </ul>
             </div>
 

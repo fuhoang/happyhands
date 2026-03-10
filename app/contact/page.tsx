@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ServicesNavMenu from "@/components/ServicesNavMenu";
 
 export default function ContactPage() {
   return (
@@ -20,9 +21,7 @@ export default function ContactPage() {
           </Link>
 
           <nav className="hidden items-center gap-12 text-sm font-medium tracking-[0.08em] text-[#5f7d5f] md:flex">
-            <Link href="/#services" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
-              Services
-            </Link>
+            <ServicesNavMenu />
             <Link href="/#testimonials" className="relative pb-1 transition hover:text-[#008000] after:absolute after:bottom-0 after:left-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Reviews
             </Link>
@@ -256,16 +255,16 @@ export default function ContactPage() {
                 Services
               </h3>
               <ul className="space-y-2">
-                <li><Link href="/#services" className="transition hover:text-[#008000]">After Builders Cleaning</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">After Party Cleaning</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">Carpet Cleaning</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">End of Tenancy Cleaners London</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">Event Cleaning</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">Fogging</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">Home Cleaning</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">Office Cleaning</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">Retail Cleaning</Link></li>
-                <li><Link href="/#services" className="transition hover:text-[#008000]">Washing and Ironing</Link></li>
+                <li><Link href="/services/after-builders-cleaning" className="transition hover:text-[#008000]">After Builders Cleaning</Link></li>
+                <li><Link href="/services/after-party-cleaning" className="transition hover:text-[#008000]">After Party Cleaning</Link></li>
+                <li><Link href="/services/carpet-cleaning" className="transition hover:text-[#008000]">Carpet Cleaning</Link></li>
+                <li><Link href="/services/end-of-tenancy-cleaners-london" className="transition hover:text-[#008000]">End of Tenancy Cleaners London</Link></li>
+                <li><Link href="/services/event-cleaning" className="transition hover:text-[#008000]">Event Cleaning</Link></li>
+                <li><Link href="/services/fogging" className="transition hover:text-[#008000]">Fogging</Link></li>
+                <li><Link href="/services/home-cleaning" className="transition hover:text-[#008000]">Home Cleaning</Link></li>
+                <li><Link href="/services/office-cleaning" className="transition hover:text-[#008000]">Office Cleaning</Link></li>
+                <li><Link href="/services/retail-cleaning" className="transition hover:text-[#008000]">Retail Cleaning</Link></li>
+                <li><Link href="/services/washing-and-ironing" className="transition hover:text-[#008000]">Washing and Ironing</Link></li>
               </ul>
             </div>
 
@@ -274,9 +273,8 @@ export default function ContactPage() {
                 Case Studies
               </h3>
               <ul className="space-y-2">
-                <li><a href="#" className="transition hover:text-[#008000]">Zebra Housing</a></li>
-                <li><a href="#" className="transition hover:text-[#008000]">COVID-19 Zebra Housing</a></li>
-                <li><a href="#" className="transition hover:text-[#008000]">Before and After</a></li>
+                <li><Link href="/case-studies/zebra-housing" className="transition hover:text-[#008000]">Zebra Housing</Link></li>
+                <li><Link href="/case-studies/covid-19-zebra-housing" className="transition hover:text-[#008000]">COVID-19 Zebra Housing</Link></li>
               </ul>
             </div>
 

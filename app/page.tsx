@@ -1,7 +1,9 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useState } from "react";
 import BlurText from "@/components/BlurText";
+import ServicesNavMenu from "@/components/ServicesNavMenu";
 import StarBorder from "@/components/StarBorder";
 
 export default function Home() {
@@ -65,16 +67,9 @@ export default function Home() {
               scrolled ? "text-[#5f7d5f]" : "text-white/86"
             }`}
           >
-            <a
-              href="#services"
-              className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
-                scrolled
-                  ? "hover:text-[#008000] after:bg-[#008000] hover:after:scale-x-100"
-                  : "hover:text-white after:bg-white hover:after:scale-x-100"
-              }`}
-            >
-              Services
-            </a>
+            <div className={scrolled ? "text-[#008000]" : "text-white"}>
+              <ServicesNavMenu />
+            </div>
             <a
               href="#testimonials"
               className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
@@ -512,59 +507,59 @@ export default function Home() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/after-builders-cleaning" className="transition hover:text-[#008000]">
                     After Builders Cleaning
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/after-party-cleaning" className="transition hover:text-[#008000]">
                     After Party Cleaning
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/carpet-cleaning" className="transition hover:text-[#008000]">
                     Carpet Cleaning
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/end-of-tenancy-cleaners-london" className="transition hover:text-[#008000]">
                     End of Tenancy Cleaners London
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/event-cleaning" className="transition hover:text-[#008000]">
                     Event Cleaning
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/fogging" className="transition hover:text-[#008000]">
                     Fogging
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/home-cleaning" className="transition hover:text-[#008000]">
                     Home Cleaning
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/office-cleaning" className="transition hover:text-[#008000]">
                     Office Cleaning
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/retail-cleaning" className="transition hover:text-[#008000]">
                     Retail Cleaning
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/rental-turnovers" className="transition hover:text-[#008000]">
                     Rental Turnovers
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#services" className="transition hover:text-[#008000]">
+                  <Link href="/services/washing-and-ironing" className="transition hover:text-[#008000]">
                     Washing and Ironing
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
@@ -575,19 +570,14 @@ export default function Home() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="transition hover:text-[#008000]">
+                  <Link href="/case-studies/zebra-housing" className="transition hover:text-[#008000]">
                     Zebra Housing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="transition hover:text-[#008000]">
+                  <Link href="/case-studies/covid-19-zebra-housing" className="transition hover:text-[#008000]">
                     COVID-19 Zebra Housing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition hover:text-[#008000]">
-                    Before and After
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
