@@ -1,108 +1,15 @@
 "use client";
 
-import Link from "next/link";
-import { useEffect, useState } from "react";
 import BlurText from "@/components/BlurText";
-import ServicesNavMenu from "@/components/ServicesNavMenu";
+import SiteFooter from "@/components/SiteFooter";
+import SiteHeader from "@/components/SiteHeader";
 import StarBorder from "@/components/StarBorder";
 
 export default function Home() {
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 24);
-    };
-
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
   return (
     <main className="min-h-screen overflow-x-hidden bg-white text-[#5a160d]">
       <div className="absolute inset-x-0 top-0 -z-10 h-[42rem] bg-[linear-gradient(180deg,#ffffff_0%,#ffffff_100%)]" />
-
-      <header
-        className={`fixed inset-x-0 top-0 z-50 w-full border-b backdrop-blur-md transition-all duration-300 ${
-          scrolled
-            ? "border-[#b8d6c1]/50 bg-white/95 shadow-[0_10px_28px_rgba(37,84,57,0.08)]"
-            : "border-white/12 bg-white/6 shadow-[0_10px_28px_rgba(0,0,0,0.08)]"
-        }`}
-      >
-        <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-5 py-4 sm:px-8 lg:px-10">
-          <a href="#" className="flex items-center gap-3">
-            <div className="flex h-11 w-11 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white shadow-[0_8px_18px_rgba(0,0,0,0.16)]">
-              <svg
-                aria-hidden="true"
-                viewBox="0 0 24 24"
-                className="hand-wave h-8 w-8 fill-current"
-              >
-                <path d="M7.5 11.25V6.8a1.05 1.05 0 1 1 2.1 0v3.55h.9V5.8a1.05 1.05 0 1 1 2.1 0v4.55h.9V6.6a1.05 1.05 0 1 1 2.1 0v4.5h.9V8.1a1.05 1.05 0 1 1 2.1 0v6.15c0 3.25-2.3 5.95-5.4 6.45l-1.85.3A5.9 5.9 0 0 1 5.5 15.2v-1.65a1.8 1.8 0 0 1 2-1.8Z" />
-              </svg>
-            </div>
-            <div>
-              <p
-                className={`text-base font-semibold tracking-[0.16em] uppercase ${
-                  scrolled ? "text-[#008000]" : "text-white"
-                }`}
-              >
-                Happy Hands
-              </p>
-              <p
-                className={`text-sm font-medium ${
-                  scrolled ? "text-[#5f7d5f]" : "text-white/78"
-                }`}
-              >
-                Cleaning Services
-              </p>
-            </div>
-          </a>
-
-          <nav
-            className={`hidden items-center gap-12 text-sm font-medium tracking-[0.08em] md:flex ${
-              scrolled ? "text-[#5f7d5f]" : "text-white/86"
-            }`}
-          >
-            <div className={scrolled ? "text-[#008000]" : "text-white"}>
-              <ServicesNavMenu />
-            </div>
-            <a
-              href="#testimonials"
-              className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
-                scrolled
-                  ? "hover:text-[#008000] after:bg-[#008000] hover:after:scale-x-100"
-                  : "hover:text-white after:bg-white hover:after:scale-x-100"
-              }`}
-            >
-              Reviews
-            </a>
-            <a
-              href="/contact"
-              className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
-                scrolled
-                  ? "hover:text-[#008000] after:bg-[#008000] hover:after:scale-x-100"
-                  : "hover:text-white after:bg-white hover:after:scale-x-100"
-              }`}
-            >
-              Contact
-            </a>
-            <a
-              href="mailto:happyhandscustomerservice@gmail.com"
-              className={`inline-flex min-h-11 items-center justify-center rounded-sm px-5 text-xs font-semibold uppercase tracking-[0.16em] transition ${
-                scrolled
-                  ? "border border-[#b7ddb7] bg-white/70 text-[#008000] hover:bg-[#f3fff3]"
-                  : "border border-white/28 bg-white/12 text-white hover:bg-white/18"
-              }`}
-            >
-              Get Quote
-            </a>
-          </nav>
-        </div>
-      </header>
+      <SiteHeader mode="home" />
 
       <section className="relative min-h-[78vh] w-full overflow-hidden pt-24">
         <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/3360701/pexels-photo-3360701.jpeg?cs=srgb&dl=pexels-karolina-grabowska-3360701.jpg&fm=jpg')] bg-cover bg-[72%_center] bg-no-repeat" />
@@ -214,7 +121,7 @@ export default function Home() {
           <p className="text-sm font-black uppercase tracking-[0.2em] text-[#008000]">
             Services
           </p>
-          <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] text-[#5a160d] sm:text-5xl">
+          <h2 className="mt-3 site-h2-lg">
             Cleaning packages built for homes, workspaces, and rental properties
           </h2>
           <p className="mt-4 text-base leading-8 text-[#6f8f6f]">
@@ -234,7 +141,7 @@ export default function Home() {
                   <path d="M9 4h6l1 4H8l1-4Z" />
                 </svg>
               </div>
-              <h3 className="mt-5 text-2xl font-black">Home Cleaning</h3>
+              <h3 className="mt-5 site-h3">Home Cleaning</h3>
               <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
                 Routine and deep-clean packages for kitchens, bathrooms,
                 bedrooms, living rooms, and busy family spaces.
@@ -252,7 +159,7 @@ export default function Home() {
                   <path d="M8 9h8" />
                 </svg>
               </div>
-              <h3 className="mt-5 text-2xl font-black">Office Cleaning</h3>
+              <h3 className="mt-5 site-h3">Office Cleaning</h3>
               <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
                 Flexible cleaning for studios, shops, and office spaces that need
                 a polished look every day.
@@ -270,7 +177,7 @@ export default function Home() {
                   <path d="M10 11h4" />
                 </svg>
               </div>
-              <h3 className="mt-5 text-2xl font-black">Rental Turnovers</h3>
+              <h3 className="mt-5 site-h3">Rental Turnovers</h3>
               <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
                 Quick resets for Airbnb and short-term rentals with detail work
                 that keeps every arrival guest-ready.
@@ -289,7 +196,7 @@ export default function Home() {
                   <path d="M9 10h6" />
                 </svg>
               </div>
-              <h3 className="mt-5 text-2xl font-black">Retail Cleaning</h3>
+              <h3 className="mt-5 site-h3">Retail Cleaning</h3>
               <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
                 Reliable cleaning for shops and retail spaces with polished floors,
                 tidy displays, and a welcoming customer environment.
@@ -307,7 +214,7 @@ export default function Home() {
                   <path d="M6 6h12v12H6z" />
                 </svg>
               </div>
-              <h3 className="mt-5 text-2xl font-black">
+              <h3 className="mt-5 site-h3">
                 Leisure and Hospitality Cleaning
               </h3>
               <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
@@ -327,7 +234,7 @@ export default function Home() {
                   <path d="M8 20v-5h8v5" />
                 </svg>
               </div>
-              <h3 className="mt-5 text-2xl font-black">Event Cleaning</h3>
+              <h3 className="mt-5 site-h3">Event Cleaning</h3>
               <p className="mt-3 text-sm leading-7 text-[#6f8f6f]">
                 Pre-event preparation, during-event upkeep, and post-event cleaning
                 for venues that need fast, professional turnaround.
@@ -345,7 +252,7 @@ export default function Home() {
           <p className="text-sm font-black uppercase tracking-[0.2em] text-[#efffec]">
             Why clients return
           </p>
-          <h2 className="mt-4 text-3xl font-black leading-tight">
+          <h2 className="mt-4 site-h2 text-white">
             Cleaning that feels upbeat, dependable, and instantly visible.
           </h2>
           <p className="mt-4 text-sm leading-7 text-white/80">
@@ -395,7 +302,7 @@ export default function Home() {
           <p className="text-sm font-black uppercase tracking-[0.2em] text-[#008000]">
             Testimonials
           </p>
-          <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] sm:text-5xl">
+          <h2 className="mt-3 site-h2-lg">
             Trusted by busy homes and businesses
           </h2>
         </div>
@@ -439,7 +346,7 @@ export default function Home() {
             <p className="text-sm font-black uppercase tracking-[0.2em] text-[#f7fff4]">
               Ready to book?
             </p>
-            <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] sm:text-5xl">
+            <h2 className="mt-3 site-h2-lg text-white">
               Get a fast quote from Happy Hands today
             </h2>
             <p className="mt-4 text-base leading-8 text-white/85">
@@ -464,203 +371,7 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <footer className="border-t border-[#b8d6c1]/50 bg-white">
-        <div className="mx-auto flex w-full max-w-7xl flex-col items-center gap-4 px-5 py-6 text-center text-sm text-[#5f7d69] sm:px-8 lg:px-10">
-          <div className="grid w-full max-w-6xl gap-8 text-left md:grid-cols-2 xl:grid-cols-4">
-            <div>
-              <h3 className="mb-3 text-sm font-black uppercase tracking-[0.14em] text-[#008000]">
-                Explore
-              </h3>
-              <ul className="space-y-2">
-                <li>
-                  <a href="/about" className="transition hover:text-[#008000]">
-                    About
-                  </a>
-                </li>
-                <li>
-                  <a href="#testimonials" className="transition hover:text-[#008000]">
-                    Testimonials
-                  </a>
-                </li>
-                <li>
-                  <a href="/health-and-safety" className="transition hover:text-[#008000]">
-                    Health and Safety
-                  </a>
-                </li>
-                <li>
-                  <a href="/employee-treatment" className="transition hover:text-[#008000]">
-                    Employee Treatment
-                  </a>
-                </li>
-                <li>
-                  <a href="/contact" className="transition hover:text-[#008000]">
-                    Contact
-                  </a>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="mb-3 text-sm font-black uppercase tracking-[0.14em] text-[#008000]">
-                Services
-              </h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/services/after-builders-cleaning" className="transition hover:text-[#008000]">
-                    After Builders Cleaning
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/after-party-cleaning" className="transition hover:text-[#008000]">
-                    After Party Cleaning
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/carpet-cleaning" className="transition hover:text-[#008000]">
-                    Carpet Cleaning
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/end-of-tenancy-cleaners-london" className="transition hover:text-[#008000]">
-                    End of Tenancy Cleaners London
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/event-cleaning" className="transition hover:text-[#008000]">
-                    Event Cleaning
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/fogging" className="transition hover:text-[#008000]">
-                    Fogging
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/home-cleaning" className="transition hover:text-[#008000]">
-                    Home Cleaning
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/office-cleaning" className="transition hover:text-[#008000]">
-                    Office Cleaning
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/retail-cleaning" className="transition hover:text-[#008000]">
-                    Retail Cleaning
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/rental-turnovers" className="transition hover:text-[#008000]">
-                    Rental Turnovers
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/services/washing-and-ironing" className="transition hover:text-[#008000]">
-                    Washing and Ironing
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="mb-3 text-sm font-black uppercase tracking-[0.14em] text-[#008000]">
-                Case Studies
-              </h3>
-              <ul className="space-y-2">
-                <li>
-                  <Link href="/case-studies/zebra-housing" className="transition hover:text-[#008000]">
-                    Zebra Housing
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/case-studies/covid-19-zebra-housing" className="transition hover:text-[#008000]">
-                    COVID-19 Zebra Housing
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            <div>
-              <h3 className="mb-3 text-sm font-black uppercase tracking-[0.14em] text-[#008000]">
-                Become a Happy Hand Cleaner!
-              </h3>
-              <p className="max-w-xs leading-7 text-[#6f8f6f]">
-                Hey, want to join our Happy Hands team and become a REAL
-                professional?
-              </p>
-              <a
-                href="#"
-                className="mt-4 inline-flex min-h-11 items-center justify-center rounded-sm bg-[#008000] px-5 text-sm font-black text-white transition hover:bg-[#006b00]"
-              >
-                Join Us
-              </a>
-            </div>
-          </div>
-
-          <div className="mt-8 flex items-center gap-4 text-[#008000]">
-            <a
-              href="#"
-              aria-label="Facebook"
-              className="transition hover:opacity-75"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                <path d="M13.5 21v-7h2.4l.4-2.8h-2.8V9.4c0-.8.2-1.4 1.4-1.4H16V5.5c-.2 0-.9-.1-1.8-.1-1.8 0-3 1.1-3 3.2v2.6H9V14h2.4v7h2.1Z" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              aria-label="Instagram"
-              className="transition hover:opacity-75"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-2">
-                <rect x="3.5" y="3.5" width="17" height="17" rx="4" />
-                <circle cx="12" cy="12" r="4" />
-                <circle cx="17.2" cy="6.8" r="1" fill="currentColor" stroke="none" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              aria-label="LinkedIn"
-              className="transition hover:opacity-75"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                <path d="M6.2 8.3a1.6 1.6 0 1 0 0-3.2 1.6 1.6 0 0 0 0 3.2ZM4.8 9.8h2.8V19H4.8V9.8Zm4.4 0H12v1.3h.1c.4-.8 1.4-1.6 2.9-1.6 3.1 0 3.7 2 3.7 4.7V19h-2.8v-4.2c0-1 0-2.3-1.4-2.3s-1.6 1.1-1.6 2.2V19H9.2V9.8Z" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              aria-label="X"
-              className="transition hover:opacity-75"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                <path d="M18.9 4H21l-4.6 5.3L22 20h-4.4l-3.5-4.8L9.9 20H7.8l4.9-5.7L2 4h4.5l3.2 4.4L13.5 4h2.1Zm-1.5 14.2h1.2L5.9 5.7H4.6l12.8 12.5Z" />
-              </svg>
-            </a>
-            <a
-              href="#"
-              aria-label="WhatsApp"
-              className="transition hover:opacity-75"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-current">
-                <path d="M12 4a8 8 0 0 0-6.9 12l-1 4 4.1-1A8 8 0 1 0 12 4Zm0 14.5c-1.2 0-2.3-.3-3.3-.9l-.2-.1-2.4.6.6-2.3-.1-.2a6.5 6.5 0 1 1 5.4 2.9Zm3.6-4.8c-.2-.1-1.3-.7-1.5-.8-.2-.1-.3-.1-.5.1l-.4.5c-.1.1-.2.1-.4.1-.2-.1-.8-.3-1.5-.9-.6-.5-1-1.1-1.1-1.3-.1-.2 0-.3.1-.4l.3-.3.2-.3c.1-.1 0-.3 0-.4l-.7-1.6c-.1-.3-.2-.3-.4-.3h-.4c-.1 0-.4.1-.6.3-.2.2-.8.8-.8 1.9s.8 2.2.9 2.4c.1.1 1.5 2.4 3.8 3.2.5.2.9.3 1.2.4.5.1 1 .1 1.4.1.4-.1 1.3-.5 1.5-1 .2-.5.2-.9.1-1Z" />
-              </svg>
-            </a>
-            <a
-              href="mailto:happyhandscustomerservice@gmail.com"
-              aria-label="Email"
-              className="transition hover:opacity-75"
-            >
-              <svg aria-hidden="true" viewBox="0 0 24 24" className="h-5 w-5 fill-none stroke-current stroke-2">
-                <rect x="3" y="5" width="18" height="14" rx="2" />
-                <path d="m4 7 8 6 8-6" />
-              </svg>
-            </a>
-          </div>
-          <p className="mt-6">© Copyright Happy Hands 2026</p>
-        </div>
-      </footer>
+      <SiteFooter />
     </main>
   );
 }

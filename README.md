@@ -1,36 +1,138 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Happy Hands
 
-## Getting Started
+Happy Hands is a Next.js website for a cleaning services business. It includes a marketing homepage, service detail pages, case studies, company information pages, and shared site-wide navigation and footer components.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router
+- React
+- Tailwind CSS
+- Vitest + Testing Library
+- GitHub Actions
+- Vercel deployment
+
+## Local development
+
+Install dependencies and start the app:
+
+```bash
+npm install
+npm run dev
+```
+
+Open [http://localhost:3000](http://localhost:3000).
+
+## Scripts
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm run build
+npm run lint
+npm test
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Project structure
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```text
+app/
+  page.tsx                         Home page
+  about/page.tsx                  About page
+  contact/page.tsx                Contact page
+  health-and-safety/page.tsx      Health and Safety page
+  employee-treatment/page.tsx     Employee Treatment page
+  services/page.tsx               Services index
+  services/[slug]/page.tsx        Service detail template
+  case-studies/...                Case study pages
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+components/
+  SiteHeader.tsx                  Shared global header
+  SiteFooter.tsx                  Shared global footer
+  BrandLogo.tsx                   Shared logo
+  ServicesNavMenu.tsx             Services navbar dropdown
+  PageHero.tsx                    Shared internal-page hero
+  CtaBanner.tsx                   Shared CTA banner
+  BlurText.tsx                    Homepage headline animation
+  StarBorder.jsx                  Shared service card border effect
 
-## Learn More
+lib/
+  services.ts                     Service content and routing data
+  utils.ts                        Shared utility helpers
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Shared UI rules
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The site has been refactored to reduce repetition.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- Use [SiteHeader.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/components/SiteHeader.tsx) for top navigation.
+- Use [SiteFooter.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/components/SiteFooter.tsx) for footer navigation and social links.
+- Use [PageHero.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/components/PageHero.tsx) for internal page hero sections.
+- Use [CtaBanner.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/components/CtaBanner.tsx) for shared bottom CTA sections.
+- Use the shared heading classes in [globals.css](/Users/fuhoang/Desktop/workspace/happy-hands/app/globals.css):
+  - `site-h2`
+  - `site-h2-lg`
+  - `site-h2-contrast`
+  - `site-h3`
+  - `site-footer-h3`
 
-## Deploy on Vercel
+If you add a new page, the expected default is:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. `SiteHeader`
+2. `PageHero`
+3. page-specific content sections
+4. `CtaBanner`
+5. `SiteFooter`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Services content
+
+Service routes are data-driven from [services.ts](/Users/fuhoang/Desktop/workspace/happy-hands/lib/services.ts).
+
+To add or update a service:
+
+1. edit the relevant object in `lib/services.ts`
+2. update `title`, `summary`, `intro`, `body`, and `heroImage`
+3. the service index and dynamic service page will update automatically
+
+## Testing
+
+Current unit coverage focuses on shared layout and reusable sections.
+
+Test files:
+
+- [site-shell.test.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/components/site-shell.test.tsx)
+- [page-sections.test.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/components/page-sections.test.tsx)
+- [page.test.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/app/health-and-safety/page.test.tsx)
+
+Run tests with:
+
+```bash
+npm test
+```
+
+## CI/CD
+
+GitHub Actions workflows live in `.github/workflows`.
+
+- `ci.yml`: lint, test, build
+- `deploy.yml`: Vercel deployment
+
+Vercel deploy requires these repository secrets:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+## Branching
+
+This repo uses a Gitflow-style workflow with the required `codex/` prefix.
+
+- `main`: production
+- `codex/develop`: integration
+- `codex/feature/...`: feature branches
+
+Feature PR flow:
+
+1. branch from `codex/develop`
+2. open PR back into `codex/develop`
+3. merge `codex/develop` into `main`
+
+See [GITFLOW.md](/Users/fuhoang/Desktop/workspace/happy-hands/GITFLOW.md) for the detailed workflow.
