@@ -1,5 +1,5 @@
 import Link from "next/link";
-export default function HealthAndSafetyPage() {
+export default function EmployeeTreatmentPage() {
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
       <header className="sticky top-0 z-50 w-full border-b border-[#b8d6c1]/50 bg-white/95 shadow-[0_10px_28px_rgba(0,128,0,0.06)] backdrop-blur-md">
@@ -47,12 +47,11 @@ export default function HealthAndSafetyPage() {
             Happy Hands Standards
           </p>
           <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
-            Health and Safety
+            Employee Treatment
           </h1>
           <p className="mt-6 max-w-3xl text-lg leading-8 text-white/82">
-            We maintain clear health and safety procedures to protect our
-            clients, our staff, and every environment we work in across London
-            and the Home Counties.
+            We believe strong service begins with fair treatment, clear
+            processes, and respect for every member of the Happy Hands team.
           </p>
         </div>
       </section>
@@ -61,31 +60,58 @@ export default function HealthAndSafetyPage() {
         <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
           <div>
             <h2 className="text-3xl font-black tracking-[-0.04em]">
-              Our approach
+              Our commitment
             </h2>
             <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              Health and safety is built into every part of our service. From
-              staff training and risk awareness to site-specific procedures, we
-              work to ensure our cleaning operations are carried out safely,
-              consistently, and responsibly.
+              Happy Hands is built on trust. We operate an ethical business in
+              which all employees are treated fairly and with the respect they
+              deserve.
             </p>
             <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-              Our team follows clear working methods, uses suitable equipment
-              and products, and respects the specific requirements of each
-              client site. We aim to reduce risk, maintain professional
-              standards, and give clients confidence in the way we work.
+              We follow all the correct procedures in the employment process
+              from start to finish to ensure that both parties (employees and
+              employer) are fully covered according to employee and employer
+              protection laws.
+            </p>
+            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
+              Happy Hands does not employ contract staff. All employees are
+              afforded a full employment contract when starting up with us.
+            </p>
+            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
+              All our staff members are fully vetted before they are signed up
+              including DBS enhanced checks. This is an extra measure to
+              provide our customers with peace of mind when allowing an
+              employee onto their premises.
+            </p>
+            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
+              When signing up with Happy Hands, all staff members are required
+              to submit copies of their identity which includes documents such
+              as National Insurance Number, Proof of Address, full colour photo
+              and a copy of their Passport. Furthermore, we now require proof
+              of settlement in the UK. We do not share this information with
+              any third party, ensuring we are fully General Data Protection
+              Regulation (GDPR) compliant.
+            </p>
+            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
+              Similarly, we are committed to preserving the dignity of our
+              employees by paying an equitable wage. We go above and beyond for
+              each person who works for us by enrolling them in a pension plan
+              from the day they start. All employees are given the prerequisite
+              number of days holiday leave per year, and they are permitted the
+              standard number of sick leave days per year as laid out in the UK
+              employment laws.
             </p>
           </div>
 
           <div className="self-start rounded-md border border-[#d7e6d7] bg-[#f7fbf7] p-8">
             <h2 className="text-2xl font-black tracking-[-0.04em] text-[#008000]">
-              Core priorities
+              Key principles
             </h2>
             <ul className="mt-5 space-y-3 text-sm leading-7 text-[#5f7d5f]">
-              <li>Safe working practices on every site</li>
-              <li>Appropriate staff training and supervision</li>
-              <li>Careful use of products and equipment</li>
-              <li>Consistent standards and accountability</li>
+              <li>Respectful and fair treatment</li>
+              <li>Clear employment procedures</li>
+              <li>Support for long-term staff retention</li>
+              <li>Professional standards for every team member</li>
             </ul>
           </div>
         </div>
@@ -95,89 +121,42 @@ export default function HealthAndSafetyPage() {
         <div className="grid gap-5 md:grid-cols-3">
           <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Training
+              Contracts
             </p>
             <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Team readiness
+              Proper employment
             </h3>
             <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              Staff are trained to follow safe cleaning procedures, site
-              expectations, and professional working standards.
+              We follow correct employment processes and provide staff with
+              clear working terms and expectations from the start.
             </p>
           </article>
 
           <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Compliance
+              Vetting
             </p>
             <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Clear procedures
+              Careful checks
             </h3>
             <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              We support consistent processes for risk awareness, safe use of
-              materials, and responsible work on client premises.
+              Team members are vetted and reviewed carefully to maintain trust,
+              reliability, and client peace of mind.
             </p>
           </article>
 
           <article className="rounded-md border border-[#d7e6d7] bg-white p-6 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
             <p className="text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
-              Responsibility
+              Support
             </p>
             <h3 className="mt-3 text-2xl font-black tracking-[-0.04em] text-[#163316]">
-              Client confidence
+              Fair conditions
             </h3>
             <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
-              Our focus is to deliver dependable cleaning while protecting
-              people, property, and the quality of the environments we serve.
+              We focus on equitable treatment, dependable communication, and
+              stable conditions that help retain strong long-term staff.
             </p>
           </article>
-        </div>
-      </section>
-
-      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:px-10">
-        <div className="rounded-md border border-[#d7e6d7] bg-white p-8 sm:p-10">
-          <h2 className="text-3xl font-black tracking-[-0.04em]">
-            Fogging Health &amp; Safety Record
-          </h2>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-[#5f7d5f]">
-            Documents relating to our fogging health and safety in the
-            workplace:
-          </p>
-          <ul className="mt-5 space-y-3 text-base leading-8 text-[#5f7d5f]">
-            <li>
-              -{" "}
-              <a
-                href="https://happy-hands.biz/2020/wp-content/uploads/2021/02/VIVID-105-Laboratory-Testing-of-Residual-Activity.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-[#008000] underline decoration-[#b7ddb7] underline-offset-4 transition hover:text-[#006600]"
-              >
-                Laboratory Testing of the Residual Activity of Vivid™ SENSE
-              </a>
-            </li>
-            <li>
-              -{" "}
-              <a
-                href="https://happy-hands.biz/2020/wp-content/uploads/2021/02/VIVID-105-Performance-Report.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-[#008000] underline decoration-[#b7ddb7] underline-offset-4 transition hover:text-[#006600]"
-              >
-                Vivid™ SENSE Fogging Solution Data Sheet
-              </a>
-            </li>
-            <li>
-              -{" "}
-              <a
-                href="https://happy-hands.biz/2020/wp-content/uploads/2021/02/VIVID-105-COSHH-Sheet.pdf"
-                target="_blank"
-                rel="noreferrer"
-                className="font-semibold text-[#008000] underline decoration-[#b7ddb7] underline-offset-4 transition hover:text-[#006600]"
-              >
-                COSHH-ASSESSMENT Vivid™ SENSE Disinfectant Fogging Solution
-              </a>
-            </li>
-          </ul>
         </div>
       </section>
 
@@ -188,11 +167,11 @@ export default function HealthAndSafetyPage() {
               Work with Happy Hands
             </p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.04em]">
-              Need a cleaning team with strong standards?
+              Want to work with a professional team?
             </h2>
             <p className="mt-4 text-base leading-8 text-white/85">
-              Speak to us about cleaning support backed by professional
-              processes, reliable staff, and consistent site care.
+              Speak to us if you are looking for a cleaning company built on
+              clear standards, reliable service, and fair treatment of staff.
             </p>
           </div>
 
@@ -224,7 +203,7 @@ export default function HealthAndSafetyPage() {
                 <li><Link href="/about" className="transition hover:text-[#008000]">About</Link></li>
                 <li><Link href="/#testimonials" className="transition hover:text-[#008000]">Testimonials</Link></li>
                 <li><Link href="/health-and-safety" className="transition hover:text-[#008000]">Health and Safety</Link></li>
-                <li><a href="/employee-treatment" className="transition hover:text-[#008000]">Employee Treatment</a></li>
+                <li><Link href="/employee-treatment" className="transition hover:text-[#008000]">Employee Treatment</Link></li>
                 <li><Link href="/#contact" className="transition hover:text-[#008000]">Contact</Link></li>
               </ul>
             </div>
