@@ -57,26 +57,35 @@ export default function Covid19ZebraHousingPage() {
           <article className="rounded-md border border-[#d7e6d7] bg-white p-8 shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">Project overview</p>
             <h2 className="mt-3 text-4xl font-black tracking-[-0.05em] text-[#5a160d]">
-              Structured for compliance-led project detail
+              COVID 19 case study Zebra Housing Association
             </h2>
             <div className="mt-6 space-y-5 text-base leading-8 text-[#5f7d69]">
               <p>
-                Use this page to document the Covid-19 cleaning and sanitisation requirements for Zebra Housing, including risk controls, operational planning and the response delivered by Happy Hands.
+                At the start of the contract, we deliberately spread the sites across as many lone cleaners as possible. The purpose was to contain any possible contamination to the cleaner and the site.
               </p>
               <p>
-                The layout is ready for compliance-focused case study content, such as outbreak context, fogging and sanitisation scope, health and safety controls, documentation, and the resulting client benefits.
+                As all our cleaners are employees and covered by Enhanced DBS Live Update checks, they are protected at all times under the Health and Safety at Work Act. Happy Hands Cleaning Services therefore owes a duty of care to our staff and ensures they are trained and protected to reduce the risk of harm.
+              </p>
+              <p>
+                During the pandemic, all our cleaners received training that included Coronavirus COVID-19 awareness, COSHH awareness for employees, fire extinguisher use, fire safety awareness, basic food awareness, hand hygiene, hand hygiene for care, general health and safety awareness, and social distancing. This programme was further strengthened by Queen Elizabeth award-winning CITATION training.
+              </p>
+              <p>
+                The training framework was designed to be practical and robust, enabling our cleaners to work with confidence and with the necessary safety controls in place.
+              </p>
+              <p>
+                Our current clients, including London Borough of Brent Early Years, Zebra Housing for Imperial College, LSE and UCL accommodation, and London Borough of Camden LSI FE, have also provided access to comprehensive Department for Education and Public Health England guidance for cleaning these properties.
               </p>
             </div>
           </article>
 
-          <aside className="rounded-md border border-[#d7e6d7] bg-[#fbfffb] p-8 shadow-[0_18px_40px_rgba(20,51,22,0.06)]">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">Suggested sections</p>
+          <aside className="self-start rounded-md border border-[#d7e6d7] bg-[#fbfffb] p-8 shadow-[0_18px_40px_rgba(20,51,22,0.06)]">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">Key facts</p>
             <ul className="mt-6 space-y-4 text-sm leading-7 text-[#5f7d69]">
-              <li>Client setting and Covid-related risk profile</li>
-              <li>Scope of sanitisation and fogging requirements</li>
-              <li>Documentation and health and safety controls</li>
-              <li>Delivery timetable and site coordination</li>
-              <li>Outcome, reassurance and operational continuity</li>
+              <li>Lone-cleaner deployment model at contract start</li>
+              <li>Enhanced DBS Live Update employee model</li>
+              <li>Covid-19, COSHH and hygiene-focused training</li>
+              <li>CITATION award-winning training programme</li>
+              <li>Guidance aligned with DFE and Public Health England</li>
             </ul>
           </aside>
         </div>

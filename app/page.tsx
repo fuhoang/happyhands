@@ -570,19 +570,14 @@ export default function Home() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="transition hover:text-[#008000]">
+                  <Link href="/case-studies/zebra-housing" className="transition hover:text-[#008000]">
                     Zebra Housing
-                  </a>
+                  </Link>
                 </li>
                 <li>
-                  <a href="#" className="transition hover:text-[#008000]">
+                  <Link href="/case-studies/covid-19-zebra-housing" className="transition hover:text-[#008000]">
                     COVID-19 Zebra Housing
-                  </a>
-                </li>
-                <li>
-                  <a href="#" className="transition hover:text-[#008000]">
-                    Before and After
-                  </a>
+                  </Link>
                 </li>
               </ul>
             </div>
