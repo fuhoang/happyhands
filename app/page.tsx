@@ -86,7 +86,7 @@ export default function Home() {
               Reviews
             </a>
             <a
-              href="#contact"
+              href="/contact"
               className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
                 scrolled
                   ? "hover:text-[#008000] after:bg-[#008000] hover:after:scale-x-100"
@@ -499,7 +499,7 @@ export default function Home() {
                   </a>
                 </li>
                 <li>
-                  <a href="#contact" className="transition hover:text-[#008000]">
+                  <a href="/contact" className="transition hover:text-[#008000]">
                     Contact
                   </a>
                 </li>
