@@ -1,12 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import HealthAndSafetyPage from "./page";
 
-vi.mock("@/components/Plasma", () => ({
-  default: function MockPlasma() {
-    return <div data-testid="mock-plasma" />;
-  },
-}));
-
 describe("HealthAndSafetyPage", () => {
   it("renders the page heading and fogging document links", () => {
     render(<HealthAndSafetyPage />);
