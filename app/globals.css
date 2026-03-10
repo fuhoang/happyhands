@@ -163,25 +163,25 @@ body {
 
 @layer components {
   .site-h2 {
-    @apply text-4xl sm:text-5xl font-black;
+    @apply text-3xl sm:text-4xl font-black;
     letter-spacing: -0.04em;
     color: #5a160d;
   }
 
   .site-h2-lg {
-    @apply text-5xl sm:text-6xl font-black;
+    @apply text-4xl sm:text-5xl font-black;
     letter-spacing: -0.04em;
     color: #5a160d;
   }
 
   .site-h2-contrast {
-    @apply text-5xl sm:text-6xl font-black;
+    @apply text-4xl sm:text-5xl font-black;
     letter-spacing: -0.04em;
     color: white;
   }
 
   .site-h3 {
-    @apply text-3xl font-black;
+    @apply text-xl font-black;
     letter-spacing: -0.04em;
     color: #5a160d;
   }
