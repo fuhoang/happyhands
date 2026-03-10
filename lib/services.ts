@@ -3,6 +3,7 @@ export type ServiceItem = {
   title: string;
   summary: string;
   intro: string;
+  heroImage: string;
   body?: string[];
   points: string[];
 };
@@ -11,6 +12,8 @@ export const services: ServiceItem[] = [
   {
     slug: "after-builders-cleaning",
     title: "After Builders Cleaning",
+    heroImage:
+      "https://images.pexels.com/photos/5691620/pexels-photo-5691620.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Specialist post-construction cleaning delivered on short notice for smooth project handover.",
     intro:
@@ -33,6 +36,8 @@ export const services: ServiceItem[] = [
   {
     slug: "after-party-cleaning",
     title: "After Party Cleaning",
+    heroImage:
+      "https://images.pexels.com/photos/587741/pexels-photo-587741.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Fast, reliable venue recovery before or after events, parties and corporate functions.",
     intro:
@@ -54,6 +59,8 @@ export const services: ServiceItem[] = [
   {
     slug: "carpet-cleaning",
     title: "Carpet Cleaning",
+    heroImage:
+      "https://images.pexels.com/photos/4108711/pexels-photo-4108711.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Professional carpet and upholstery cleaning for homes, workplaces and managed properties.",
     intro:
@@ -76,6 +83,8 @@ export const services: ServiceItem[] = [
   {
     slug: "end-of-tenancy-cleaners-london",
     title: "End of Tenancy Cleaners London",
+    heroImage:
+      "https://images.pexels.com/photos/7218525/pexels-photo-7218525.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Tailored end of tenancy cleaning for tenants, landlords and property professionals.",
     intro:
@@ -97,6 +106,8 @@ export const services: ServiceItem[] = [
   {
     slug: "event-cleaning",
     title: "Event Cleaning",
+    heroImage:
+      "https://images.pexels.com/photos/976866/pexels-photo-976866.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Flexible event cleaning for venues, exhibitions, fashion shows, concerts and large-scale functions.",
     intro:
@@ -119,6 +130,8 @@ export const services: ServiceItem[] = [
   {
     slug: "fogging",
     title: "Fogging",
+    heroImage:
+      "https://images.pexels.com/photos/3952234/pexels-photo-3952234.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Professional fogging and sanitisation support for workplaces and high-contact environments.",
     intro:
@@ -140,6 +153,8 @@ export const services: ServiceItem[] = [
   {
     slug: "home-cleaning",
     title: "Home Cleaning",
+    heroImage:
+      "https://images.pexels.com/photos/4107128/pexels-photo-4107128.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Reliable domestic cleaning tailored to the needs of busy households.",
     intro:
@@ -160,6 +175,8 @@ export const services: ServiceItem[] = [
   {
     slug: "office-cleaning",
     title: "Office Cleaning",
+    heroImage:
+      "https://images.pexels.com/photos/6197118/pexels-photo-6197118.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Professional office cleaning that supports presentation, hygiene and day-to-day business operations.",
     intro:
@@ -181,6 +198,8 @@ export const services: ServiceItem[] = [
   {
     slug: "retail-cleaning",
     title: "Retail Cleaning",
+    heroImage:
+      "https://images.pexels.com/photos/7937657/pexels-photo-7937657.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Flexible retail cleaning for shops, department stores and larger retail environments.",
     intro:
@@ -202,6 +221,8 @@ export const services: ServiceItem[] = [
   {
     slug: "rental-turnovers",
     title: "Rental Turnovers",
+    heroImage:
+      "https://images.pexels.com/photos/7218579/pexels-photo-7218579.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Efficient turnover cleaning for rental properties between occupancies.",
     intro:
@@ -222,6 +243,8 @@ export const services: ServiceItem[] = [
   {
     slug: "washing-and-ironing",
     title: "Washing and Ironing",
+    heroImage:
+      "https://images.pexels.com/photos/5202797/pexels-photo-5202797.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Convenient laundry support for homes, managed properties and busy households.",
     intro:
@@ -242,6 +265,8 @@ export const services: ServiceItem[] = [
   {
     slug: "leisure-and-hospitality-cleaning",
     title: "Leisure and Hospitality Cleaning",
+    heroImage:
+      "https://images.pexels.com/photos/4871115/pexels-photo-4871115.jpeg?auto=compress&cs=tinysrgb&w=1600",
     summary:
       "Specialist cleaning for bars, restaurants, clubs and other hospitality venues.",
     intro:
