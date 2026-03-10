@@ -479,11 +479,6 @@ export default function Home() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="transition hover:text-[#008000]">
-                    Home
-                  </a>
-                </li>
-                <li>
                   <a href="/about" className="transition hover:text-[#008000]">
                     About
                   </a>

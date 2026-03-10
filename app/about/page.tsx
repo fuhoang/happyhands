@@ -205,7 +205,6 @@ export default function AboutPage() {
                 Explore
               </h3>
               <ul className="space-y-2">
-                <li><a href="/" className="transition hover:text-[#008000]">Home</a></li>
                 <li><a href="/about" className="transition hover:text-[#008000]">About</a></li>
                 <li><a href="/#testimonials" className="transition hover:text-[#008000]">Testimonials</a></li>
                 <li><a href="#" className="transition hover:text-[#008000]">Health and Safety</a></li>
