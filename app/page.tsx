@@ -76,16 +76,6 @@ export default function Home() {
               Services
             </a>
             <a
-              href="#why-us"
-              className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
-                scrolled
-                  ? "hover:text-[#008000] after:bg-[#008000] hover:after:scale-x-100"
-                  : "hover:text-white after:bg-white hover:after:scale-x-100"
-              }`}
-            >
-              Why us
-            </a>
-            <a
               href="#testimonials"
               className={`relative pb-1 transition after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:transition-transform after:duration-300 after:content-[''] ${
                 scrolled
@@ -489,17 +479,7 @@ export default function Home() {
               </h3>
               <ul className="space-y-2">
                 <li>
-                  <a href="#" className="transition hover:text-[#008000]">
-                    Home
-                  </a>
-                </li>
-                <li>
-                  <a href="#why-us" className="transition hover:text-[#008000]">
-                    Why Us
-                  </a>
-                </li>
-                <li>
-                  <a href="#why-us" className="transition hover:text-[#008000]">
+                  <a href="/about" className="transition hover:text-[#008000]">
                     About
                   </a>
                 </li>
