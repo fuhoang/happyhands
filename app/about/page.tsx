@@ -1,5 +1,3 @@
-import Plasma from "@/components/Plasma";
-
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
@@ -23,9 +21,6 @@ export default function AboutPage() {
             <a href="/#services" className="relative pb-1 transition hover:text-[#008000] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Services
             </a>
-            <a href="/#why-us" className="relative pb-1 transition hover:text-[#008000] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
-              Why us
-            </a>
             <a href="/#testimonials" className="relative pb-1 transition hover:text-[#008000] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Reviews
             </a>
@@ -42,17 +37,10 @@ export default function AboutPage() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#f5fff5]">
-        <div className="absolute inset-0 opacity-70">
-          <Plasma
-            color="#145c14"
-            speed={0.5}
-            scale={1.1}
-            opacity={0.95}
-            mouseInteractive={false}
-          />
-        </div>
-        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(178,218,178,0.86)_0%,rgba(145,197,145,0.8)_55%,rgba(224,243,224,0.72)_100%)]" />
+      <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,77,15,0.86)_0%,rgba(24,96,24,0.76)_55%,rgba(47,138,47,0.66)_100%)]" />
+        <div className="absolute -left-16 top-10 h-56 w-56 rounded-full bg-white/6 blur-3xl" />
+        <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#9edf9e]/8 blur-3xl" />
         <div className="relative mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:px-10">
           <p className="text-sm font-black uppercase tracking-[0.18em] text-white/80">
             About Happy Hands
@@ -112,13 +100,6 @@ export default function AboutPage() {
           <h2 className="text-3xl font-black tracking-[-0.04em]">
             The Happy Hands Team
           </h2>
-          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[#5f7d5f]">
-            Our team is built around consistency, trust, and long-term care for
-            both clients and staff. With experienced cleaners, strong training
-            standards, and a hands-on approach to service, Happy Hands delivers
-            dependable support that clients can rely on across domestic and
-            commercial spaces.
-          </p>
           <div className="mt-10 grid gap-5 text-left md:grid-cols-3">
             <div className="overflow-hidden rounded-md border border-[#d7e6d7] bg-white shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
               <img
@@ -225,7 +206,6 @@ export default function AboutPage() {
               </h3>
               <ul className="space-y-2">
                 <li><a href="/" className="transition hover:text-[#008000]">Home</a></li>
-                <li><a href="/#why-us" className="transition hover:text-[#008000]">Why Us</a></li>
                 <li><a href="/about" className="transition hover:text-[#008000]">About</a></li>
                 <li><a href="/#testimonials" className="transition hover:text-[#008000]">Testimonials</a></li>
                 <li><a href="#" className="transition hover:text-[#008000]">Health and Safety</a></li>
