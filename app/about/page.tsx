@@ -1,3 +1,5 @@
+import Plasma from "@/components/Plasma";
+
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
@@ -40,15 +42,25 @@ export default function AboutPage() {
         </div>
       </header>
 
-      <section className="border-b border-[#d7e6d7] bg-[linear-gradient(135deg,#f5fff5_0%,#ebf8eb_55%,#ffffff_100%)]">
-        <div className="mx-auto max-w-7xl px-5 py-20 sm:px-8 lg:px-10">
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">
+      <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#f5fff5]">
+        <div className="absolute inset-0 opacity-70">
+          <Plasma
+            color="#145c14"
+            speed={0.5}
+            scale={1.1}
+            opacity={0.95}
+            mouseInteractive={false}
+          />
+        </div>
+        <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(178,218,178,0.86)_0%,rgba(145,197,145,0.8)_55%,rgba(224,243,224,0.72)_100%)]" />
+        <div className="relative mx-auto max-w-5xl px-5 py-20 sm:px-8 lg:px-10">
+          <p className="text-sm font-black uppercase tracking-[0.18em] text-white/80">
             About Happy Hands
           </p>
-          <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-[-0.05em] sm:text-6xl">
+          <h1 className="mt-4 max-w-4xl text-5xl font-black tracking-[-0.05em] text-white sm:text-6xl">
             Professional cleaning built on consistency, trust, and care.
           </h1>
-          <p className="mt-6 max-w-3xl text-lg leading-8 text-[#5f7d5f]">
+          <p className="mt-6 max-w-3xl text-lg leading-8 text-white/82">
             Happy Hands has built its reputation by delivering reliable cleaning
             services with high standards, friendly support, and attention to
             detail across homes, businesses, and specialist environments.
@@ -56,82 +68,123 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="mx-auto grid max-w-7xl gap-10 px-5 py-16 sm:px-8 lg:grid-cols-[1.1fr_0.9fr] lg:px-10">
-        <div>
-          <h2 className="text-3xl font-black tracking-[-0.04em]">
-            Who we are
-          </h2>
-          <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-            We provide professional cleaning services shaped around reliability,
-            presentation, and practical support. Whether the setting is a family
-            home, a retail environment, an office, or a hospitality venue, our
-            goal is the same: create spaces that feel fresh, safe, and properly
-            looked after.
-          </p>
-          <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
-            Our approach is simple. We focus on clear communication, dependable
-            scheduling, and quality that customers feel confident returning to.
-            We understand that cleaning is not just about appearance. It is
-            about trust, standards, and making sure every environment is ready
-            for the people who use it.
-          </p>
-        </div>
-
-        <div className="rounded-md border border-[#cfe1cf] bg-[#f7fbf7] p-8 shadow-[0_18px_45px_rgba(0,128,0,0.06)]">
-          <h2 className="text-2xl font-black tracking-[-0.04em] text-[#008000]">
-            What we stand for
-          </h2>
-          <ul className="mt-6 space-y-4 text-sm leading-7 text-[#5f7d5f]">
-            <li>High cleaning standards across every service type</li>
-            <li>Reliable teams and consistent quality of work</li>
-            <li>Professional communication from quote to completion</li>
-            <li>Respect for clients, staff, spaces, and safety procedures</li>
-          </ul>
-        </div>
-      </section>
-
-      <section className="border-y border-[#e0ece0] bg-[#fbfefb]">
-        <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
-          <div className="max-w-3xl">
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">
-              Why clients choose us
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:px-10">
+        <div className="grid gap-8 lg:grid-cols-[1.2fr_0.8fr]">
+          <div>
+            <h2 className="text-3xl font-black tracking-[-0.04em]">Who we are</h2>
+            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
+              Paul Russell established Happy Hands cleaning team in 1999 to
+              provide commercial and domestic cleaning services throughout
+              London and the Home Counties. As an independent company with
+              family values, we pride ourselves on providing a responsive,
+              professional cleaning service with an emphasis on high standards
+              and a tailored service that exactly meets the needs of our
+              clients.
             </p>
-            <h2 className="mt-4 text-4xl font-black tracking-[-0.04em]">
-              A cleaning partner that supports homes, workplaces, and specialist
-              spaces.
-            </h2>
+            <p className="mt-5 text-base leading-8 text-[#5f7d5f]">
+              We understand how important it is to value our people; as a
+              result, we have many long-standing members on our cleaning team
+              and a low staff turnover ensuring our clients receive a consistent
+              and reliable service. We have a rigorous recruitment and training
+              process and because we reward our staff well we attract and retain
+              the best candidates. All our staff members go through a detailed
+              vetting process and their credentials and references are
+              thoroughly checked to give our clients peace of mind.
+            </p>
           </div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
-            <article className="rounded-md border border-[#d7e6d7] bg-white p-6">
-              <h3 className="text-xl font-black">Trusted service</h3>
-              <p className="mt-3 text-sm leading-7 text-[#5f7d5f]">
-                We work to standards that customers can depend on repeatedly.
-              </p>
-            </article>
-            <article className="rounded-md border border-[#d7e6d7] bg-white p-6">
-              <h3 className="text-xl font-black">Flexible support</h3>
-              <p className="mt-3 text-sm leading-7 text-[#5f7d5f]">
-                We cover routine cleans, specialist jobs, and larger site needs.
-              </p>
-            </article>
-            <article className="rounded-md border border-[#d7e6d7] bg-white p-6">
-              <h3 className="text-xl font-black">Professional standards</h3>
-              <p className="mt-3 text-sm leading-7 text-[#5f7d5f]">
-                Our work is shaped by consistency, presentation, and care.
-              </p>
-            </article>
-            <article className="rounded-md border border-[#d7e6d7] bg-white p-6">
-              <h3 className="text-xl font-black">People-first mindset</h3>
-              <p className="mt-3 text-sm leading-7 text-[#5f7d5f]">
-                We value health, safety, communication, and staff treatment.
-              </p>
-            </article>
+          <div className="self-start rounded-md border border-[#d7e6d7] bg-[#f7fbf7] p-8">
+            <h2 className="text-2xl font-black tracking-[-0.04em] text-[#008000]">
+              Our values
+            </h2>
+            <ul className="mt-5 space-y-3 text-sm leading-7 text-[#5f7d5f]">
+              <li>Consistency in every clean</li>
+              <li>Professional and friendly communication</li>
+              <li>Respect for safety, staff, and client spaces</li>
+              <li>Reliable service you can recommend</li>
+            </ul>
           </div>
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
+      <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:px-10">
+        <div className="rounded-md border border-[#d7e6d7] bg-white p-8 text-center sm:p-10">
+          <h2 className="text-3xl font-black tracking-[-0.04em]">
+            The Happy Hands Team
+          </h2>
+          <p className="mx-auto mt-5 max-w-3xl text-base leading-8 text-[#5f7d5f]">
+            Our team is built around consistency, trust, and long-term care for
+            both clients and staff. With experienced cleaners, strong training
+            standards, and a hands-on approach to service, Happy Hands delivers
+            dependable support that clients can rely on across domestic and
+            commercial spaces.
+          </p>
+          <div className="mt-10 grid gap-5 text-left md:grid-cols-3">
+            <div className="overflow-hidden rounded-md border border-[#d7e6d7] bg-white shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
+              <img
+                src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg?auto=compress&cs=tinysrgb&w=700"
+                alt="Happy Hands operations team member"
+                className="h-52 w-full object-cover"
+              />
+              <div className="px-6 pb-7 pt-6">
+                <div className="h-1.5 w-16 rounded-full bg-[#008000]" />
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
+                  Operations
+                </p>
+                <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[#163316]">
+                  Site Management
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
+                  Coordinating schedules, quality checks, and client
+                  requirements across domestic and commercial sites.
+                </p>
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-md border border-[#d7e6d7] bg-white shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
+              <img
+                src="https://images.pexels.com/photos/774909/pexels-photo-774909.jpeg?auto=compress&cs=tinysrgb&w=700"
+                alt="Happy Hands training team member"
+                className="h-52 w-full object-cover"
+              />
+              <div className="px-6 pb-7 pt-6">
+                <div className="h-1.5 w-16 rounded-full bg-[#008000]" />
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
+                  Training
+                </p>
+                <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[#163316]">
+                  Professional Standards
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
+                  Rigorous training and vetting keeps every clean safe,
+                  consistent, and aligned with high service standards.
+                </p>
+              </div>
+            </div>
+            <div className="overflow-hidden rounded-md border border-[#d7e6d7] bg-white shadow-[0_18px_40px_rgba(20,51,22,0.08)]">
+              <img
+                src="https://images.pexels.com/photos/5668772/pexels-photo-5668772.jpeg?auto=compress&cs=tinysrgb&w=700"
+                alt="Happy Hands support team member"
+                className="h-52 w-full object-cover"
+              />
+              <div className="px-6 pb-7 pt-6">
+                <div className="h-1.5 w-16 rounded-full bg-[#008000]" />
+                <p className="mt-4 text-xs font-black uppercase tracking-[0.18em] text-[#008000]">
+                  Support
+                </p>
+                <h3 className="mt-2 text-2xl font-black tracking-[-0.04em] text-[#163316]">
+                  Reliable Service
+                </h3>
+                <p className="mt-4 text-sm leading-7 text-[#5f7d5f]">
+                  Long-standing staff and responsive communication give clients
+                  a dependable service they can trust and recommend.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="mx-auto max-w-5xl px-5 py-16 sm:px-8 lg:px-10">
         <div className="rounded-md bg-[linear-gradient(135deg,#008000_0%,#26a626_100%)] p-8 text-white sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
           <div className="max-w-2xl">
             <p className="text-sm font-black uppercase tracking-[0.18em] text-[#f4fff1]">
