@@ -25,7 +25,7 @@ export default function AboutPage() {
             <Link href="/#testimonials" className="relative pb-1 transition hover:text-[#008000] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Reviews
             </Link>
-            <Link href="/#contact" className="relative pb-1 transition hover:text-[#008000] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
+            <Link href="/contact" className="relative pb-1 transition hover:text-[#008000] after:absolute after:left-0 after:bottom-0 after:h-[2px] after:w-full after:origin-left after:scale-x-0 after:bg-[#008000] after:transition-transform after:duration-300 after:content-[''] hover:after:scale-x-100">
               Contact
             </Link>
             <a
@@ -38,7 +38,8 @@ export default function AboutPage() {
         </div>
       </header>
 
-      <section className="hero-cleaning-illustration relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
+      <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
+        <div className="absolute inset-0 bg-[url('https://images.pexels.com/photos/4246119/pexels-photo-4246119.jpeg?auto=compress&cs=tinysrgb&w=1600')] bg-cover bg-center bg-no-repeat" />
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,77,15,0.72)_0%,rgba(24,96,24,0.62)_55%,rgba(47,138,47,0.52)_100%)]" />
         <div className="absolute -left-16 top-10 h-56 w-56 rounded-full bg-white/6 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#9edf9e]/8 blur-3xl" />
@@ -210,7 +211,7 @@ export default function AboutPage() {
                 <li><Link href="/#testimonials" className="transition hover:text-[#008000]">Testimonials</Link></li>
                 <li><Link href="/health-and-safety" className="transition hover:text-[#008000]">Health and Safety</Link></li>
                 <li><a href="/employee-treatment" className="transition hover:text-[#008000]">Employee Treatment</a></li>
-                <li><Link href="/#contact" className="transition hover:text-[#008000]">Contact</Link></li>
+                <li><Link href="/contact" className="transition hover:text-[#008000]">Contact</Link></li>
               </ul>
             </div>
 
