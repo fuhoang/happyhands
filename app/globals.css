@@ -160,6 +160,39 @@ body {
   --sidebar-ring: oklch(0.556 0 0);
 }
 
+
+@layer components {
+  .site-h2 {
+    @apply text-4xl sm:text-5xl font-black;
+    letter-spacing: -0.04em;
+    color: #5a160d;
+  }
+
+  .site-h2-lg {
+    @apply text-5xl sm:text-6xl font-black;
+    letter-spacing: -0.04em;
+    color: #5a160d;
+  }
+
+  .site-h2-contrast {
+    @apply text-5xl sm:text-6xl font-black;
+    letter-spacing: -0.04em;
+    color: white;
+  }
+
+  .site-h3 {
+    @apply text-3xl font-black;
+    letter-spacing: -0.04em;
+    color: #5a160d;
+  }
+
+  .site-footer-h3 {
+    @apply mb-3 text-sm font-black uppercase;
+    letter-spacing: 0.14em;
+    color: #008000;
+  }
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
