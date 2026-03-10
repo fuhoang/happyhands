@@ -1,6 +1,4 @@
 import Link from "next/link";
-import Plasma from "@/components/Plasma";
-
 export default function AboutPage() {
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
@@ -40,16 +38,7 @@ export default function AboutPage() {
         </div>
       </header>
 
-      <section className="relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
-        <div className="absolute inset-0 opacity-55">
-          <Plasma
-            color="#72d272"
-            speed={0.5}
-            scale={1}
-            opacity={0.65}
-            mouseInteractive={false}
-          />
-        </div>
+      <section className="hero-cleaning-illustration relative overflow-hidden border-b border-[#d7e6d7] bg-[#0f4d0f]">
         <div className="absolute inset-0 bg-[linear-gradient(135deg,rgba(15,77,15,0.72)_0%,rgba(24,96,24,0.62)_55%,rgba(47,138,47,0.52)_100%)]" />
         <div className="absolute -left-16 top-10 h-56 w-56 rounded-full bg-white/6 blur-3xl" />
         <div className="absolute bottom-0 right-0 h-64 w-64 rounded-full bg-[#9edf9e]/8 blur-3xl" />
@@ -220,7 +209,7 @@ export default function AboutPage() {
                 <li><Link href="/about" className="transition hover:text-[#008000]">About</Link></li>
                 <li><Link href="/#testimonials" className="transition hover:text-[#008000]">Testimonials</Link></li>
                 <li><Link href="/health-and-safety" className="transition hover:text-[#008000]">Health and Safety</Link></li>
-                <li><a href="#" className="transition hover:text-[#008000]">Employee Treatment</a></li>
+                <li><a href="/employee-treatment" className="transition hover:text-[#008000]">Employee Treatment</a></li>
                 <li><Link href="/#contact" className="transition hover:text-[#008000]">Contact</Link></li>
               </ul>
             </div>
