@@ -23,10 +23,6 @@ export default function SiteHeader({ mode = "solid", activePage }: SiteHeaderPro
     return () => window.removeEventListener("scroll", handleScroll);
   }, [mode]);
 
-  useEffect(() => {
-    setMobileMenuOpen(false);
-  }, [mode, activePage]);
-
   const isTransparent = mode === "home" && !scrolled;
   const navTone = isTransparent ? "light" : "brand";
   const navTextClassName = isTransparent ? "text-white/86" : "text-[#5f7d5f]";
