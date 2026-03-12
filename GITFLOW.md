@@ -54,6 +54,8 @@ Do not push directly to `codex/develop` just to restore parity with `main`.
 
 - This repo uses the required `codex/` branch prefix for all non-`main` branches.
 - Both `main` and `codex/develop` are protected branches, so parity updates must go through pull requests in both directions.
+- Local repository hooks are used to block direct commits and pushes on `main` and `codex/develop`.
+- Run `git config core.hooksPath .githooks` locally to activate the tracked hooks for this repo.
 - If you later want stricter enforcement, add GitHub branch protection rules for:
   - `main`
   - `codex/develop`
