@@ -1,3 +1,6 @@
+ "use client";
+
+import { FormEvent, useState } from "react";
 import InfoCard from "@/components/shared/InfoCard";
 import TwoColumnSection from "@/components/shared/TwoColumnSection";
 
@@ -17,6 +20,84 @@ const propertyTypes = ["House", "Flat", "Office", "Retail", "Hospitality Venue",
 const frequencies = ["One-off", "Weekly", "Fortnightly", "Monthly", "Not sure yet"];
 
 export default function QuoteRequestForm() {
+  const [errors, setErrors] = useState<Record<string, string>>({});
+  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [statusMessage, setStatusMessage] = useState("");
+
+  const validate = (formData: FormData) => {
+    const nextErrors: Record<string, string> = {};
+    const fullName = formData.get("fullName")?.toString().trim() ?? "";
+    const email = formData.get("email")?.toString().trim() ?? "";
+    const phone = formData.get("phone")?.toString().trim() ?? "";
+    const service = formData.get("service")?.toString().trim() ?? "";
+    const propertyType = formData.get("propertyType")?.toString().trim() ?? "";
+    const frequency = formData.get("frequency")?.toString().trim() ?? "";
+    const postcode = formData.get("postcode")?.toString().trim() ?? "";
+    const details = formData.get("details")?.toString().trim() ?? "";
+
+    if (!fullName) nextErrors.fullName = "Enter your full name.";
+    if (!email) nextErrors.email = "Enter your email address.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) nextErrors.email = "Enter a valid email address.";
+    if (!phone) nextErrors.phone = "Enter a phone number.";
+    if (!service) nextErrors.service = "Select a service.";
+    if (!propertyType) nextErrors.propertyType = "Select a property type.";
+    if (!frequency) nextErrors.frequency = "Select a frequency.";
+    if (!postcode) nextErrors.postcode = "Enter the property postcode.";
+    if (!details) nextErrors.details = "Add a short description of the work.";
+
+    return nextErrors;
+  };
+
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const nextErrors = validate(formData);
+
+    if (Object.keys(nextErrors).length > 0) {
+      setErrors(nextErrors);
+      setStatus("idle");
+      setStatusMessage("");
+      return;
+    }
+
+    setErrors({});
+    setStatus("submitting");
+    setStatusMessage("");
+
+    const payload = Object.fromEntries(formData.entries());
+
+    try {
+      const response = await fetch("/api/quote-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
+      });
+
+      const result = (await response.json().catch(() => null)) as { message?: string } | null;
+
+      if (!response.ok) {
+        setStatus("error");
+        setStatusMessage(result?.message ?? "Unable to submit your request right now.");
+        return;
+      }
+
+      form.reset();
+      setStatus("success");
+      setStatusMessage(result?.message ?? "Quote request received.");
+    } catch {
+      setStatus("error");
+      setStatusMessage("Unable to submit your request right now.");
+    }
+  };
+
+  const fieldClassName =
+    "min-h-12 rounded-sm border bg-white px-4 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]";
+  const errorClassName = "border-[#b42318]";
+  const defaultClassName = "border-[#cfe1cf]";
+
   return (
     <section className="bg-[#f7fbf7] px-5 py-20 sm:px-8 lg:px-10">
       <div className="mx-auto w-full max-w-7xl">
@@ -36,15 +117,17 @@ export default function QuoteRequestForm() {
           mainClassName="items-start lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]"
           main={
             <InfoCard className="p-6 sm:p-8">
-              <form className="grid gap-5">
+              <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">Full Name</span>
                   <input
                     type="text"
                     name="fullName"
                     placeholder="Your full name"
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]"
+                    aria-invalid={errors.fullName ? "true" : "false"}
+                    className={`${fieldClassName} ${errors.fullName ? errorClassName : defaultClassName}`}
                   />
+                  {errors.fullName ? <span className="text-sm font-semibold text-[#b42318]">{errors.fullName}</span> : null}
                 </label>
 
                 <label className="grid gap-2">
@@ -53,8 +136,10 @@ export default function QuoteRequestForm() {
                     type="email"
                     name="email"
                     placeholder="you@example.com"
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]"
+                    aria-invalid={errors.email ? "true" : "false"}
+                    className={`${fieldClassName} ${errors.email ? errorClassName : defaultClassName}`}
                   />
+                  {errors.email ? <span className="text-sm font-semibold text-[#b42318]">{errors.email}</span> : null}
                 </label>
 
                 <label className="grid gap-2">
@@ -63,8 +148,10 @@ export default function QuoteRequestForm() {
                     type="tel"
                     name="phone"
                     placeholder="Your phone number"
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]"
+                    aria-invalid={errors.phone ? "true" : "false"}
+                    className={`${fieldClassName} ${errors.phone ? errorClassName : defaultClassName}`}
                   />
+                  {errors.phone ? <span className="text-sm font-semibold text-[#b42318]">{errors.phone}</span> : null}
                 </label>
 
                 <label className="grid gap-2">
@@ -72,7 +159,8 @@ export default function QuoteRequestForm() {
                   <select
                     name="service"
                     defaultValue=""
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition focus:border-[#008000]"
+                    aria-invalid={errors.service ? "true" : "false"}
+                    className={`${fieldClassName} ${errors.service ? errorClassName : defaultClassName}`}
                   >
                     <option value="" disabled>
                       Select a service
@@ -83,6 +171,7 @@ export default function QuoteRequestForm() {
                       </option>
                     ))}
                   </select>
+                  {errors.service ? <span className="text-sm font-semibold text-[#b42318]">{errors.service}</span> : null}
                 </label>
 
                 <label className="grid gap-2">
@@ -90,7 +179,8 @@ export default function QuoteRequestForm() {
                   <select
                     name="propertyType"
                     defaultValue=""
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition focus:border-[#008000]"
+                    aria-invalid={errors.propertyType ? "true" : "false"}
+                    className={`${fieldClassName} ${errors.propertyType ? errorClassName : defaultClassName}`}
                   >
                     <option value="" disabled>
                       Select property type
@@ -101,6 +191,7 @@ export default function QuoteRequestForm() {
                       </option>
                     ))}
                   </select>
+                  {errors.propertyType ? <span className="text-sm font-semibold text-[#b42318]">{errors.propertyType}</span> : null}
                 </label>
 
                 <label className="grid gap-2">
@@ -108,7 +199,8 @@ export default function QuoteRequestForm() {
                   <select
                     name="frequency"
                     defaultValue=""
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition focus:border-[#008000]"
+                    aria-invalid={errors.frequency ? "true" : "false"}
+                    className={`${fieldClassName} ${errors.frequency ? errorClassName : defaultClassName}`}
                   >
                     <option value="" disabled>
                       Select frequency
@@ -119,6 +211,7 @@ export default function QuoteRequestForm() {
                       </option>
                     ))}
                   </select>
+                  {errors.frequency ? <span className="text-sm font-semibold text-[#b42318]">{errors.frequency}</span> : null}
                 </label>
 
                 <label className="grid gap-2">
@@ -126,7 +219,7 @@ export default function QuoteRequestForm() {
                   <input
                     type="date"
                     name="preferredDate"
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition focus:border-[#008000]"
+                    className={`${fieldClassName} ${defaultClassName}`}
                   />
                 </label>
 
@@ -136,8 +229,10 @@ export default function QuoteRequestForm() {
                     type="text"
                     name="postcode"
                     placeholder="Property postcode"
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]"
+                    aria-invalid={errors.postcode ? "true" : "false"}
+                    className={`${fieldClassName} ${errors.postcode ? errorClassName : defaultClassName}`}
                   />
+                  {errors.postcode ? <span className="text-sm font-semibold text-[#b42318]">{errors.postcode}</span> : null}
                 </label>
 
                 <label className="grid gap-2">
@@ -146,7 +241,7 @@ export default function QuoteRequestForm() {
                     type="text"
                     name="propertySize"
                     placeholder="Bedrooms, floors, desks, or any useful size details"
-                    className="min-h-12 rounded-sm border border-[#cfe1cf] bg-white px-4 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]"
+                    className={`${fieldClassName} ${defaultClassName}`}
                   />
                 </label>
 
@@ -156,17 +251,22 @@ export default function QuoteRequestForm() {
                     name="details"
                     rows={6}
                     placeholder="Tell us about the cleaning requirement, timing, access, or anything else that will help us quote accurately."
-                    className="rounded-sm border border-[#cfe1cf] bg-white px-4 py-3 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]"
+                    aria-invalid={errors.details ? "true" : "false"}
+                    className={`rounded-sm border bg-white px-4 py-3 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000] ${errors.details ? errorClassName : defaultClassName}`}
                   />
+                  {errors.details ? <span className="text-sm font-semibold text-[#b42318]">{errors.details}</span> : null}
                 </label>
 
-                <div>
+                <div className="grid gap-3">
                   <button
                     type="submit"
-                    className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#008000] px-8 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#006600]"
+                    disabled={status === "submitting"}
+                    className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#008000] px-8 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#006600] disabled:cursor-not-allowed disabled:bg-[#78aa78]"
                   >
-                    Request Quote
+                    {status === "submitting" ? "Sending request..." : "Request Quote"}
                   </button>
+                  {status === "success" ? <p className="text-sm font-semibold text-[#006600]">{statusMessage}</p> : null}
+                  {status === "error" ? <p className="text-sm font-semibold text-[#b42318]">{statusMessage}</p> : null}
                 </div>
               </form>
             </InfoCard>
