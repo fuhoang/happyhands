@@ -1,6 +1,6 @@
 "use client";
 
-import { FormEvent, useEffect, useState } from "react";
+import { FormEvent, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import InfoCard from "@/components/shared/InfoCard";
 
@@ -22,21 +22,14 @@ const frequencies = ["One-off", "Weekly", "Fortnightly", "Monthly", "Not sure ye
 export default function QuoteRequestForm() {
   const searchParams = useSearchParams();
   const prefilledService = searchParams.get("service");
+  const validPrefilledService = useMemo(
+    () => (prefilledService && services.includes(prefilledService) ? prefilledService : ""),
+    [prefilledService]
+  );
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
-  const [selectedService, setSelectedService] = useState(
-    prefilledService && services.includes(prefilledService) ? prefilledService : ""
-  );
-
-  useEffect(() => {
-    if (prefilledService && services.includes(prefilledService)) {
-      setSelectedService(prefilledService);
-      return;
-    }
-
-    setSelectedService("");
-  }, [prefilledService]);
+  const [selectedService, setSelectedService] = useState("");
 
   const validate = (formData: FormData) => {
     const nextErrors: Record<string, string> = {};
@@ -99,7 +92,7 @@ export default function QuoteRequestForm() {
       }
 
       form.reset();
-      setSelectedService(prefilledService && services.includes(prefilledService) ? prefilledService : "");
+      setSelectedService("");
       setStatus("success");
       setStatusMessage(result?.message ?? "Quote request received.");
     } catch {
@@ -197,7 +190,7 @@ export default function QuoteRequestForm() {
                   <span className="text-sm font-bold text-[#163316]">Service Required</span>
                   <select
                     name="service"
-                    value={selectedService}
+                    value={selectedService || validPrefilledService}
                     onChange={(event) => setSelectedService(event.target.value)}
                     aria-invalid={errors.service ? "true" : "false"}
                     className={`${fieldClassName} ${errors.service ? errorClassName : defaultClassName}`}
