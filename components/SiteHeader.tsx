@@ -69,8 +69,8 @@ export default function SiteHeader({ mode = "solid", activePage }: SiteHeaderPro
           >
             Contact
           </Link>
-          <a
-            href="mailto:happyhandscustomerservice@gmail.com"
+          <Link
+            href="/contact#quote-request"
             className={`inline-flex min-h-11 items-center justify-center rounded-sm px-5 text-xs font-semibold uppercase tracking-[0.16em] transition ${
               isTransparent
                 ? "border border-white/28 bg-white/12 text-white hover:bg-white/18"
@@ -78,7 +78,7 @@ export default function SiteHeader({ mode = "solid", activePage }: SiteHeaderPro
             }`}
           >
             Get Quote
-          </a>
+          </Link>
         </nav>
 
         <button
@@ -131,8 +131,8 @@ export default function SiteHeader({ mode = "solid", activePage }: SiteHeaderPro
                   <Link href="/contact" onClick={() => setMobileMenuOpen(false)} className={`rounded-sm px-3 py-3 text-sm font-semibold transition ${mobileLinkClassName}`}>
                     Contact
                   </Link>
-                  <a
-                    href="mailto:happyhandscustomerservice@gmail.com"
+                  <Link
+                    href="/contact#quote-request"
                     onClick={() => setMobileMenuOpen(false)}
                     className={`mt-2 inline-flex min-h-11 items-center justify-center rounded-sm px-5 text-xs font-semibold uppercase tracking-[0.16em] transition ${
                       isTransparent
@@ -141,7 +141,7 @@ export default function SiteHeader({ mode = "solid", activePage }: SiteHeaderPro
                     }`}
                   >
                     Get Quote
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
