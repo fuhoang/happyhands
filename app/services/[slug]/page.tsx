@@ -39,7 +39,7 @@ export default async function ServiceDetailPage({
         eyebrow="Ready to book"
         title={`Request a tailored quote for ${service.title.toLowerCase()}.`}
         description="Speak to Happy Hands about availability, property details, and the cleaning support you need."
-        primaryHref="/contact"
+        primaryHref={`/contact?service=${encodeURIComponent(service.title)}#quote-request`}
         primaryLabel="Contact Happy Hands"
         secondaryHref="/services"
         secondaryLabel="Back to all services"
