@@ -5,7 +5,15 @@ import PageHero from "@/components/PageHero";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
 
-export default function ContactPage() {
+export default async function ContactPage({
+  searchParams,
+}: {
+  searchParams: Promise<{ service?: string }>;
+}) {
+  const resolvedSearchParams = await searchParams;
+  const prefilledService =
+    typeof resolvedSearchParams.service === "string" ? resolvedSearchParams.service : "";
+
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
       <SiteHeader activePage="contact" />
@@ -16,7 +24,7 @@ export default function ContactPage() {
         image="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600"
       />
       <ContactDetails />
-      <QuoteRequestForm />
+      <QuoteRequestForm prefilledService={prefilledService} />
       <CtaBanner
         eyebrow="Ready to book"
         title="Request your cleaning quote"

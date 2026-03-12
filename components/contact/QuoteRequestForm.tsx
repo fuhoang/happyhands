@@ -1,7 +1,6 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
 import InfoCard from "@/components/shared/InfoCard";
 
 const services = [
@@ -19,9 +18,11 @@ const propertyTypes = ["House", "Flat", "Office", "Retail", "Hospitality Venue",
 
 const frequencies = ["One-off", "Weekly", "Fortnightly", "Monthly", "Not sure yet"];
 
-export default function QuoteRequestForm() {
-  const searchParams = useSearchParams();
-  const prefilledService = searchParams?.get("service") ?? "";
+type QuoteRequestFormProps = {
+  prefilledService?: string;
+};
+
+export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequestFormProps) {
   const validPrefilledService = useMemo(
     () => (prefilledService && services.includes(prefilledService) ? prefilledService : ""),
     [prefilledService]
