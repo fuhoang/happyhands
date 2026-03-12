@@ -303,7 +303,6 @@ export default function QuoteRequestForm() {
                   >
                     {status === "submitting" ? "Sending request..." : "Request Quote"}
                   </button>
-                  {status === "success" ? <p className="text-sm font-semibold text-[#006600]">{statusMessage}</p> : null}
                   {status === "error" ? <p className="text-sm font-semibold text-[#b42318]">{statusMessage}</p> : null}
                   <p className="text-sm leading-6 text-[#6f876f]">
                     We only use your details to review your enquiry and respond
