@@ -2,7 +2,6 @@
 
 import { FormEvent, useState } from "react";
 import InfoCard from "@/components/shared/InfoCard";
-import TwoColumnSection from "@/components/shared/TwoColumnSection";
 
 const services = [
   "Home Cleaning",
@@ -99,7 +98,7 @@ export default function QuoteRequestForm() {
   const defaultClassName = "border-[#cfe1cf]";
 
   return (
-    <section className="bg-[#f7fbf7] px-5 py-20 sm:px-8 lg:px-10">
+    <section id="quote-request" className="bg-[#f7fbf7] px-4 py-16 sm:px-8 sm:py-20 lg:px-10">
       <div className="mx-auto w-full max-w-7xl">
         <div className="mx-auto max-w-3xl text-center">
           <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">Quote request</p>
@@ -111,12 +110,9 @@ export default function QuoteRequestForm() {
           </p>
         </div>
 
-        <TwoColumnSection
-          sectionClassName="px-0 pb-0 pt-10"
-          containerClassName="max-w-none"
-          mainClassName="items-start lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]"
-          main={
-            <InfoCard className="p-6 sm:p-8">
+        <div className="grid items-start gap-8 pt-8 sm:pt-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
+          <div className="min-w-0">
+            <InfoCard className="p-5 sm:p-8">
               <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">Full Name</span>
@@ -261,7 +257,7 @@ export default function QuoteRequestForm() {
                   <button
                     type="submit"
                     disabled={status === "submitting"}
-                    className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#008000] px-8 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#006600] disabled:cursor-not-allowed disabled:bg-[#78aa78]"
+                  className="inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-[#008000] px-8 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#006600] disabled:cursor-not-allowed disabled:bg-[#78aa78] sm:w-auto"
                   >
                     {status === "submitting" ? "Sending request..." : "Request Quote"}
                   </button>
@@ -270,9 +266,9 @@ export default function QuoteRequestForm() {
                 </div>
               </form>
             </InfoCard>
-          }
-          side={
-            <InfoCard className="bg-white p-8">
+          </div>
+          <div className="min-w-0">
+            <InfoCard className="bg-white p-6 sm:p-8">
               <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">What to include</p>
               <h3 className="mt-3 site-h3">Help us quote accurately</h3>
               <ul className="mt-6 space-y-4 text-sm leading-7 text-[#5f7d69]">
@@ -299,8 +295,8 @@ export default function QuoteRequestForm() {
                 </p>
               </div>
             </InfoCard>
-          }
-        />
+          </div>
+        </div>
       </div>
     </section>
   );
