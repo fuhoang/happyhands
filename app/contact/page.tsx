@@ -1,5 +1,6 @@
 import CtaBanner from "@/components/CtaBanner";
 import ContactDetails from "@/components/contact/ContactDetails";
+import QuoteRequestForm from "@/components/contact/QuoteRequestForm";
 import PageHero from "@/components/PageHero";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
@@ -15,6 +16,7 @@ export default function ContactPage() {
         image="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600"
       />
       <ContactDetails />
+      <QuoteRequestForm />
       <CtaBanner
         eyebrow="Ready to book"
         title="Request your cleaning quote"
