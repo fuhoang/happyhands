@@ -99,10 +99,14 @@ export async function POST(request: Request) {
 
   const resendApiKey = process.env.RESEND_API_KEY;
   const quoteRequestToEmail = process.env.QUOTE_REQUEST_TO_EMAIL ?? "fuhoang84@googlemail.com";
-  const quoteRequestFromEmail = process.env.QUOTE_REQUEST_FROM_EMAIL ?? "Happy Hands Quotes <onboarding@resend.dev>";
+  const quoteRequestFromEmail = process.env.QUOTE_REQUEST_FROM_EMAIL;
 
   if (!resendApiKey) {
     return NextResponse.json({ message: "Email delivery is not configured yet." }, { status: 500 });
+  }
+
+  if (!quoteRequestFromEmail) {
+    return NextResponse.json({ message: "Quote request sender email is not configured yet." }, { status: 500 });
   }
 
   const emailResponse = await fetch(resendApiUrl, {
