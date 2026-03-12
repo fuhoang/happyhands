@@ -21,7 +21,7 @@ const frequencies = ["One-off", "Weekly", "Fortnightly", "Monthly", "Not sure ye
 
 export default function QuoteRequestForm() {
   const searchParams = useSearchParams();
-  const prefilledService = searchParams.get("service");
+  const prefilledService = searchParams?.get("service") ?? "";
   const validPrefilledService = useMemo(
     () => (prefilledService && services.includes(prefilledService) ? prefilledService : ""),
     [prefilledService]
