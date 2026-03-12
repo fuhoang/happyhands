@@ -24,7 +24,7 @@ describe("SiteHeader", () => {
 
     expect(screen.getByRole("link", { name: "Get Quote" })).toHaveAttribute(
       "href",
-      "mailto:happyhandscustomerservice@gmail.com",
+      "/contact#quote-request",
     );
   });
 });
