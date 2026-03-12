@@ -22,6 +22,30 @@ describe("POST /api/quote-request", () => {
     expect(body.message).toBe("Missing required quote request fields.");
   });
 
+  it("rejects submissions that fill the honeypot field", async () => {
+    const request = new Request("http://localhost:3000/api/quote-request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName: "Test User",
+        email: "test@example.com",
+        phone: "07123456789",
+        service: "Home Cleaning",
+        propertyType: "House",
+        frequency: "One-off",
+        postcode: "NW6 7FX",
+        details: "Spam attempt",
+        company: "bot payload",
+      }),
+    });
+
+    const response = await POST(request);
+    const body = await response.json();
+
+    expect(response.status).toBe(400);
+    expect(body.message).toBe("Invalid request.");
+  });
+
   it("returns 500 when the sender address is not configured", async () => {
     process.env.RESEND_API_KEY = "test_key";
     delete process.env.QUOTE_REQUEST_FROM_EMAIL;

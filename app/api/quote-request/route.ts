@@ -11,6 +11,7 @@ type QuoteRequestPayload = {
   postcode?: string;
   propertySize?: string;
   details?: string;
+  company?: string;
 };
 
 const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -87,7 +88,12 @@ export async function POST(request: Request) {
     postcode: clean(body.postcode),
     propertySize: clean(body.propertySize),
     details: clean(body.details),
+    company: clean(body.company),
   };
+
+  if (payload.company) {
+    return NextResponse.json({ message: "Invalid request." }, { status: 400 });
+  }
 
   if (!payload.fullName || !payload.email || !payload.phone || !payload.service || !payload.propertyType || !payload.frequency || !payload.postcode || !payload.details) {
     return NextResponse.json({ message: "Missing required quote request fields." }, { status: 400 });

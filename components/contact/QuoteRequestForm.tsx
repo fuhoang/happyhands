@@ -253,6 +253,11 @@ export default function QuoteRequestForm() {
                   {errors.details ? <span className="text-sm font-semibold text-[#b42318]">{errors.details}</span> : null}
                 </label>
 
+                <label className="hidden" aria-hidden="true">
+                  Company
+                  <input type="text" name="company" tabIndex={-1} autoComplete="off" />
+                </label>
+
                 <div className="grid gap-3">
                   <button
                     type="submit"
@@ -263,6 +268,10 @@ export default function QuoteRequestForm() {
                   </button>
                   {status === "success" ? <p className="text-sm font-semibold text-[#006600]">{statusMessage}</p> : null}
                   {status === "error" ? <p className="text-sm font-semibold text-[#b42318]">{statusMessage}</p> : null}
+                  <p className="text-sm leading-6 text-[#6f876f]">
+                    We only use your details to review your enquiry and respond
+                    with a quote.
+                  </p>
                 </div>
               </form>
             </InfoCard>
