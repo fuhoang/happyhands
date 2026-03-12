@@ -1,6 +1,7 @@
- "use client";
+"use client";
 
-import { FormEvent, useState } from "react";
+import { FormEvent, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import InfoCard from "@/components/shared/InfoCard";
 
 const services = [
@@ -19,9 +20,23 @@ const propertyTypes = ["House", "Flat", "Office", "Retail", "Hospitality Venue",
 const frequencies = ["One-off", "Weekly", "Fortnightly", "Monthly", "Not sure yet"];
 
 export default function QuoteRequestForm() {
+  const searchParams = useSearchParams();
+  const prefilledService = searchParams.get("service");
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
+  const [selectedService, setSelectedService] = useState(
+    prefilledService && services.includes(prefilledService) ? prefilledService : ""
+  );
+
+  useEffect(() => {
+    if (prefilledService && services.includes(prefilledService)) {
+      setSelectedService(prefilledService);
+      return;
+    }
+
+    setSelectedService("");
+  }, [prefilledService]);
 
   const validate = (formData: FormData) => {
     const nextErrors: Record<string, string> = {};
@@ -84,6 +99,7 @@ export default function QuoteRequestForm() {
       }
 
       form.reset();
+      setSelectedService(prefilledService && services.includes(prefilledService) ? prefilledService : "");
       setStatus("success");
       setStatusMessage(result?.message ?? "Quote request received.");
     } catch {
@@ -113,6 +129,33 @@ export default function QuoteRequestForm() {
         <div className="grid items-start gap-8 pt-8 sm:pt-10 lg:grid-cols-[minmax(0,1.2fr)_minmax(320px,0.8fr)]">
           <div className="min-w-0">
             <InfoCard className="p-5 sm:p-8">
+              {status === "success" ? (
+                <div className="grid gap-5">
+                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white shadow-[0_10px_24px_rgba(0,0,0,0.14)]">
+                    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-[2.4]">
+                      <path d="m5 13 4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
+                    </svg>
+                  </div>
+                  <div>
+                    <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">Request received</p>
+                    <h3 className="mt-3 site-h3">Thank you. Your quote request is on its way.</h3>
+                    <p className="mt-4 max-w-2xl text-base leading-8 text-[#5f7d69]">{statusMessage}</p>
+                  </div>
+                  <div className="flex flex-wrap gap-3">
+                    <button
+                      type="button"
+                      onClick={() => {
+                        setErrors({});
+                        setStatus("idle");
+                        setStatusMessage("");
+                      }}
+                      className="inline-flex min-h-12 items-center justify-center rounded-sm bg-[#008000] px-8 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#006600]"
+                    >
+                      Submit Another Request
+                    </button>
+                  </div>
+                </div>
+              ) : (
               <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">Full Name</span>
@@ -154,7 +197,8 @@ export default function QuoteRequestForm() {
                   <span className="text-sm font-bold text-[#163316]">Service Required</span>
                   <select
                     name="service"
-                    defaultValue=""
+                    value={selectedService}
+                    onChange={(event) => setSelectedService(event.target.value)}
                     aria-invalid={errors.service ? "true" : "false"}
                     className={`${fieldClassName} ${errors.service ? errorClassName : defaultClassName}`}
                   >
@@ -274,6 +318,7 @@ export default function QuoteRequestForm() {
                   </p>
                 </div>
               </form>
+              )}
             </InfoCard>
           </div>
           <div className="min-w-0">

@@ -22,6 +22,46 @@ describe("POST /api/quote-request", () => {
     expect(body.message).toBe("Missing required quote request fields.");
   });
 
+  it("returns 429 when the client exceeds the rate limit", async () => {
+    process.env.RESEND_API_KEY = "test_key";
+    process.env.QUOTE_REQUEST_FROM_EMAIL = "Happy Hands Quotes <quotes@example.com>";
+
+    vi.spyOn(global, "fetch").mockResolvedValue({
+      ok: true,
+      json: async () => ({ id: "email_123" }),
+    } as Response);
+
+    const makeRequest = () =>
+      new Request("http://localhost:3000/api/quote-request", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          "x-forwarded-for": "198.51.100.10",
+        },
+        body: JSON.stringify({
+          fullName: "Test User",
+          email: "test@example.com",
+          phone: "07123456789",
+          service: "Home Cleaning",
+          propertyType: "House",
+          frequency: "One-off",
+          postcode: "NW6 7FX",
+          details: "Please quote for a one-off clean next week.",
+        }),
+      });
+
+    for (let index = 0; index < 5; index += 1) {
+      const response = await POST(makeRequest());
+      expect(response.status).toBe(200);
+    }
+
+    const blockedResponse = await POST(makeRequest());
+    const body = await blockedResponse.json();
+
+    expect(blockedResponse.status).toBe(429);
+    expect(body.message).toBe("Too many quote requests. Please try again shortly.");
+  });
+
   it("rejects submissions that fill the honeypot field", async () => {
     const request = new Request("http://localhost:3000/api/quote-request", {
       method: "POST",
