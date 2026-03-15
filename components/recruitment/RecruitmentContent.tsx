@@ -79,6 +79,32 @@ const benefits: Array<{ label: string; icon: ReactNode }> = [
   },
 ];
 
+const cleaningExperienceOptions = [
+  "Private homes",
+  "Agency cleaning",
+  "Office cleaning",
+  "End of tenancy",
+  "Deep cleaning",
+  "Hospitality cleaning",
+];
+
+const workingDayOptions = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+
+const eligibilityOptions = [
+  "I am eligible to work in the UK.",
+  "I can travel to local cleaning jobs.",
+  "I am comfortable working in customers' homes.",
+  "I am happy to complete checks and onboarding.",
+];
+
 export default function RecruitmentContent() {
   return (
     <section className="bg-white py-16 sm:py-20">
@@ -117,7 +143,12 @@ export default function RecruitmentContent() {
               Fill in your details below and we will review your application for cleaner work.
             </p>
 
-            <form className="mt-8 grid gap-10">
+            <form
+              className="mt-8 grid gap-10"
+              action="mailto:happyhandscustomerservice@gmail.com?subject=Cleaner%20Application"
+              method="post"
+              encType="text/plain"
+            >
               <section className="grid gap-5 md:grid-cols-2">
                 <div className="md:col-span-2">
                   <h3 className="site-h3">About you</h3>
@@ -125,32 +156,32 @@ export default function RecruitmentContent() {
 
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">First name(s)</span>
-                  <input type="text" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
+                  <input name="firstName" type="text" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
                 </label>
 
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">Last name</span>
-                  <input type="text" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
+                  <input name="lastName" type="text" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
                 </label>
 
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">UK mobile number</span>
-                  <input type="tel" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
+                  <input name="mobileNumber" type="tel" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
                 </label>
 
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">Email address</span>
-                  <input type="email" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
+                  <input name="email" type="email" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
                 </label>
 
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">Confirm email address</span>
-                  <input type="email" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
+                  <input name="confirmEmail" type="email" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
                 </label>
 
                 <label className="grid gap-2">
                   <span className="text-sm font-bold text-[#163316]">Gender</span>
-                  <select className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]">
+                  <select name="gender" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]">
                     <option value="">(optional)</option>
                     <option>Female</option>
                     <option>Male</option>
@@ -161,7 +192,7 @@ export default function RecruitmentContent() {
 
                 <label className="grid gap-2 md:col-span-2">
                   <span className="text-sm font-bold text-[#163316]">UK home postcode</span>
-                  <input type="text" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
+                  <input name="postcode" type="text" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]" />
                 </label>
               </section>
 
@@ -172,7 +203,7 @@ export default function RecruitmentContent() {
                   <span className="text-sm font-bold text-[#163316]">
                     How much experience do you have in professional home cleaning?
                   </span>
-                  <select className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]">
+                  <select name="experienceLength" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]">
                     <option value="">Please select</option>
                     <option>Less than 6 months</option>
                     <option>6 to 12 months</option>
@@ -187,16 +218,9 @@ export default function RecruitmentContent() {
                     What type of cleaning experience do you have?
                   </legend>
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                    {[
-                      "Private homes",
-                      "Agency cleaning",
-                      "Office cleaning",
-                      "End of tenancy",
-                      "Deep cleaning",
-                      "Hospitality cleaning",
-                    ].map((option) => (
+                    {cleaningExperienceOptions.map((option) => (
                       <label key={option} className="flex items-center gap-3 rounded-sm border border-[#d8e8d8] bg-[#f9fcf9] px-4 py-3 text-sm text-[#163316]">
-                        <input type="checkbox" className="h-4 w-4 accent-[#008000]" />
+                        <input name="cleaningExperience" value={option} type="checkbox" className="h-4 w-4 accent-[#008000]" />
                         <span>{option}</span>
                       </label>
                     ))}
@@ -210,7 +234,7 @@ export default function RecruitmentContent() {
                   <span className="text-sm text-[#5f7d69]">
                     e.g. &quot;I cleaned houses through an agency for 2 years.&quot;
                   </span>
-                  <textarea rows={5} className="rounded-sm border border-[#cfe1cf] px-4 py-3 text-sm text-[#163316] outline-none focus:border-[#008000]" />
+                  <textarea name="experienceDetails" rows={5} className="rounded-sm border border-[#cfe1cf] px-4 py-3 text-sm text-[#163316] outline-none focus:border-[#008000]" />
                 </label>
               </section>
 
@@ -221,7 +245,7 @@ export default function RecruitmentContent() {
                   <span className="text-sm font-bold text-[#163316]">
                     How many hours of cleaning work do you want per week?
                   </span>
-                  <select className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]">
+                  <select name="hoursPerWeek" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]">
                     <option value="">Please select</option>
                     <option>Up to 10 hours</option>
                     <option>10 to 20 hours</option>
@@ -235,17 +259,9 @@ export default function RecruitmentContent() {
                     Which days do you want to work?
                   </legend>
                   <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                    {[
-                      "Monday",
-                      "Tuesday",
-                      "Wednesday",
-                      "Thursday",
-                      "Friday",
-                      "Saturday",
-                      "Sunday",
-                    ].map((day) => (
+                    {workingDayOptions.map((day) => (
                       <label key={day} className="flex items-center gap-3 rounded-sm border border-[#d8e8d8] bg-[#f9fcf9] px-4 py-3 text-sm text-[#163316]">
-                        <input type="checkbox" className="h-4 w-4 accent-[#008000]" />
+                        <input name="workingDays" value={day} type="checkbox" className="h-4 w-4 accent-[#008000]" />
                         <span>{day}</span>
                       </label>
                     ))}
@@ -256,7 +272,7 @@ export default function RecruitmentContent() {
                   <span className="text-sm font-bold text-[#163316]">
                     How long would you like to work with Housekeep?
                   </span>
-                  <select className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]">
+                  <select name="workDuration" className="min-h-12 rounded-sm border border-[#cfe1cf] px-4 text-sm text-[#163316] outline-none focus:border-[#008000]">
                     <option value="">Please fill this in.</option>
                     <option>Just a few months</option>
                     <option>6 to 12 months</option>
@@ -274,14 +290,9 @@ export default function RecruitmentContent() {
                     Please confirm:
                   </legend>
                   <div className="grid gap-3">
-                    {[
-                      "I am eligible to work in the UK.",
-                      "I can travel to local cleaning jobs.",
-                      "I am comfortable working in customers' homes.",
-                      "I am happy to complete checks and onboarding.",
-                    ].map((item) => (
+                    {eligibilityOptions.map((item) => (
                       <label key={item} className="flex items-center gap-3 rounded-sm border border-[#d8e8d8] bg-[#f9fcf9] px-4 py-3 text-sm text-[#163316]">
-                        <input type="checkbox" className="h-4 w-4 accent-[#008000]" />
+                        <input name="eligibilityConfirmations" value={item} type="checkbox" className="h-4 w-4 accent-[#008000]" />
                         <span>{item}</span>
                       </label>
                     ))}
