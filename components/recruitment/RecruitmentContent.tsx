@@ -473,7 +473,7 @@ export default function RecruitmentContent() {
 
                   <label className="grid gap-2">
                     <span className="text-sm font-bold text-[#163316]">
-                      How long would you like to work with Housekeep?
+                      How long would you like to work with Happy Hands?
                     </span>
                     <select
                       name="workDuration"
