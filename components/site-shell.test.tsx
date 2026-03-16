@@ -52,6 +52,6 @@ describe("SiteFooter", () => {
 
     expect(
       screen.getByRole("link", { name: "Join Us" }),
-    ).toHaveAttribute("href", "mailto:happyhandscustomerservice@gmail.com");
+    ).toHaveAttribute("href", "/join-us");
   });
 });
