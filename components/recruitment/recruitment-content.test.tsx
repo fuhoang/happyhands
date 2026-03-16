@@ -46,7 +46,7 @@ describe("RecruitmentContent", () => {
       { target: { value: "10 to 20 hours" } }
     );
     fireEvent.click(screen.getByLabelText("Monday"));
-    fireEvent.change(screen.getByLabelText("How long would you like to work with Housekeep?"), {
+    fireEvent.change(screen.getByLabelText("How long would you like to work with Happy Hands?"), {
       target: { value: "1 year or more" },
     });
     fireEvent.click(screen.getByLabelText("I am eligible to work in the UK."));
