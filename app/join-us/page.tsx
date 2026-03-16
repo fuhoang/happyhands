@@ -20,7 +20,7 @@ export default function JoinUsPage() {
           eyebrow="Ready to apply"
           title="Send your cleaner application today."
           description="Tell us about your experience, availability, and where you can work, and our team will review your application."
-          primaryHref="mailto:happyhandscustomerservice@gmail.com?subject=Cleaner%20Application"
+          primaryHref="mailto:fuhoang84@googlemail.com?subject=Cleaner%20Application"
           primaryLabel="Apply by Email"
           secondaryHref="tel:+447973403788"
           secondaryLabel="Call Recruitment"
