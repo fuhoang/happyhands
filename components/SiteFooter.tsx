@@ -63,12 +63,12 @@ export default function SiteFooter() {
             <p className="max-w-xs text-sm leading-7 text-[#5f7d69]">
               Hey, want to join our Happy Hands team and become a REAL professional?
             </p>
-            <a
-              href="mailto:happyhandscustomerservice@gmail.com"
+            <Link
+              href="/join-us"
               className="mt-5 inline-flex min-h-11 items-center justify-center rounded-sm bg-[#008000] px-5 text-xs font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#006600]"
             >
               Join Us
-            </a>
+            </Link>
           </div>
         </div>
 

@@ -9,6 +9,7 @@ type CtaBannerProps = {
   secondaryHref: string;
   secondaryLabel: string;
   secondaryAsLink?: boolean;
+  className?: string;
 };
 
 export default function CtaBanner({
@@ -20,9 +21,10 @@ export default function CtaBanner({
   secondaryHref,
   secondaryLabel,
   secondaryAsLink = false,
+  className = "mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:px-10",
 }: CtaBannerProps) {
   return (
-    <section className="mx-auto max-w-5xl px-5 pb-16 sm:px-8 lg:px-10">
+    <section className={className}>
       <div className="rounded-md bg-[linear-gradient(135deg,#008000_0%,#26a626_100%)] p-8 text-white sm:p-10 lg:flex lg:items-center lg:justify-between lg:gap-10">
         <div className="max-w-2xl">
           <p className="text-sm font-black uppercase tracking-[0.18em] text-[#f4fff1]">
