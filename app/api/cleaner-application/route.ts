@@ -1,4 +1,8 @@
 import { NextResponse } from "next/server";
+import {
+  eligibilityOptions,
+  RECRUITMENT_EMAIL_FALLBACK,
+} from "@/lib/recruitment";
 
 type CleanerApplicationPayload = {
   firstName?: string;
@@ -23,13 +27,6 @@ const resendApiUrl = "https://api.resend.com/emails";
 const rateLimitWindowMs = 10 * 60 * 1000;
 const rateLimitMaxRequests = 5;
 const requestLog = new Map<string, number[]>();
-const requiredEligibilityConfirmations = [
-  "I am eligible to work in the UK.",
-  "I can travel to local cleaning jobs.",
-  "I am comfortable working in customers' homes.",
-  "I am happy to complete checks and onboarding.",
-];
-
 function clean(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
 }
@@ -189,7 +186,7 @@ export async function POST(request: Request) {
   }
 
   if (
-    requiredEligibilityConfirmations.some(
+    eligibilityOptions.some(
       (item) => !payload.eligibilityConfirmations.includes(item)
     )
   ) {
@@ -201,7 +198,7 @@ export async function POST(request: Request) {
 
   const resendApiKey = process.env.RESEND_API_KEY;
   const recruitmentToEmail =
-    process.env.RECRUITMENT_TO_EMAIL ?? "fuhoang84@googlemail.com";
+    process.env.RECRUITMENT_TO_EMAIL ?? RECRUITMENT_EMAIL_FALLBACK;
   const recruitmentFromEmail =
     process.env.RECRUITMENT_FROM_EMAIL ?? process.env.QUOTE_REQUEST_FROM_EMAIL;
 

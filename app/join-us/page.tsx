@@ -3,6 +3,7 @@ import PageHero from "@/components/PageHero";
 import RecruitmentContent from "@/components/recruitment/RecruitmentContent";
 import SiteFooter from "@/components/SiteFooter";
 import SiteHeader from "@/components/SiteHeader";
+import { RECRUITMENT_EMAIL_FALLBACK } from "@/lib/recruitment";
 
 export default function JoinUsPage() {
   return (
@@ -20,7 +21,7 @@ export default function JoinUsPage() {
           eyebrow="Ready to apply"
           title="Send your cleaner application today."
           description="Tell us about your experience, availability, and where you can work, and our team will review your application."
-          primaryHref="mailto:fuhoang84@googlemail.com?subject=Cleaner%20Application"
+          primaryHref={`mailto:${RECRUITMENT_EMAIL_FALLBACK}?subject=Cleaner%20Application`}
           primaryLabel="Apply by Email"
           secondaryHref="tel:+447973403788"
           secondaryLabel="Call Recruitment"
