@@ -2,8 +2,8 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import BrandLogo from "@/components/BrandLogo";
-import ServicesNavMenu from "@/components/ServicesNavMenu";
+import BrandLogo from "@/components/layout/BrandLogo";
+import ServicesNavMenu from "@/components/layout/ServicesNavMenu";
 import { services } from "@/lib/services";
 
 type SiteHeaderProps = {

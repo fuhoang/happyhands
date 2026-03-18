@@ -1,9 +1,9 @@
-import CtaBanner from "@/components/CtaBanner";
+import CtaBanner from "@/components/layout/CtaBanner";
 import ContactDetails from "@/components/contact/ContactDetails";
 import QuoteRequestForm from "@/components/contact/QuoteRequestForm";
-import PageHero from "@/components/PageHero";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import PageHero from "@/components/layout/PageHero";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 
 export default async function ContactPage({
   searchParams,

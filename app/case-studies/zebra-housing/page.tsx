@@ -1,8 +1,8 @@
 import ZebraHousingContent from "@/components/case-studies/ZebraHousingContent";
-import CtaBanner from "@/components/CtaBanner";
-import PageHero from "@/components/PageHero";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import CtaBanner from "@/components/layout/CtaBanner";
+import PageHero from "@/components/layout/PageHero";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 
 export default function ZebraHousingPage() {
   return (

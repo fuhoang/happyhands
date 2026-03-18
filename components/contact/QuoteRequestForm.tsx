@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useMemo, useState } from "react";
-import InfoCard from "@/components/shared/InfoCard";
+import InfoCard from "@/components/ui/InfoCard";
 
 const services = [
   "Home Cleaning",

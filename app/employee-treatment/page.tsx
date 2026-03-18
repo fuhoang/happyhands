@@ -1,8 +1,8 @@
-import CtaBanner from "@/components/CtaBanner";
+import CtaBanner from "@/components/layout/CtaBanner";
 import EmployeeTreatmentContent from "@/components/employee-treatment/EmployeeTreatmentContent";
-import PageHero from "@/components/PageHero";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import PageHero from "@/components/layout/PageHero";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 
 export default function EmployeeTreatmentPage() {
   return (

@@ -1,7 +1,7 @@
-import PageHero from "@/components/PageHero";
+import PageHero from "@/components/layout/PageHero";
 import ServicesGrid from "@/components/services/ServicesGrid";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 
 export default function ServicesPage() {
   return (
