@@ -1,6 +1,6 @@
 "use client";
 
-import BlurText from "@/components/BlurText";
+import BlurText from "@/components/animations/BlurText";
 import { contactInfo, homeContent } from "@/lib/site-content";
 
 export default function HomeHero() {

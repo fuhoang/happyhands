@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { renderServiceIcon } from "@/components/shared/ServiceIcons";
-import StarBorder from "@/components/StarBorder";
+import { renderServiceIcon } from "@/components/ui/ServiceIcons";
+import StarBorder from "@/components/ui/StarBorder";
 import { services } from "@/lib/services";
 
 export default function ServicesGrid() {

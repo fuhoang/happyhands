@@ -6,8 +6,8 @@ import HomeServices from "@/components/home/HomeServices";
 import HomeStats from "@/components/home/HomeStats";
 import HomeTestimonials from "@/components/home/HomeTestimonials";
 import HomeWhyUs from "@/components/home/HomeWhyUs";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 
 export default function Home() {
   return (

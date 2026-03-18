@@ -1,7 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
-import InfoCard from "@/components/shared/InfoCard";
+import InfoCard from "@/components/ui/InfoCard";
 import {
   cleaningExperienceOptions,
   eligibilityOptions,

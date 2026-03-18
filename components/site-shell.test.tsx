@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 import { services } from "@/lib/services";
 
 describe("SiteHeader", () => {

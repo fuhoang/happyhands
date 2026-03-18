@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import CtaBanner from "@/components/CtaBanner";
-import PageHero from "@/components/PageHero";
+import CtaBanner from "@/components/layout/CtaBanner";
+import PageHero from "@/components/layout/PageHero";
 
 describe("PageHero", () => {
   it("renders the shared hero content and any injected children", () => {
