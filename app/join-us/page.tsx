@@ -1,8 +1,8 @@
-import CtaBanner from "@/components/CtaBanner";
-import PageHero from "@/components/PageHero";
+import CtaBanner from "@/components/layout/CtaBanner";
+import PageHero from "@/components/layout/PageHero";
 import RecruitmentContent from "@/components/recruitment/RecruitmentContent";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 import { RECRUITMENT_EMAIL_FALLBACK } from "@/lib/recruitment";
 
 export default function JoinUsPage() {

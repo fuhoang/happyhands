@@ -1,9 +1,9 @@
-import CtaBanner from "@/components/CtaBanner";
+import CtaBanner from "@/components/layout/CtaBanner";
 import FoggingDocuments from "@/components/health-and-safety/FoggingDocuments";
 import HealthAndSafetyOverview from "@/components/health-and-safety/HealthAndSafetyOverview";
-import PageHero from "@/components/PageHero";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import PageHero from "@/components/layout/PageHero";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 
 export default function HealthAndSafetyPage() {
   return (

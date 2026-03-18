@@ -1,5 +1,5 @@
-import StarBorder from "@/components/StarBorder";
-import { renderServiceIcon } from "@/components/shared/ServiceIcons";
+import StarBorder from "@/components/ui/StarBorder";
+import { renderServiceIcon } from "@/components/ui/ServiceIcons";
 import { homeContent } from "@/lib/site-content";
 
 const cards = [

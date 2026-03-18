@@ -1,5 +1,5 @@
-import InfoCard from "@/components/shared/InfoCard";
-import TwoColumnSection from "@/components/shared/TwoColumnSection";
+import InfoCard from "@/components/ui/InfoCard";
+import TwoColumnSection from "@/components/ui/TwoColumnSection";
 
 export default function HealthAndSafetyOverview() {
   return (

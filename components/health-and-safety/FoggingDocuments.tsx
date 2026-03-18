@@ -1,4 +1,4 @@
-import InfoCard from "@/components/shared/InfoCard";
+import InfoCard from "@/components/ui/InfoCard";
 
 const documents = [
   {

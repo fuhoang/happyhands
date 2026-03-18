@@ -1,10 +1,10 @@
 import { notFound } from "next/navigation";
-import CtaBanner from "@/components/CtaBanner";
-import PageHero from "@/components/PageHero";
+import CtaBanner from "@/components/layout/CtaBanner";
+import PageHero from "@/components/layout/PageHero";
 import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import ServiceOverview from "@/components/services/ServiceOverview";
-import SiteFooter from "@/components/SiteFooter";
-import SiteHeader from "@/components/SiteHeader";
+import SiteFooter from "@/components/layout/SiteFooter";
+import SiteHeader from "@/components/layout/SiteHeader";
 import { serviceMap, services } from "@/lib/services";
 
 export function generateStaticParams() {
