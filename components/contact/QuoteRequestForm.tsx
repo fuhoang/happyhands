@@ -2,6 +2,12 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import InfoCard from "@/components/ui/InfoCard";
+import {
+  baseFieldClassName,
+  fieldDefaultClassName,
+  fieldErrorClassName,
+  FormSubmitStatus,
+} from "@/lib/forms";
 
 const services = [
   "Home Cleaning",
@@ -28,7 +34,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
     [prefilledService]
   );
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<FormSubmitStatus>("idle");
   const [statusMessage, setStatusMessage] = useState("");
   const [selectedService, setSelectedService] = useState("");
 
@@ -102,11 +108,6 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
     }
   };
 
-  const fieldClassName =
-    "min-h-12 rounded-sm border bg-white px-4 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]";
-  const errorClassName = "border-[#b42318]";
-  const defaultClassName = "border-[#cfe1cf]";
-
   return (
     <section id="quote-request" className="bg-[#f7fbf7] px-4 py-16 sm:px-8 sm:py-20 lg:px-10">
       <div className="mx-auto w-full max-w-7xl">
@@ -158,7 +159,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     name="fullName"
                     placeholder="Your full name"
                     aria-invalid={errors.fullName ? "true" : "false"}
-                    className={`${fieldClassName} ${errors.fullName ? errorClassName : defaultClassName}`}
+                    className={`${baseFieldClassName} ${errors.fullName ? fieldErrorClassName : fieldDefaultClassName}`}
                   />
                   {errors.fullName ? <span className="text-sm font-semibold text-[#b42318]">{errors.fullName}</span> : null}
                 </label>
@@ -170,7 +171,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     name="email"
                     placeholder="you@example.com"
                     aria-invalid={errors.email ? "true" : "false"}
-                    className={`${fieldClassName} ${errors.email ? errorClassName : defaultClassName}`}
+                    className={`${baseFieldClassName} ${errors.email ? fieldErrorClassName : fieldDefaultClassName}`}
                   />
                   {errors.email ? <span className="text-sm font-semibold text-[#b42318]">{errors.email}</span> : null}
                 </label>
@@ -182,7 +183,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     name="phone"
                     placeholder="Your phone number"
                     aria-invalid={errors.phone ? "true" : "false"}
-                    className={`${fieldClassName} ${errors.phone ? errorClassName : defaultClassName}`}
+                    className={`${baseFieldClassName} ${errors.phone ? fieldErrorClassName : fieldDefaultClassName}`}
                   />
                   {errors.phone ? <span className="text-sm font-semibold text-[#b42318]">{errors.phone}</span> : null}
                 </label>
@@ -194,7 +195,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     value={selectedService || validPrefilledService}
                     onChange={(event) => setSelectedService(event.target.value)}
                     aria-invalid={errors.service ? "true" : "false"}
-                    className={`${fieldClassName} ${errors.service ? errorClassName : defaultClassName}`}
+                    className={`${baseFieldClassName} ${errors.service ? fieldErrorClassName : fieldDefaultClassName}`}
                   >
                     <option value="" disabled>
                       Select a service
@@ -214,7 +215,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     name="propertyType"
                     defaultValue=""
                     aria-invalid={errors.propertyType ? "true" : "false"}
-                    className={`${fieldClassName} ${errors.propertyType ? errorClassName : defaultClassName}`}
+                    className={`${baseFieldClassName} ${errors.propertyType ? fieldErrorClassName : fieldDefaultClassName}`}
                   >
                     <option value="" disabled>
                       Select property type
@@ -234,7 +235,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     name="frequency"
                     defaultValue=""
                     aria-invalid={errors.frequency ? "true" : "false"}
-                    className={`${fieldClassName} ${errors.frequency ? errorClassName : defaultClassName}`}
+                    className={`${baseFieldClassName} ${errors.frequency ? fieldErrorClassName : fieldDefaultClassName}`}
                   >
                     <option value="" disabled>
                       Select frequency
@@ -253,7 +254,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                   <input
                     type="date"
                     name="preferredDate"
-                    className={`${fieldClassName} ${defaultClassName}`}
+                    className={`${baseFieldClassName} ${fieldDefaultClassName}`}
                   />
                 </label>
 
@@ -264,7 +265,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     name="postcode"
                     placeholder="Property postcode"
                     aria-invalid={errors.postcode ? "true" : "false"}
-                    className={`${fieldClassName} ${errors.postcode ? errorClassName : defaultClassName}`}
+                    className={`${baseFieldClassName} ${errors.postcode ? fieldErrorClassName : fieldDefaultClassName}`}
                   />
                   {errors.postcode ? <span className="text-sm font-semibold text-[#b42318]">{errors.postcode}</span> : null}
                 </label>
@@ -275,7 +276,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     type="text"
                     name="propertySize"
                     placeholder="Bedrooms, floors, desks, or any useful size details"
-                    className={`${fieldClassName} ${defaultClassName}`}
+                    className={`${baseFieldClassName} ${fieldDefaultClassName}`}
                   />
                 </label>
 
@@ -286,7 +287,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     rows={6}
                     placeholder="Tell us about the cleaning requirement, timing, access, or anything else that will help us quote accurately."
                     aria-invalid={errors.details ? "true" : "false"}
-                    className={`rounded-sm border bg-white px-4 py-3 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000] ${errors.details ? errorClassName : defaultClassName}`}
+                    className={`rounded-sm border bg-white px-4 py-3 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000] ${errors.details ? fieldErrorClassName : fieldDefaultClassName}`}
                   />
                   {errors.details ? <span className="text-sm font-semibold text-[#b42318]">{errors.details}</span> : null}
                 </label>
