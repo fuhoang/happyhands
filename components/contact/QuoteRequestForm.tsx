@@ -2,12 +2,11 @@
 
 import { FormEvent, useMemo, useState } from "react";
 import InfoCard from "@/components/ui/InfoCard";
-import {
-  baseFieldClassName,
-  fieldDefaultClassName,
-  fieldErrorClassName,
-  FormSubmitStatus,
-} from "@/lib/forms";
+import FormField from "@/components/ui/forms/FormField";
+import SelectField from "@/components/ui/forms/SelectField";
+import TextInput from "@/components/ui/forms/TextInput";
+import TextareaField from "@/components/ui/forms/TextareaField";
+import { FormSubmitStatus } from "@/lib/forms";
 
 const services = [
   "Home Cleaning",
@@ -151,196 +150,124 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                   </div>
                 </div>
               ) : (
-              <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Full Name</span>
-                  <input
-                    type="text"
-                    name="fullName"
-                    placeholder="Your full name"
-                    aria-invalid={errors.fullName ? "true" : "false"}
-                    className={`${baseFieldClassName} ${errors.fullName ? fieldErrorClassName : fieldDefaultClassName}`}
-                  />
-                  {errors.fullName ? <span className="text-sm font-semibold text-[#b42318]">{errors.fullName}</span> : null}
-                </label>
+                <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
+                  <FormField label="Full Name" error={errors.fullName}>
+                    <TextInput type="text" name="fullName" placeholder="Your full name" error={errors.fullName} />
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Email Address</span>
-                  <input
-                    type="email"
-                    name="email"
-                    placeholder="you@example.com"
-                    aria-invalid={errors.email ? "true" : "false"}
-                    className={`${baseFieldClassName} ${errors.email ? fieldErrorClassName : fieldDefaultClassName}`}
-                  />
-                  {errors.email ? <span className="text-sm font-semibold text-[#b42318]">{errors.email}</span> : null}
-                </label>
+                  <FormField label="Email Address" error={errors.email}>
+                    <TextInput type="email" name="email" placeholder="you@example.com" error={errors.email} />
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Phone Number</span>
-                  <input
-                    type="tel"
-                    name="phone"
-                    placeholder="Your phone number"
-                    aria-invalid={errors.phone ? "true" : "false"}
-                    className={`${baseFieldClassName} ${errors.phone ? fieldErrorClassName : fieldDefaultClassName}`}
-                  />
-                  {errors.phone ? <span className="text-sm font-semibold text-[#b42318]">{errors.phone}</span> : null}
-                </label>
+                  <FormField label="Phone Number" error={errors.phone}>
+                    <TextInput type="tel" name="phone" placeholder="Your phone number" error={errors.phone} />
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Service Required</span>
-                  <select
-                    name="service"
-                    value={selectedService || validPrefilledService}
-                    onChange={(event) => setSelectedService(event.target.value)}
-                    aria-invalid={errors.service ? "true" : "false"}
-                    className={`${baseFieldClassName} ${errors.service ? fieldErrorClassName : fieldDefaultClassName}`}
-                  >
-                    <option value="" disabled>
-                      Select a service
-                    </option>
-                    {services.map((service) => (
-                      <option key={service} value={service}>
-                        {service}
+                  <FormField label="Service Required" error={errors.service}>
+                    <SelectField
+                      name="service"
+                      value={selectedService || validPrefilledService}
+                      onChange={(event) => setSelectedService(event.target.value)}
+                      error={errors.service}
+                    >
+                      <option value="" disabled>
+                        Select a service
                       </option>
-                    ))}
-                  </select>
-                  {errors.service ? <span className="text-sm font-semibold text-[#b42318]">{errors.service}</span> : null}
-                </label>
+                      {services.map((service) => (
+                        <option key={service} value={service}>
+                          {service}
+                        </option>
+                      ))}
+                    </SelectField>
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Property Type</span>
-                  <select
-                    name="propertyType"
-                    defaultValue=""
-                    aria-invalid={errors.propertyType ? "true" : "false"}
-                    className={`${baseFieldClassName} ${errors.propertyType ? fieldErrorClassName : fieldDefaultClassName}`}
-                  >
-                    <option value="" disabled>
-                      Select property type
-                    </option>
-                    {propertyTypes.map((type) => (
-                      <option key={type} value={type}>
-                        {type}
+                  <FormField label="Property Type" error={errors.propertyType}>
+                    <SelectField name="propertyType" defaultValue="" error={errors.propertyType}>
+                      <option value="" disabled>
+                        Select property type
                       </option>
-                    ))}
-                  </select>
-                  {errors.propertyType ? <span className="text-sm font-semibold text-[#b42318]">{errors.propertyType}</span> : null}
-                </label>
+                      {propertyTypes.map((type) => (
+                        <option key={type} value={type}>
+                          {type}
+                        </option>
+                      ))}
+                    </SelectField>
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Frequency</span>
-                  <select
-                    name="frequency"
-                    defaultValue=""
-                    aria-invalid={errors.frequency ? "true" : "false"}
-                    className={`${baseFieldClassName} ${errors.frequency ? fieldErrorClassName : fieldDefaultClassName}`}
-                  >
-                    <option value="" disabled>
-                      Select frequency
-                    </option>
-                    {frequencies.map((frequency) => (
-                      <option key={frequency} value={frequency}>
-                        {frequency}
+                  <FormField label="Frequency" error={errors.frequency}>
+                    <SelectField name="frequency" defaultValue="" error={errors.frequency}>
+                      <option value="" disabled>
+                        Select frequency
                       </option>
-                    ))}
-                  </select>
-                  {errors.frequency ? <span className="text-sm font-semibold text-[#b42318]">{errors.frequency}</span> : null}
-                </label>
+                      {frequencies.map((frequency) => (
+                        <option key={frequency} value={frequency}>
+                          {frequency}
+                        </option>
+                      ))}
+                    </SelectField>
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Preferred Date</span>
-                  <input
-                    type="date"
-                    name="preferredDate"
-                    className={`${baseFieldClassName} ${fieldDefaultClassName}`}
-                  />
-                </label>
+                  <FormField label="Preferred Date">
+                    <TextInput type="date" name="preferredDate" />
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Postcode</span>
-                  <input
-                    type="text"
-                    name="postcode"
-                    placeholder="Property postcode"
-                    aria-invalid={errors.postcode ? "true" : "false"}
-                    className={`${baseFieldClassName} ${errors.postcode ? fieldErrorClassName : fieldDefaultClassName}`}
-                  />
-                  {errors.postcode ? <span className="text-sm font-semibold text-[#b42318]">{errors.postcode}</span> : null}
-                </label>
+                  <FormField label="Postcode" error={errors.postcode}>
+                    <TextInput type="text" name="postcode" placeholder="Property postcode" error={errors.postcode} />
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Property Size</span>
-                  <input
-                    type="text"
-                    name="propertySize"
-                    placeholder="Bedrooms, floors, desks, or any useful size details"
-                    className={`${baseFieldClassName} ${fieldDefaultClassName}`}
-                  />
-                </label>
+                  <FormField label="Property Size">
+                    <TextInput
+                      type="text"
+                      name="propertySize"
+                      placeholder="Bedrooms, floors, desks, or square footage"
+                    />
+                  </FormField>
 
-                <label className="grid gap-2">
-                  <span className="text-sm font-bold text-[#163316]">Additional Details</span>
-                  <textarea
-                    name="details"
-                    rows={6}
-                    placeholder="Tell us about the cleaning requirement, timing, access, or anything else that will help us quote accurately."
-                    aria-invalid={errors.details ? "true" : "false"}
-                    className={`rounded-sm border bg-white px-4 py-3 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000] ${errors.details ? fieldErrorClassName : fieldDefaultClassName}`}
-                  />
-                  {errors.details ? <span className="text-sm font-semibold text-[#b42318]">{errors.details}</span> : null}
-                </label>
+                  <FormField label="Additional Details" error={errors.details}>
+                    <TextareaField
+                      name="details"
+                      rows={5}
+                      placeholder="Tell us about the job, access, timing, or anything that affects the quote."
+                      error={errors.details}
+                    />
+                  </FormField>
 
-                <label className="hidden" aria-hidden="true">
-                  Company
-                  <input type="text" name="company" tabIndex={-1} autoComplete="off" />
-                </label>
+                  <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
 
-                <div className="grid gap-3">
-                  <button
-                    type="submit"
-                    disabled={status === "submitting"}
-                  className="inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-[#008000] px-8 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#006600] disabled:cursor-not-allowed disabled:bg-[#78aa78] sm:w-auto"
-                  >
-                    {status === "submitting" ? "Sending request..." : "Request Quote"}
-                  </button>
-                  {status === "error" ? <p className="text-sm font-semibold text-[#b42318]">{statusMessage}</p> : null}
-                  <p className="text-sm leading-6 text-[#6f876f]">
-                    We only use your details to review your enquiry and respond
-                    with a quote.
-                  </p>
-                </div>
-              </form>
+                  <div className="flex flex-wrap items-start gap-3 pt-2">
+                    <button
+                      type="submit"
+                      disabled={status === "submitting"}
+                      className="inline-flex min-h-12 w-full items-center justify-center rounded-sm bg-[#008000] px-8 text-sm font-black uppercase tracking-[0.16em] text-white transition hover:bg-[#006600] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto"
+                    >
+                      {status === "submitting" ? "Sending request..." : "Request Quote"}
+                    </button>
+                    {status === "error" ? <p className="text-sm font-semibold text-[#b42318]">{statusMessage}</p> : null}
+                    <p className="text-sm leading-6 text-[#6f876f]">
+                      We only use your details to review your enquiry and respond
+                      with a quote.
+                    </p>
+                  </div>
+                </form>
               )}
             </InfoCard>
           </div>
+
           <div className="min-w-0">
-            <InfoCard className="bg-white p-6 sm:p-8">
-              <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">What to include</p>
-              <h3 className="mt-3 site-h3">Help us quote accurately</h3>
-              <ul className="mt-6 space-y-4 text-sm leading-7 text-[#5f7d69]">
-                <li>Tell us the service you need and whether it is one-off or ongoing.</li>
-                <li>Include the property type, size, and postcode so we can assess scope.</li>
-                <li>Mention any access restrictions, deadlines, or specialist cleaning requirements.</li>
-                <li>Add preferred dates so we can respond with practical availability.</li>
-              </ul>
-              <div className="mt-8 border-t border-[#dce8dc] pt-6 text-sm leading-7 text-[#5f7d69]">
-                <p className="font-black text-[#163316]">Need a faster response?</p>
-                <p className="mt-2">
-                  Call{" "}
-                  <a href="tel:+447973403788" className="font-semibold text-[#008000] transition hover:text-[#006600]">
-                    07973 403 788
-                  </a>{" "}
-                  or email{" "}
-                  <a
-                    href="mailto:happyhandscustomerservice@gmail.com"
-                    className="font-semibold text-[#008000] transition hover:text-[#006600]"
-                  >
-                    happyhandscustomerservice@gmail.com
-                  </a>
-                  .
-                </p>
+            <InfoCard className="p-5 sm:p-8">
+              <div className="grid gap-5">
+                <div>
+                  <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">
+                    Help us quote accurately
+                  </p>
+                  <h3 className="mt-3 site-h3">The more detail you share, the faster we can respond.</h3>
+                </div>
+                <ul className="grid gap-3 text-sm leading-7 text-[#4f694f]">
+                  <li>Include the service you need and whether it is one-off or recurring.</li>
+                  <li>Share the postcode and property size so we can judge travel and scope.</li>
+                  <li>Use the details box for access notes, timing, or specialist requests.</li>
+                  <li>If you need a same-day response, mention it clearly in the notes.</li>
+                </ul>
               </div>
             </InfoCard>
           </div>
