@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { caseStudies } from "@/lib/case-studies";
 import { services } from "@/lib/services";
 
 const exploreLinks = [
@@ -7,11 +8,6 @@ const exploreLinks = [
   { href: "/health-and-safety", label: "Health and Safety" },
   { href: "/employee-treatment", label: "Employee Treatment" },
   { href: "/contact", label: "Contact" },
-];
-
-const caseStudyLinks = [
-  { href: "/case-studies/zebra-housing", label: "Zebra Housing" },
-  { href: "/case-studies/covid-19-zebra-housing", label: "COVID-19 Zebra Housing" },
 ];
 
 export default function SiteFooter() {
@@ -46,12 +42,16 @@ export default function SiteFooter() {
           </div>
 
           <div>
-            <h3 className="site-footer-h3">Case Studies</h3>
+            <h3 className="site-footer-h3">
+              <Link href="/case-studies" className="transition hover:text-[#008000]">
+                Case Studies
+              </Link>
+            </h3>
             <ul className="space-y-2">
-              {caseStudyLinks.map((link) => (
-                <li key={link.href}>
-                  <Link href={link.href} className="transition hover:text-[#008000]">
-                    {link.label}
+              {caseStudies.map((caseStudy) => (
+                <li key={caseStudy.slug}>
+                  <Link href={`/case-studies/${caseStudy.slug}`} className="transition hover:text-[#008000]">
+                    {caseStudy.title}
                   </Link>
                 </li>
               ))}
