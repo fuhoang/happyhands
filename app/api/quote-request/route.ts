@@ -1,4 +1,11 @@
 import { NextResponse } from "next/server";
+import {
+  clean,
+  createRateLimiter,
+  emailPattern,
+  getClientIdentifier,
+  resendApiUrl,
+} from "@/lib/api";
 
 type QuoteRequestPayload = {
   fullName?: string;
@@ -14,38 +21,7 @@ type QuoteRequestPayload = {
   company?: string;
 };
 
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-const resendApiUrl = "https://api.resend.com/emails";
-const rateLimitWindowMs = 10 * 60 * 1000;
-const rateLimitMaxRequests = 5;
-const requestLog = new Map<string, number[]>();
-
-function clean(value: unknown) {
-  return typeof value === "string" ? value.trim() : "";
-}
-
-function getClientIdentifier(request: Request) {
-  const forwardedFor = request.headers.get("x-forwarded-for");
-  if (forwardedFor) {
-    return forwardedFor.split(",")[0]?.trim() || "unknown";
-  }
-
-  return request.headers.get("x-real-ip") || "unknown";
-}
-
-function isRateLimited(identifier: string) {
-  const now = Date.now();
-  const recentRequests = (requestLog.get(identifier) ?? []).filter((timestamp) => now - timestamp < rateLimitWindowMs);
-
-  if (recentRequests.length >= rateLimitMaxRequests) {
-    requestLog.set(identifier, recentRequests);
-    return true;
-  }
-
-  recentRequests.push(now);
-  requestLog.set(identifier, recentRequests);
-  return false;
-}
+const isRateLimited = createRateLimiter();
 
 function buildEmailText(payload: Required<QuoteRequestPayload>) {
   return [
