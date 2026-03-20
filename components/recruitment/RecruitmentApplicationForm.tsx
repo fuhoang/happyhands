@@ -3,6 +3,12 @@
 import { FormEvent, useState } from "react";
 import InfoCard from "@/components/ui/InfoCard";
 import {
+  baseFieldClassName,
+  fieldDefaultClassName,
+  fieldErrorClassName,
+  FormSubmitStatus,
+} from "@/lib/forms";
+import {
   cleaningExperienceOptions,
   eligibilityOptions,
   RECRUITMENT_EMAIL_FALLBACK,
@@ -13,13 +19,8 @@ const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function RecruitmentApplicationForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
-  const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
+  const [status, setStatus] = useState<FormSubmitStatus>("idle");
   const [statusMessage, setStatusMessage] = useState("");
-
-  const fieldClassName =
-    "min-h-12 rounded-sm border bg-white px-4 text-sm text-[#163316] outline-none transition placeholder:text-[#83a183] focus:border-[#008000]";
-  const errorClassName = "border-[#b42318]";
-  const defaultClassName = "border-[#cfe1cf]";
 
   const validate = (formData: FormData) => {
     const nextErrors: Record<string, string> = {};
@@ -174,7 +175,7 @@ export default function RecruitmentApplicationForm() {
                   name="firstName"
                   type="text"
                   aria-invalid={errors.firstName ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.firstName ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.firstName ? fieldErrorClassName : fieldDefaultClassName}`}
                 />
                 {errors.firstName ? <span className="text-sm font-semibold text-[#b42318]">{errors.firstName}</span> : null}
               </label>
@@ -185,7 +186,7 @@ export default function RecruitmentApplicationForm() {
                   name="lastName"
                   type="text"
                   aria-invalid={errors.lastName ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.lastName ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.lastName ? fieldErrorClassName : fieldDefaultClassName}`}
                 />
                 {errors.lastName ? <span className="text-sm font-semibold text-[#b42318]">{errors.lastName}</span> : null}
               </label>
@@ -196,7 +197,7 @@ export default function RecruitmentApplicationForm() {
                   name="mobileNumber"
                   type="tel"
                   aria-invalid={errors.mobileNumber ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.mobileNumber ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.mobileNumber ? fieldErrorClassName : fieldDefaultClassName}`}
                 />
                 {errors.mobileNumber ? <span className="text-sm font-semibold text-[#b42318]">{errors.mobileNumber}</span> : null}
               </label>
@@ -207,7 +208,7 @@ export default function RecruitmentApplicationForm() {
                   name="email"
                   type="email"
                   aria-invalid={errors.email ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.email ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.email ? fieldErrorClassName : fieldDefaultClassName}`}
                 />
                 {errors.email ? <span className="text-sm font-semibold text-[#b42318]">{errors.email}</span> : null}
               </label>
@@ -218,7 +219,7 @@ export default function RecruitmentApplicationForm() {
                   name="confirmEmail"
                   type="email"
                   aria-invalid={errors.confirmEmail ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.confirmEmail ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.confirmEmail ? fieldErrorClassName : fieldDefaultClassName}`}
                 />
                 {errors.confirmEmail ? <span className="text-sm font-semibold text-[#b42318]">{errors.confirmEmail}</span> : null}
               </label>
@@ -228,7 +229,7 @@ export default function RecruitmentApplicationForm() {
                 <select
                   name="gender"
                   defaultValue=""
-                  className={`${fieldClassName} ${defaultClassName}`}
+                  className={`${baseFieldClassName} ${fieldDefaultClassName}`}
                 >
                   <option value="">(optional)</option>
                   <option>Female</option>
@@ -244,7 +245,7 @@ export default function RecruitmentApplicationForm() {
                   name="postcode"
                   type="text"
                   aria-invalid={errors.postcode ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.postcode ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.postcode ? fieldErrorClassName : fieldDefaultClassName}`}
                 />
                 {errors.postcode ? <span className="text-sm font-semibold text-[#b42318]">{errors.postcode}</span> : null}
               </label>
@@ -261,7 +262,7 @@ export default function RecruitmentApplicationForm() {
                   name="experienceLength"
                   defaultValue=""
                   aria-invalid={errors.experienceLength ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.experienceLength ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.experienceLength ? fieldErrorClassName : fieldDefaultClassName}`}
                 >
                   <option value="">Please select</option>
                   <option>Less than 6 months</option>
@@ -299,7 +300,7 @@ export default function RecruitmentApplicationForm() {
                   name="experienceDetails"
                   rows={5}
                   aria-invalid={errors.experienceDetails ? "true" : "false"}
-                  className={`rounded-sm border bg-white px-4 py-3 text-sm text-[#163316] outline-none focus:border-[#008000] ${errors.experienceDetails ? errorClassName : defaultClassName}`}
+                  className={`rounded-sm border bg-white px-4 py-3 text-sm text-[#163316] outline-none focus:border-[#008000] ${errors.experienceDetails ? fieldErrorClassName : fieldDefaultClassName}`}
                 />
                 {errors.experienceDetails ? <span className="text-sm font-semibold text-[#b42318]">{errors.experienceDetails}</span> : null}
               </label>
@@ -316,7 +317,7 @@ export default function RecruitmentApplicationForm() {
                   name="hoursPerWeek"
                   defaultValue=""
                   aria-invalid={errors.hoursPerWeek ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.hoursPerWeek ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.hoursPerWeek ? fieldErrorClassName : fieldDefaultClassName}`}
                 >
                   <option value="">Please select</option>
                   <option>Up to 10 hours</option>
@@ -350,7 +351,7 @@ export default function RecruitmentApplicationForm() {
                   name="workDuration"
                   defaultValue=""
                   aria-invalid={errors.workDuration ? "true" : "false"}
-                  className={`${fieldClassName} ${errors.workDuration ? errorClassName : defaultClassName}`}
+                  className={`${baseFieldClassName} ${errors.workDuration ? fieldErrorClassName : fieldDefaultClassName}`}
                 >
                   <option value="">Please fill this in.</option>
                   <option>Just a few months</option>
