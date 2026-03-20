@@ -2,20 +2,17 @@
 
 import { FormEvent, useState } from "react";
 import InfoCard from "@/components/ui/InfoCard";
-import {
-  baseFieldClassName,
-  fieldDefaultClassName,
-  fieldErrorClassName,
-  FormSubmitStatus,
-} from "@/lib/forms";
+import FormField from "@/components/ui/forms/FormField";
+import SelectField from "@/components/ui/forms/SelectField";
+import TextInput from "@/components/ui/forms/TextInput";
+import TextareaField from "@/components/ui/forms/TextareaField";
+import { FormSubmitStatus } from "@/lib/forms";
 import {
   cleaningExperienceOptions,
   eligibilityOptions,
   RECRUITMENT_EMAIL_FALLBACK,
   workingDayOptions,
 } from "@/lib/recruitment";
-
-const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 export default function RecruitmentApplicationForm() {
   const [errors, setErrors] = useState<Record<string, string>>({});
@@ -40,19 +37,19 @@ export default function RecruitmentApplicationForm() {
 
     if (!firstName) nextErrors.firstName = "Enter your first name.";
     if (!lastName) nextErrors.lastName = "Enter your last name.";
-    if (!mobileNumber) nextErrors.mobileNumber = "Enter your mobile number.";
+    if (!mobileNumber) nextErrors.mobileNumber = "Enter your UK mobile number.";
     if (!email) nextErrors.email = "Enter your email address.";
-    else if (!emailPattern.test(email)) nextErrors.email = "Enter a valid email address.";
+    else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) nextErrors.email = "Enter a valid email address.";
     if (!confirmEmail) nextErrors.confirmEmail = "Confirm your email address.";
     else if (confirmEmail !== email) nextErrors.confirmEmail = "Email addresses must match.";
     if (!postcode) nextErrors.postcode = "Enter your home postcode.";
-    if (!experienceLength) nextErrors.experienceLength = "Select your cleaning experience.";
-    if (cleaningExperience.length === 0) nextErrors.cleaningExperience = "Select at least one cleaning experience type.";
+    if (!experienceLength) nextErrors.experienceLength = "Select your experience length.";
+    if (cleaningExperience.length === 0) nextErrors.cleaningExperience = "Select at least one experience type.";
     if (!experienceDetails) nextErrors.experienceDetails = "Describe your cleaning experience.";
-    if (!hoursPerWeek) nextErrors.hoursPerWeek = "Select the hours you want per week.";
+    if (!hoursPerWeek) nextErrors.hoursPerWeek = "Select how many hours you want.";
     if (workingDays.length === 0) nextErrors.workingDays = "Select at least one working day.";
-    if (!workDuration) nextErrors.workDuration = "Select how long you want to work.";
-    if (eligibilityConfirmations.length !== eligibilityOptions.length) nextErrors.eligibilityConfirmations = "Confirm all eligibility statements.";
+    if (!workDuration) nextErrors.workDuration = "Tell us how long you want to work with Happy Hands.";
+    if (eligibilityConfirmations.length === 0) nextErrors.eligibilityConfirmations = "Confirm the eligibility statements.";
 
     return nextErrors;
   };
@@ -74,23 +71,10 @@ export default function RecruitmentApplicationForm() {
     setStatus("submitting");
     setStatusMessage("");
 
-    const payload = {
-      firstName: formData.get("firstName")?.toString() ?? "",
-      lastName: formData.get("lastName")?.toString() ?? "",
-      mobileNumber: formData.get("mobileNumber")?.toString() ?? "",
-      email: formData.get("email")?.toString() ?? "",
-      confirmEmail: formData.get("confirmEmail")?.toString() ?? "",
-      gender: formData.get("gender")?.toString() ?? "",
-      postcode: formData.get("postcode")?.toString() ?? "",
-      experienceLength: formData.get("experienceLength")?.toString() ?? "",
-      cleaningExperience: formData.getAll("cleaningExperience").map((value) => value.toString()),
-      experienceDetails: formData.get("experienceDetails")?.toString() ?? "",
-      hoursPerWeek: formData.get("hoursPerWeek")?.toString() ?? "",
-      workingDays: formData.getAll("workingDays").map((value) => value.toString()),
-      workDuration: formData.get("workDuration")?.toString() ?? "",
-      eligibilityConfirmations: formData.getAll("eligibilityConfirmations").map((value) => value.toString()),
-      company: formData.get("company")?.toString() ?? "",
-    };
+    const payload = Object.fromEntries(formData.entries());
+    payload.cleaningExperience = formData.getAll("cleaningExperience");
+    payload.workingDays = formData.getAll("workingDays");
+    payload.eligibilityConfirmations = formData.getAll("eligibilityConfirmations");
 
     try {
       const response = await fetch("/api/cleaner-application", {
@@ -128,13 +112,9 @@ export default function RecruitmentApplicationForm() {
             </svg>
           </div>
           <div>
-            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">
-              Application received
-            </p>
-            <h2 className="mt-3 site-h2">Thank you. Your application is on its way.</h2>
-            <p className="mt-4 max-w-2xl text-base leading-8 text-[#5f7d69]">
-              {statusMessage}
-            </p>
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">Application received</p>
+            <h3 className="mt-3 site-h3">Thank you. Your cleaner application is on its way.</h3>
+            <p className="mt-4 max-w-2xl text-base leading-8 text-[#5f7d69]">{statusMessage}</p>
           </div>
           <div className="flex flex-wrap gap-3">
             <button
@@ -152,16 +132,12 @@ export default function RecruitmentApplicationForm() {
         </div>
       ) : (
         <>
-          <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">
-            Cleaner application
-          </p>
-          <h2 className="mt-3 site-h2">Apply to join Happy Hands</h2>
-          <p className="mt-4 max-w-3xl text-base leading-8 text-[#5f7d69]">
-            Fill in your details below and we will review your application for
-            cleaner work.
-          </p>
+          <div className="mb-8 text-center">
+            <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">Application form</p>
+            <h2 className="mt-3 site-h2">Apply to join Happy Hands</h2>
+          </div>
 
-          <form className="mt-8 grid gap-10" noValidate onSubmit={handleSubmit}>
+          <form className="grid gap-8" noValidate onSubmit={handleSubmit}>
             <input type="text" name="company" className="hidden" tabIndex={-1} autoComplete="off" />
 
             <section className="grid gap-5 md:grid-cols-2">
@@ -169,110 +145,54 @@ export default function RecruitmentApplicationForm() {
                 <h3 className="site-h3">About you</h3>
               </div>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">First name(s)</span>
-                <input
-                  name="firstName"
-                  type="text"
-                  aria-invalid={errors.firstName ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.firstName ? fieldErrorClassName : fieldDefaultClassName}`}
-                />
-                {errors.firstName ? <span className="text-sm font-semibold text-[#b42318]">{errors.firstName}</span> : null}
-              </label>
+              <FormField label="First name(s)" error={errors.firstName}>
+                <TextInput name="firstName" type="text" error={errors.firstName} />
+              </FormField>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">Last name</span>
-                <input
-                  name="lastName"
-                  type="text"
-                  aria-invalid={errors.lastName ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.lastName ? fieldErrorClassName : fieldDefaultClassName}`}
-                />
-                {errors.lastName ? <span className="text-sm font-semibold text-[#b42318]">{errors.lastName}</span> : null}
-              </label>
+              <FormField label="Last name" error={errors.lastName}>
+                <TextInput name="lastName" type="text" error={errors.lastName} />
+              </FormField>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">UK mobile number</span>
-                <input
-                  name="mobileNumber"
-                  type="tel"
-                  aria-invalid={errors.mobileNumber ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.mobileNumber ? fieldErrorClassName : fieldDefaultClassName}`}
-                />
-                {errors.mobileNumber ? <span className="text-sm font-semibold text-[#b42318]">{errors.mobileNumber}</span> : null}
-              </label>
+              <FormField label="UK mobile number" error={errors.mobileNumber}>
+                <TextInput name="mobileNumber" type="tel" error={errors.mobileNumber} />
+              </FormField>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">Email address</span>
-                <input
-                  name="email"
-                  type="email"
-                  aria-invalid={errors.email ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.email ? fieldErrorClassName : fieldDefaultClassName}`}
-                />
-                {errors.email ? <span className="text-sm font-semibold text-[#b42318]">{errors.email}</span> : null}
-              </label>
+              <FormField label="Email address" error={errors.email}>
+                <TextInput name="email" type="email" error={errors.email} />
+              </FormField>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">Confirm email address</span>
-                <input
-                  name="confirmEmail"
-                  type="email"
-                  aria-invalid={errors.confirmEmail ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.confirmEmail ? fieldErrorClassName : fieldDefaultClassName}`}
-                />
-                {errors.confirmEmail ? <span className="text-sm font-semibold text-[#b42318]">{errors.confirmEmail}</span> : null}
-              </label>
+              <FormField label="Confirm email address" error={errors.confirmEmail}>
+                <TextInput name="confirmEmail" type="email" error={errors.confirmEmail} />
+              </FormField>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">Gender</span>
-                <select
-                  name="gender"
-                  defaultValue=""
-                  className={`${baseFieldClassName} ${fieldDefaultClassName}`}
-                >
+              <FormField label="Gender">
+                <SelectField name="gender" defaultValue="">
                   <option value="">(optional)</option>
                   <option>Female</option>
                   <option>Male</option>
                   <option>Non-binary</option>
                   <option>Prefer not to say</option>
-                </select>
-              </label>
+                </SelectField>
+              </FormField>
 
-              <label className="grid gap-2 md:col-span-2">
-                <span className="text-sm font-bold text-[#163316]">UK home postcode</span>
-                <input
-                  name="postcode"
-                  type="text"
-                  aria-invalid={errors.postcode ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.postcode ? fieldErrorClassName : fieldDefaultClassName}`}
-                />
-                {errors.postcode ? <span className="text-sm font-semibold text-[#b42318]">{errors.postcode}</span> : null}
-              </label>
+              <FormField label="UK home postcode" error={errors.postcode} className="md:col-span-2">
+                <TextInput name="postcode" type="text" error={errors.postcode} />
+              </FormField>
             </section>
 
             <section className="grid gap-5">
               <h3 className="site-h3">Your experience</h3>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">
-                  How much experience do you have in professional home cleaning?
-                </span>
-                <select
-                  name="experienceLength"
-                  defaultValue=""
-                  aria-invalid={errors.experienceLength ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.experienceLength ? fieldErrorClassName : fieldDefaultClassName}`}
-                >
+              <FormField label="How much experience do you have in professional home cleaning?" error={errors.experienceLength}>
+                <SelectField name="experienceLength" defaultValue="" error={errors.experienceLength}>
                   <option value="">Please select</option>
                   <option>Less than 6 months</option>
                   <option>6 to 12 months</option>
                   <option>1 to 2 years</option>
                   <option>2 to 5 years</option>
                   <option>5+ years</option>
-                </select>
-                {errors.experienceLength ? <span className="text-sm font-semibold text-[#b42318]">{errors.experienceLength}</span> : null}
-              </label>
+                </SelectField>
+              </FormField>
 
               <fieldset className="grid gap-3">
                 <legend className="text-sm font-bold text-[#163316]">
@@ -289,44 +209,27 @@ export default function RecruitmentApplicationForm() {
                 {errors.cleaningExperience ? <span className="text-sm font-semibold text-[#b42318]">{errors.cleaningExperience}</span> : null}
               </fieldset>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">
-                  Please describe your home cleaning experience
-                </span>
-                <span className="text-sm text-[#5f7d69]">
-                  e.g. &quot;I cleaned houses through an agency for 2 years.&quot;
-                </span>
-                <textarea
-                  name="experienceDetails"
-                  rows={5}
-                  aria-invalid={errors.experienceDetails ? "true" : "false"}
-                  className={`rounded-sm border bg-white px-4 py-3 text-sm text-[#163316] outline-none focus:border-[#008000] ${errors.experienceDetails ? fieldErrorClassName : fieldDefaultClassName}`}
-                />
-                {errors.experienceDetails ? <span className="text-sm font-semibold text-[#b42318]">{errors.experienceDetails}</span> : null}
-              </label>
+              <FormField
+                label="Please describe your home cleaning experience"
+                hint="e.g. &quot;I cleaned houses through an agency for 2 years.&quot;"
+                error={errors.experienceDetails}
+              >
+                <TextareaField name="experienceDetails" rows={5} error={errors.experienceDetails} />
+              </FormField>
             </section>
 
             <section className="grid gap-5">
               <h3 className="site-h3">Your availability</h3>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">
-                  How many hours of cleaning work do you want per week?
-                </span>
-                <select
-                  name="hoursPerWeek"
-                  defaultValue=""
-                  aria-invalid={errors.hoursPerWeek ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.hoursPerWeek ? fieldErrorClassName : fieldDefaultClassName}`}
-                >
+              <FormField label="How many hours of cleaning work do you want per week?" error={errors.hoursPerWeek}>
+                <SelectField name="hoursPerWeek" defaultValue="" error={errors.hoursPerWeek}>
                   <option value="">Please select</option>
                   <option>Up to 10 hours</option>
                   <option>10 to 20 hours</option>
                   <option>20 to 30 hours</option>
                   <option>30+ hours</option>
-                </select>
-                {errors.hoursPerWeek ? <span className="text-sm font-semibold text-[#b42318]">{errors.hoursPerWeek}</span> : null}
-              </label>
+                </SelectField>
+              </FormField>
 
               <fieldset className="grid gap-3">
                 <legend className="text-sm font-bold text-[#163316]">
@@ -343,24 +246,15 @@ export default function RecruitmentApplicationForm() {
                 {errors.workingDays ? <span className="text-sm font-semibold text-[#b42318]">{errors.workingDays}</span> : null}
               </fieldset>
 
-              <label className="grid gap-2">
-                <span className="text-sm font-bold text-[#163316]">
-                  How long would you like to work with Happy Hands?
-                </span>
-                <select
-                  name="workDuration"
-                  defaultValue=""
-                  aria-invalid={errors.workDuration ? "true" : "false"}
-                  className={`${baseFieldClassName} ${errors.workDuration ? fieldErrorClassName : fieldDefaultClassName}`}
-                >
+              <FormField label="How long would you like to work with Happy Hands?" error={errors.workDuration}>
+                <SelectField name="workDuration" defaultValue="" error={errors.workDuration}>
                   <option value="">Please fill this in.</option>
                   <option>Just a few months</option>
                   <option>6 to 12 months</option>
                   <option>1 year or more</option>
                   <option>Long term</option>
-                </select>
-                {errors.workDuration ? <span className="text-sm font-semibold text-[#b42318]">{errors.workDuration}</span> : null}
-              </label>
+                </SelectField>
+              </FormField>
             </section>
 
             <section className="grid gap-5">

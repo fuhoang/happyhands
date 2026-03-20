@@ -11,7 +11,7 @@ describe("RecruitmentContent", () => {
 
     expect(await screen.findByText("Enter your first name.")).toBeInTheDocument();
     expect(screen.getByText("Enter your last name.")).toBeInTheDocument();
-    expect(screen.getByText("Confirm all eligibility statements.")).toBeInTheDocument();
+    expect(screen.getByText("Confirm the eligibility statements.")).toBeInTheDocument();
     expect(fetchSpy).not.toHaveBeenCalled();
 
     fetchSpy.mockRestore();
