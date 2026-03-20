@@ -71,7 +71,9 @@ export default function RecruitmentApplicationForm() {
     setStatus("submitting");
     setStatusMessage("");
 
-    const payload = Object.fromEntries(formData.entries());
+    const payload: Record<string, FormDataEntryValue | FormDataEntryValue[]> = Object.fromEntries(
+      formData.entries()
+    );
     payload.cleaningExperience = formData.getAll("cleaningExperience");
     payload.workingDays = formData.getAll("workingDays");
     payload.eligibilityConfirmations = formData.getAll("eligibilityConfirmations");
