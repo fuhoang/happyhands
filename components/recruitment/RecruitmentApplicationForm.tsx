@@ -2,6 +2,7 @@
 
 import { FormEvent, useState } from "react";
 import InfoCard from "@/components/ui/InfoCard";
+import CheckboxGroup from "@/components/ui/forms/CheckboxGroup";
 import FormField from "@/components/ui/forms/FormField";
 import SelectField from "@/components/ui/forms/SelectField";
 import TextInput from "@/components/ui/forms/TextInput";
@@ -196,20 +197,12 @@ export default function RecruitmentApplicationForm() {
                 </SelectField>
               </FormField>
 
-              <fieldset className="grid gap-3">
-                <legend className="text-sm font-bold text-[#163316]">
-                  What type of cleaning experience do you have?
-                </legend>
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-                  {cleaningExperienceOptions.map((option) => (
-                    <label key={option} className="flex items-center gap-3 rounded-sm border border-[#d8e8d8] bg-[#f9fcf9] px-4 py-3 text-sm text-[#163316]">
-                      <input name="cleaningExperience" value={option} type="checkbox" className="h-4 w-4 accent-[#008000]" />
-                      <span>{option}</span>
-                    </label>
-                  ))}
-                </div>
-                {errors.cleaningExperience ? <span className="text-sm font-semibold text-[#b42318]">{errors.cleaningExperience}</span> : null}
-              </fieldset>
+              <CheckboxGroup
+                legend="What type of cleaning experience do you have?"
+                name="cleaningExperience"
+                options={cleaningExperienceOptions}
+                error={errors.cleaningExperience}
+              />
 
               <FormField
                 label="Please describe your home cleaning experience"
@@ -233,20 +226,13 @@ export default function RecruitmentApplicationForm() {
                 </SelectField>
               </FormField>
 
-              <fieldset className="grid gap-3">
-                <legend className="text-sm font-bold text-[#163316]">
-                  Which days do you want to work?
-                </legend>
-                <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-                  {workingDayOptions.map((day) => (
-                    <label key={day} className="flex items-center gap-3 rounded-sm border border-[#d8e8d8] bg-[#f9fcf9] px-4 py-3 text-sm text-[#163316]">
-                      <input name="workingDays" value={day} type="checkbox" className="h-4 w-4 accent-[#008000]" />
-                      <span>{day}</span>
-                    </label>
-                  ))}
-                </div>
-                {errors.workingDays ? <span className="text-sm font-semibold text-[#b42318]">{errors.workingDays}</span> : null}
-              </fieldset>
+              <CheckboxGroup
+                legend="Which days do you want to work?"
+                name="workingDays"
+                options={workingDayOptions}
+                error={errors.workingDays}
+                columnsClassName="sm:grid-cols-2 lg:grid-cols-4"
+              />
 
               <FormField label="How long would you like to work with Happy Hands?" error={errors.workDuration}>
                 <SelectField name="workDuration" defaultValue="" error={errors.workDuration}>
@@ -262,20 +248,13 @@ export default function RecruitmentApplicationForm() {
             <section className="grid gap-5">
               <h3 className="site-h3">Eligibility</h3>
 
-              <fieldset className="grid gap-3">
-                <legend className="text-sm font-bold text-[#163316]">
-                  Please confirm:
-                </legend>
-                <div className="grid gap-3">
-                  {eligibilityOptions.map((item) => (
-                    <label key={item} className="flex items-center gap-3 rounded-sm border border-[#d8e8d8] bg-[#f9fcf9] px-4 py-3 text-sm text-[#163316]">
-                      <input name="eligibilityConfirmations" value={item} type="checkbox" className="h-4 w-4 accent-[#008000]" />
-                      <span>{item}</span>
-                    </label>
-                  ))}
-                </div>
-                {errors.eligibilityConfirmations ? <span className="text-sm font-semibold text-[#b42318]">{errors.eligibilityConfirmations}</span> : null}
-              </fieldset>
+              <CheckboxGroup
+                legend="Please confirm:"
+                name="eligibilityConfirmations"
+                options={eligibilityOptions}
+                error={errors.eligibilityConfirmations}
+                columnsClassName=""
+              />
             </section>
 
             <div className="flex flex-wrap gap-3">
