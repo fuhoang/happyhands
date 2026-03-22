@@ -4,11 +4,17 @@ import CovidZebraHousingContent from "@/components/case-studies/CovidZebraHousin
 import { getCaseStudyBySlug } from "@/lib/case-studies";
 import { buildSeoMetadata } from "@/lib/seo";
 
-const caseStudy = getCaseStudyBySlug("covid-19-zebra-housing");
+function getRequiredCaseStudy() {
+  const caseStudy = getCaseStudyBySlug("covid-19-zebra-housing");
 
-if (!caseStudy) {
-  throw new Error("Missing case study data for covid-19-zebra-housing");
+  if (!caseStudy) {
+    throw new Error("Missing case study data for covid-19-zebra-housing");
+  }
+
+  return caseStudy;
 }
+
+const caseStudy = getRequiredCaseStudy();
 
 export const metadata: Metadata = buildSeoMetadata({
   title: caseStudy.title,

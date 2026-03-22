@@ -4,11 +4,17 @@ import ZebraHousingContent from "@/components/case-studies/ZebraHousingContent";
 import { getCaseStudyBySlug } from "@/lib/case-studies";
 import { buildSeoMetadata } from "@/lib/seo";
 
-const caseStudy = getCaseStudyBySlug("zebra-housing");
+function getRequiredCaseStudy() {
+  const caseStudy = getCaseStudyBySlug("zebra-housing");
 
-if (!caseStudy) {
-  throw new Error("Missing case study data for zebra-housing");
+  if (!caseStudy) {
+    throw new Error("Missing case study data for zebra-housing");
+  }
+
+  return caseStudy;
 }
+
+const caseStudy = getRequiredCaseStudy();
 
 export const metadata: Metadata = buildSeoMetadata({
   title: caseStudy.title,
