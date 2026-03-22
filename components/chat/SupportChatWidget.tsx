@@ -61,7 +61,7 @@ export default function SupportChatWidget() {
   return (
     <div className="fixed bottom-4 right-4 z-50 flex max-w-[calc(100vw-1rem)] flex-col items-end gap-3 sm:bottom-6 sm:right-6 sm:max-w-[calc(100vw-3rem)]">
       {open ? (
-        <div className="max-h-[min(80vh,42rem)] w-[min(24rem,calc(100vw-1rem))] overflow-hidden rounded-xl border border-[#d5e7d5] bg-white shadow-[0_24px_60px_rgba(0,0,0,0.18)] sm:w-[min(24rem,calc(100vw-3rem))]">
+        <div className="fixed inset-0 z-50 flex h-[100dvh] w-screen flex-col overflow-hidden bg-white sm:static sm:z-auto sm:h-auto sm:w-[min(24rem,calc(100vw-3rem))] sm:max-h-[min(80vh,42rem)] sm:rounded-[4px] sm:border sm:border-[#d5e7d5] sm:bg-white sm:shadow-[0_24px_60px_rgba(0,0,0,0.18)]">
           <div className="flex items-start justify-between gap-4 bg-[linear-gradient(135deg,#006600,#008000)] px-5 py-4 text-white">
             <div>
               <p className="text-xs font-black uppercase tracking-[0.18em] text-white/78">
@@ -82,7 +82,7 @@ export default function SupportChatWidget() {
             </button>
           </div>
 
-          <div className="max-h-[min(52vh,26rem)] space-y-4 overflow-y-auto bg-[#f7fbf7] px-4 py-4">
+          <div className="flex-1 space-y-4 overflow-y-auto bg-[#f7fbf7] px-4 py-4 sm:max-h-[min(52vh,26rem)]">
             {messages.map((message) => (
               <div
                 key={message.id}
@@ -91,8 +91,8 @@ export default function SupportChatWidget() {
                 <div
                   className={
                     message.role === "user"
-                      ? "rounded-2xl rounded-br-md bg-[#008000] px-4 py-3 text-sm leading-6 text-white shadow-[0_12px_24px_rgba(0,128,0,0.16)]"
-                      : "rounded-2xl rounded-bl-md border border-[#dbeadb] bg-white px-4 py-3 text-sm leading-6 text-[#1f2a1f] shadow-[0_10px_24px_rgba(20,51,22,0.06)]"
+                      ? "rounded-[6px] rounded-br-[2px] bg-[#008000] px-4 py-3 text-sm leading-6 text-white shadow-[0_12px_24px_rgba(0,128,0,0.16)]"
+                      : "rounded-[6px] rounded-bl-[2px] border border-[#dbeadb] bg-white px-4 py-3 text-sm leading-6 text-[#1f2a1f] shadow-[0_10px_24px_rgba(20,51,22,0.06)]"
                   }
                 >
                   {message.text}
@@ -140,7 +140,7 @@ export default function SupportChatWidget() {
             ))}
           </div>
 
-          <div className="border-t border-[#dbeadb] bg-white px-4 py-4">
+          <div className="border-t border-[#dbeadb] bg-white px-4 py-4 pb-[max(1rem,env(safe-area-inset-bottom))]">
             <form onSubmit={handleSubmit} className="flex items-center gap-2">
               <div className="relative flex-1">
                 <Sparkles className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-[#5f7d5f]" />
