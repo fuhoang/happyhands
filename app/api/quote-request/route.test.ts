@@ -1,7 +1,11 @@
-import { POST } from "@/app/api/quote-request/route";
-
 describe("POST /api/quote-request", () => {
   const originalEnv = { ...process.env };
+  let POST: typeof import("@/app/api/quote-request/route").POST;
+
+  beforeEach(async () => {
+    vi.resetModules();
+    ({ POST } = await import("@/app/api/quote-request/route"));
+  });
 
   afterEach(() => {
     process.env = { ...originalEnv };
@@ -20,6 +24,43 @@ describe("POST /api/quote-request", () => {
 
     expect(response.status).toBe(400);
     expect(body.message).toBe("Missing required quote request fields.");
+  });
+
+  it("returns 400 when the request body is invalid JSON", async () => {
+    const request = new Request("http://localhost:3000/api/quote-request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: "{invalid",
+    });
+
+    const response = await POST(request);
+    const body = await response.json();
+
+    expect(response.status).toBe(400);
+    expect(body.message).toBe("Invalid request body.");
+  });
+
+  it("returns 400 when the email address is invalid", async () => {
+    const request = new Request("http://localhost:3000/api/quote-request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName: "Test User",
+        email: "not-an-email",
+        phone: "07123456789",
+        service: "Home Cleaning",
+        propertyType: "House",
+        frequency: "One-off",
+        postcode: "NW6 7FX",
+        details: "Please quote for a one-off clean next week.",
+      }),
+    });
+
+    const response = await POST(request);
+    const body = await response.json();
+
+    expect(response.status).toBe(400);
+    expect(body.message).toBe("Enter a valid email address.");
   });
 
   it("returns 429 when the client exceeds the rate limit", async () => {
@@ -112,6 +153,32 @@ describe("POST /api/quote-request", () => {
 
     expect(response.status).toBe(500);
     expect(body.message).toBe("Quote request sender email is not configured yet.");
+  });
+
+  it("returns 500 when email delivery is not configured", async () => {
+    delete process.env.RESEND_API_KEY;
+    process.env.QUOTE_REQUEST_FROM_EMAIL = "Happy Hands Quotes <quotes@example.com>";
+
+    const request = new Request("http://localhost:3000/api/quote-request", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        fullName: "Test User",
+        email: "test@example.com",
+        phone: "07123456789",
+        service: "Home Cleaning",
+        propertyType: "House",
+        frequency: "One-off",
+        postcode: "NW6 7FX",
+        details: "Please quote for a one-off clean next week.",
+      }),
+    });
+
+    const response = await POST(request);
+    const body = await response.json();
+
+    expect(response.status).toBe(500);
+    expect(body.message).toBe("Email delivery is not configured yet.");
   });
 
   it("sends the quote request email when configured", async () => {
