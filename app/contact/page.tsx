@@ -1,9 +1,20 @@
+import type { Metadata } from "next";
 import CtaBanner from "@/components/layout/CtaBanner";
 import ContactDetails from "@/components/contact/ContactDetails";
 import QuoteRequestForm from "@/components/contact/QuoteRequestForm";
 import PageHero from "@/components/layout/PageHero";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import { buildSeoMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildSeoMetadata({
+  title: "Contact Happy Hands",
+  description:
+    "Request a cleaning quote or speak to Happy Hands about domestic, commercial, event, and specialist cleaning services across London and the Home Counties.",
+  path: "/contact",
+  image:
+    "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600",
+});
 
 export default async function ContactPage({
   searchParams,

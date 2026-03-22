@@ -1,9 +1,20 @@
+import type { Metadata } from "next";
 import CtaBanner from "@/components/layout/CtaBanner";
 import FoggingDocuments from "@/components/health-and-safety/FoggingDocuments";
 import HealthAndSafetyOverview from "@/components/health-and-safety/HealthAndSafetyOverview";
 import PageHero from "@/components/layout/PageHero";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import { buildSeoMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildSeoMetadata({
+  title: "Health and Safety",
+  description:
+    "Read about Happy Hands health and safety standards, working procedures, and fogging documentation for cleaning projects across London and the Home Counties.",
+  path: "/health-and-safety",
+  image:
+    "https://images.pexels.com/photos/4108711/pexels-photo-4108711.jpeg?auto=compress&cs=tinysrgb&w=1600",
+});
 
 export default function HealthAndSafetyPage() {
   return (

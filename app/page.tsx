@@ -1,5 +1,4 @@
-"use client";
-
+import type { Metadata } from "next";
 import HomeFinalCta from "@/components/home/HomeFinalCta";
 import HomeHero from "@/components/home/HomeHero";
 import HomeServices from "@/components/home/HomeServices";
@@ -8,6 +7,14 @@ import HomeTestimonials from "@/components/home/HomeTestimonials";
 import HomeWhyUs from "@/components/home/HomeWhyUs";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import { buildSeoMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildSeoMetadata({
+  title: "Cleaning Services Across London and the Home Counties",
+  description:
+    "Happy Hands delivers domestic, office, retail, hospitality, event, and specialist cleaning services across London and the Home Counties.",
+  path: "/",
+});
 
 export default function Home() {
   return (
