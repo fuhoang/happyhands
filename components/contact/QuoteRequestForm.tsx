@@ -3,7 +3,9 @@
 import { FormEvent, useMemo, useState } from "react";
 import InfoCard from "@/components/ui/InfoCard";
 import FormField from "@/components/ui/forms/FormField";
+import FormErrorMessage from "@/components/ui/forms/FormErrorMessage";
 import SelectField from "@/components/ui/forms/SelectField";
+import FormSuccessPanel from "@/components/ui/forms/FormSuccessPanel";
 import TextInput from "@/components/ui/forms/TextInput";
 import TextareaField from "@/components/ui/forms/TextareaField";
 import { FormSubmitStatus } from "@/lib/forms";
@@ -124,18 +126,11 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
           <div className="min-w-0">
             <InfoCard className="p-5 sm:p-8">
               {status === "success" ? (
-                <div className="grid gap-5">
-                  <div className="inline-flex h-14 w-14 items-center justify-center rounded-sm bg-[linear-gradient(135deg,#006600,#008000)] text-white shadow-[0_10px_24px_rgba(0,0,0,0.14)]">
-                    <svg aria-hidden="true" viewBox="0 0 24 24" className="h-7 w-7 fill-none stroke-current stroke-[2.4]">
-                      <path d="m5 13 4 4L19 7" strokeLinecap="round" strokeLinejoin="round" />
-                    </svg>
-                  </div>
-                  <div>
-                    <p className="text-sm font-black uppercase tracking-[0.18em] text-[#008000]">Request received</p>
-                    <h3 className="mt-3 site-h3">Thank you. Your quote request is on its way.</h3>
-                    <p className="mt-4 max-w-2xl text-base leading-8 text-[#5f7d69]">{statusMessage}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-3">
+                <FormSuccessPanel
+                  eyebrow="Request received"
+                  title="Thank you. Your quote request is on its way."
+                  message={statusMessage}
+                  action={
                     <button
                       type="button"
                       onClick={() => {
@@ -147,8 +142,8 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     >
                       Submit Another Request
                     </button>
-                  </div>
-                </div>
+                  }
+                />
               ) : (
                 <form className="grid gap-5" noValidate onSubmit={handleSubmit}>
                   <FormField label="Full Name" error={errors.fullName}>
@@ -242,7 +237,7 @@ export default function QuoteRequestForm({ prefilledService = "" }: QuoteRequest
                     >
                       {status === "submitting" ? "Sending request..." : "Request Quote"}
                     </button>
-                    {status === "error" ? <p className="text-sm font-semibold text-[#b42318]">{statusMessage}</p> : null}
+                    {status === "error" ? <FormErrorMessage message={statusMessage} /> : null}
                     <p className="text-sm leading-6 text-[#6f876f]">
                       We only use your details to review your enquiry and respond
                       with a quote.
