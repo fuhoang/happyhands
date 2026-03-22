@@ -38,25 +38,31 @@ app/
   page.tsx                         Home page
   about/page.tsx                  About page
   contact/page.tsx                Contact page
+  join-us/page.tsx                Recruitment page
   health-and-safety/page.tsx      Health and Safety page
   employee-treatment/page.tsx     Employee Treatment page
   services/page.tsx               Services index
   services/[slug]/page.tsx        Service detail template
-  case-studies/...                Case study pages
+  case-studies/...                Case study index and detail pages
+  api/quote-request/route.ts      Quote request API
+  api/cleaner-application/route.ts Recruitment API
 
 components/
-  SiteHeader.tsx                  Shared global header
-  SiteFooter.tsx                  Shared global footer
-  BrandLogo.tsx                   Shared logo
-  ServicesNavMenu.tsx             Services navbar dropdown
-  PageHero.tsx                    Shared internal-page hero
-  CtaBanner.tsx                   Shared CTA banner
-  BlurText.tsx                    Homepage headline animation
-  StarBorder.jsx                  Shared service card border effect
+  layout/                         Shared site shell and page layout components
+  ui/                             Shared UI primitives and form controls
+  animations/                     Shared animation helpers
+  contact/                        Quote request form and contact sections
+  recruitment/                    Cleaner recruitment content and form
+  services/                       Shared service page sections
+  case-studies/                   Shared case study sections
 
 lib/
-  services.ts                     Service content and routing data
-  utils.ts                        Shared utility helpers
+  services.ts                     Service content and routing helpers
+  case-studies.ts                 Case study content and routing helpers
+  recruitment.ts                  Recruitment content and config
+  site-content.ts                 Shared site copy and social link data
+  forms.ts                        Shared form constants
+  api.ts                          Shared API helpers
 ```
 
 ## Shared UI rules
@@ -94,19 +100,56 @@ To add or update a service:
 
 ## Testing
 
-Current unit coverage focuses on shared layout and reusable sections.
+Current test coverage includes:
 
-Test files:
-
-- [site-shell.test.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/components/site-shell.test.tsx)
-- [page-sections.test.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/components/page-sections.test.tsx)
-- [page.test.tsx](/Users/fuhoang/Desktop/workspace/happy-hands/app/health-and-safety/page.test.tsx)
+- shared layout and page shell components
+- shared form UI primitives
+- quote request and recruitment form flows
+- quote request and recruitment API routes
+- case studies index and shared case study page behavior
+- selected page-level integration tests for `contact` and `join-us`
 
 Run tests with:
 
 ```bash
 npm test
 ```
+
+## Environment variables
+
+Application forms and deployment require environment variables.
+
+Local development:
+
+1. copy `.env.example` to `.env.local`
+2. set the required values
+3. restart the dev server after changes
+
+Form/email variables:
+
+- `RESEND_API_KEY`
+- `QUOTE_REQUEST_TO_EMAIL`
+- `QUOTE_REQUEST_FROM_EMAIL`
+- `RECRUITMENT_TO_EMAIL`
+- `RECRUITMENT_FROM_EMAIL`
+
+Notes:
+
+- `QUOTE_REQUEST_FROM_EMAIL` must be a verified Resend sender/domain
+- `RECRUITMENT_FROM_EMAIL` should also be a verified sender/domain
+- if `RECRUITMENT_FROM_EMAIL` is omitted in runtime config, the recruitment route can fall back to the quote sender depending on route logic
+
+Deployment variables and secrets:
+
+- `VERCEL_TOKEN`
+- `VERCEL_ORG_ID`
+- `VERCEL_PROJECT_ID`
+
+Recommended production setup:
+
+1. add the form env vars in Vercel project settings
+2. add the Vercel deployment secrets in GitHub Actions repo secrets
+3. keep `.env.local` local only and never commit it
 
 ## CI/CD
 
@@ -121,6 +164,14 @@ Vercel deploy requires these repository secrets:
 - `VERCEL_ORG_ID`
 - `VERCEL_PROJECT_ID`
 
+Resend-backed forms require environment variables in the runtime environment:
+
+- `RESEND_API_KEY`
+- `QUOTE_REQUEST_TO_EMAIL`
+- `QUOTE_REQUEST_FROM_EMAIL`
+- `RECRUITMENT_TO_EMAIL`
+- `RECRUITMENT_FROM_EMAIL`
+
 ## Branching
 
 This repo uses a Gitflow-style workflow with the required `codex/` prefix.
@@ -134,5 +185,6 @@ Feature PR flow:
 1. branch from `codex/develop`
 2. open PR back into `codex/develop`
 3. merge `codex/develop` into `main`
+4. open `main` back into `codex/develop` for parity
 
 See [GITFLOW.md](/Users/fuhoang/Desktop/workspace/happy-hands/GITFLOW.md) for the detailed workflow.
