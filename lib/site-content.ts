@@ -5,6 +5,15 @@ export const contactInfo = {
   emailHref: "mailto:happyhandscustomerservice@gmail.com",
 };
 
+export const socialLinks = [
+  { label: "Facebook", href: "#", isPlaceholder: true },
+  { label: "Instagram", href: "#", isPlaceholder: true },
+  { label: "LinkedIn", href: "#", isPlaceholder: true },
+  { label: "X", href: "#", isPlaceholder: true },
+  { label: "WhatsApp", href: "#", isPlaceholder: true },
+  { label: "Email", href: "mailto:happyhandscustomerservice@gmail.com", isPlaceholder: false },
+] as const;
+
 export const homeContent = {
   eyebrow: "Bright energetic cleaning in your city",
   intro:
