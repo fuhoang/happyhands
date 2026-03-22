@@ -5,7 +5,12 @@ import ServiceBreadcrumb from "@/components/services/ServiceBreadcrumb";
 import ServiceOverview from "@/components/services/ServiceOverview";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
-import { serviceMap, services } from "@/lib/services";
+import {
+  getServiceBySlug,
+  getServiceCtaTitle,
+  getServiceQuoteHref,
+  services,
+} from "@/lib/services";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -17,7 +22,7 @@ export default async function ServiceDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = await params;
-  const service = serviceMap[slug];
+  const service = getServiceBySlug(slug);
 
   if (!service) {
     notFound();
@@ -37,9 +42,9 @@ export default async function ServiceDetailPage({
       <ServiceOverview intro={service.intro} body={service.body} />
       <CtaBanner
         eyebrow="Ready to book"
-        title={`Request a tailored quote for ${service.title.toLowerCase()}.`}
+        title={getServiceCtaTitle(service)}
         description="Speak to Happy Hands about availability, property details, and the cleaning support you need."
-        primaryHref={`/contact?service=${encodeURIComponent(service.title)}#quote-request`}
+        primaryHref={getServiceQuoteHref(service)}
         primaryLabel="Contact Happy Hands"
         secondaryHref="/services"
         secondaryLabel="Back to all services"
