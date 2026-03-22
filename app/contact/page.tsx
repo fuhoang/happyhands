@@ -31,7 +31,7 @@ export default async function ContactPage({
       <PageHero
         eyebrow="Get in Touch"
         title="Contact Happy Hands"
-        description="Speak to our team about domestic, commercial, retail, hospitality, event, and specialist cleaning services across London and the Home Counties."
+        description="Speak to our team about house cleaning, office cleaning, end of tenancy cleaning, retail, hospitality, event, and specialist cleaning services across London and the Home Counties."
         image="https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600"
       />
       <ContactDetails />

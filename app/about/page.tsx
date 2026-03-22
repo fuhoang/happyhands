@@ -23,7 +23,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Happy Hands"
         title="Professional cleaning built on consistency, trust, and care."
-        description="Happy Hands has built its reputation by delivering reliable cleaning services with high standards, friendly support, and attention to detail across homes, businesses, and specialist environments."
+        description="Happy Hands provides reliable domestic cleaning, office cleaning, commercial cleaning, and specialist support with high standards, friendly service, and attention to detail across London and the Home Counties."
         image="https://images.pexels.com/photos/4246119/pexels-photo-4246119.jpeg?auto=compress&cs=tinysrgb&w=1600"
       />
       <AboutOverview />
