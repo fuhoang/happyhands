@@ -1,8 +1,19 @@
+import type { Metadata } from "next";
 import CtaBanner from "@/components/layout/CtaBanner";
 import EmployeeTreatmentContent from "@/components/employee-treatment/EmployeeTreatmentContent";
 import PageHero from "@/components/layout/PageHero";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import { buildSeoMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildSeoMetadata({
+  title: "Employee Treatment",
+  description:
+    "See how Happy Hands approaches fair treatment, clear processes, and professional standards for every member of the cleaning team.",
+  path: "/employee-treatment",
+  image:
+    "https://images.pexels.com/photos/3184465/pexels-photo-3184465.jpeg?auto=compress&cs=tinysrgb&w=1600",
+});
 
 export default function EmployeeTreatmentPage() {
   return (
