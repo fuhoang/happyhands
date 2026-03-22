@@ -35,15 +35,15 @@ This project uses a Gitflow-style workflow adapted to the repository branch rule
 5. Merge `codex/develop` into `main`
 6. Open a follow-up pull request from `main` back into `codex/develop`
 7. Merge `main` back into `codex/develop` to keep both long-lived branches aligned
-8. Create `codex/hotfix/...` from `main` for urgent production fixes
-9. Merge hotfixes into `main`
-10. Open a follow-up pull request from `main` back into `codex/develop`
+8. Create `codex/hotfix/...` from `codex/develop` by default unless the fix must go straight to production
+9. Merge hotfixes through the same PR flow as features unless there is a true production emergency
+10. If a hotfix goes directly to `main`, open a follow-up pull request from `main` back into `codex/develop`
 11. Merge `main` back into `codex/develop`
 
 ## Pull request targets
 
 - `codex/feature/...` -> `codex/develop`
-- `codex/hotfix/...` -> `main`
+- `codex/hotfix/...` -> `codex/develop` by default
 - `codex/develop` -> `main`
 - `main` -> `codex/develop`
 
@@ -56,6 +56,7 @@ Do not push directly to `codex/develop` just to restore parity with `main`.
 - Both `main` and `codex/develop` are protected branches, so parity updates must go through pull requests in both directions.
 - Local repository hooks are used to block direct commits and pushes on `main` and `codex/develop`.
 - Run `git config core.hooksPath .githooks` locally to activate the tracked hooks for this repo.
+- Auto-merge is allowed in this repository, so enabling auto-merge on PRs is preferred when checks are still running.
 - If you later want stricter enforcement, add GitHub branch protection rules for:
   - `main`
   - `codex/develop`
