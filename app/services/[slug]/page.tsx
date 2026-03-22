@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import CtaBanner from "@/components/layout/CtaBanner";
 import PageHero from "@/components/layout/PageHero";
@@ -10,9 +11,30 @@ import {
   getServicePageProps,
   services,
 } from "@/lib/services";
+import { buildSeoMetadata } from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
+}
+
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const service = getServiceBySlug(slug);
+
+  if (!service) {
+    return {};
+  }
+
+  return buildSeoMetadata({
+    title: service.title,
+    description: service.summary,
+    path: `/services/${service.slug}`,
+    image: service.heroImage,
+  });
 }
 
 export default async function ServiceDetailPage({

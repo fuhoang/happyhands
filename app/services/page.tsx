@@ -1,8 +1,17 @@
+import type { Metadata } from "next";
 import PageHero from "@/components/layout/PageHero";
 import ServicesGrid from "@/components/services/ServicesGrid";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
 import { servicesIndexContent } from "@/lib/services";
+import { buildSeoMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildSeoMetadata({
+  title: "Cleaning Services",
+  description: servicesIndexContent.heroDescription,
+  path: "/services",
+  image: servicesIndexContent.heroImage,
+});
 
 export default function ServicesPage() {
   return (
