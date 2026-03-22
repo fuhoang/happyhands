@@ -8,6 +8,15 @@ export type ServiceItem = {
   points: string[];
 };
 
+export type ServicePageContent = {
+  heroEyebrow: string;
+  overviewTitle: string;
+  ctaEyebrow: string;
+  ctaDescription: string;
+  ctaPrimaryLabel: string;
+  ctaSecondaryLabel: string;
+};
+
 export const services: ServiceItem[] = [
   {
     slug: "after-builders-cleaning",
@@ -293,6 +302,16 @@ export const serviceMap = Object.fromEntries(services.map((service) => [service.
   ServiceItem
 >;
 
+export const servicePageContent: ServicePageContent = {
+  heroEyebrow: "Happy Hands Service",
+  overviewTitle: "Service overview",
+  ctaEyebrow: "Ready to book",
+  ctaDescription:
+    "Speak to Happy Hands about availability, property details, and the cleaning support you need.",
+  ctaPrimaryLabel: "Contact Happy Hands",
+  ctaSecondaryLabel: "Back to all services",
+};
+
 export function getServiceBySlug(slug: string) {
   return serviceMap[slug];
 }
@@ -303,4 +322,18 @@ export function getServiceQuoteHref(service: ServiceItem) {
 
 export function getServiceCtaTitle(service: ServiceItem) {
   return `Request a tailored quote for ${service.title.toLowerCase()}.`;
+}
+
+export function getServicePageProps(service: ServiceItem) {
+  return {
+    heroEyebrow: servicePageContent.heroEyebrow,
+    overviewTitle: servicePageContent.overviewTitle,
+    ctaEyebrow: servicePageContent.ctaEyebrow,
+    ctaTitle: getServiceCtaTitle(service),
+    ctaDescription: servicePageContent.ctaDescription,
+    ctaPrimaryHref: getServiceQuoteHref(service),
+    ctaPrimaryLabel: servicePageContent.ctaPrimaryLabel,
+    ctaSecondaryHref: "/services",
+    ctaSecondaryLabel: servicePageContent.ctaSecondaryLabel,
+  };
 }
