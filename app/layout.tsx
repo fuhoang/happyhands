@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/seo/StructuredData";
 import { Montserrat, Geist } from "next/font/google";
 import "./globals.css";
+import { buildLocalBusinessStructuredData, siteDescription, siteTitle, siteUrl } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -11,8 +13,28 @@ const montserrat = Montserrat({
 });
 
 export const metadata: Metadata = {
-  title: "Your App",
-  description: "Cleaning services platform",
+  metadataBase: siteUrl,
+  title: {
+    default: siteTitle,
+    template: "%s | Happy Hands",
+  },
+  description: siteDescription,
+  applicationName: "Happy Hands",
+  alternates: {
+    canonical: "/",
+  },
+  openGraph: {
+    type: "website",
+    siteName: "Happy Hands",
+    title: siteTitle,
+    description: siteDescription,
+    url: "/",
+  },
+  twitter: {
+    card: "summary",
+    title: siteTitle,
+    description: siteDescription,
+  },
   icons: {
     icon: [
       { url: "/favicon.ico" },
@@ -31,7 +53,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={`${montserrat.variable} antialiased`}>{children}</body>
+      <body className={`${montserrat.variable} antialiased`}>
+        <StructuredData data={buildLocalBusinessStructuredData()} />
+        {children}
+      </body>
     </html>
   );
 }

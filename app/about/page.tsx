@@ -1,9 +1,20 @@
+import type { Metadata } from "next";
 import AboutOverview from "@/components/about/AboutOverview";
 import AboutTeam from "@/components/about/AboutTeam";
 import CtaBanner from "@/components/layout/CtaBanner";
 import PageHero from "@/components/layout/PageHero";
 import SiteFooter from "@/components/layout/SiteFooter";
 import SiteHeader from "@/components/layout/SiteHeader";
+import { buildSeoMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildSeoMetadata({
+  title: "About Happy Hands",
+  description:
+    "Learn how Happy Hands delivers reliable cleaning services with consistency, trust, and care across homes, businesses, and specialist environments.",
+  path: "/about",
+  image:
+    "https://images.pexels.com/photos/4246119/pexels-photo-4246119.jpeg?auto=compress&cs=tinysrgb&w=1600",
+});
 
 export default function AboutPage() {
   return (
@@ -12,7 +23,7 @@ export default function AboutPage() {
       <PageHero
         eyebrow="About Happy Hands"
         title="Professional cleaning built on consistency, trust, and care."
-        description="Happy Hands has built its reputation by delivering reliable cleaning services with high standards, friendly support, and attention to detail across homes, businesses, and specialist environments."
+        description="Happy Hands provides reliable domestic cleaning, office cleaning, commercial cleaning, and specialist support with high standards, friendly service, and attention to detail across London and the Home Counties."
         image="https://images.pexels.com/photos/4246119/pexels-photo-4246119.jpeg?auto=compress&cs=tinysrgb&w=1600"
       />
       <AboutOverview />

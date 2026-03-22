@@ -9,7 +9,9 @@ describe("HomeHero", () => {
   it("renders hero copy and primary actions", () => {
     render(<HomeHero />);
 
-    expect(screen.getByText("Bright energetic cleaning in your city")).toBeInTheDocument();
+    expect(
+      screen.getByText("Trusted cleaning services across London and the Home Counties"),
+    ).toBeInTheDocument();
     expect(screen.getByRole("link", { name: "Book a free quote" })).toHaveAttribute(
       "href",
       "mailto:happyhandscustomerservice@gmail.com",
@@ -27,7 +29,7 @@ describe("HomeServices", () => {
 
     expect(
       screen.getByRole("heading", {
-        name: "Cleaning packages built for homes, workspaces, and rental properties",
+        name: "Cleaning services for homes, offices, rental properties, and commercial spaces",
       }),
     ).toBeInTheDocument();
     expect(screen.getByText("Home Cleaning")).toBeInTheDocument();
