@@ -81,6 +81,7 @@ describe("ServiceOverview", () => {
   it("renders intro and body paragraphs", () => {
     render(
       <ServiceOverview
+        title="Service overview"
         intro="Intro copy"
         body={["First paragraph", "Second paragraph"]}
       />,
