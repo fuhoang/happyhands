@@ -15,6 +15,15 @@ export type ServicePageContent = {
   ctaDescription: string;
   ctaPrimaryLabel: string;
   ctaSecondaryLabel: string;
+  breadcrumbHomeLabel: string;
+  breadcrumbIndexLabel: string;
+};
+
+export type ServicesIndexContent = {
+  heroEyebrow: string;
+  heroTitle: string;
+  heroDescription: string;
+  heroImage: string;
 };
 
 export const services: ServiceItem[] = [
@@ -310,6 +319,17 @@ export const servicePageContent: ServicePageContent = {
     "Speak to Happy Hands about availability, property details, and the cleaning support you need.",
   ctaPrimaryLabel: "Contact Happy Hands",
   ctaSecondaryLabel: "Back to all services",
+  breadcrumbHomeLabel: "Home",
+  breadcrumbIndexLabel: "Services",
+};
+
+export const servicesIndexContent: ServicesIndexContent = {
+  heroEyebrow: "Happy Hands Services",
+  heroTitle: "Cleaning services for homes, businesses, events, and managed properties.",
+  heroDescription:
+    "Explore the full Happy Hands service range and choose the cleaning support that fits your property, schedule, and operational needs.",
+  heroImage:
+    "https://images.pexels.com/photos/6197120/pexels-photo-6197120.jpeg?auto=compress&cs=tinysrgb&w=1600",
 };
 
 export function getServiceBySlug(slug: string) {
