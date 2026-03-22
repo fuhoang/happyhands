@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/seo/StructuredData";
 import { Montserrat, Geist } from "next/font/google";
 import "./globals.css";
-import { siteDescription, siteTitle, siteUrl } from "@/lib/seo";
+import { buildLocalBusinessStructuredData, siteDescription, siteTitle, siteUrl } from "@/lib/seo";
 import { cn } from "@/lib/utils";
 
 const geist = Geist({subsets:['latin'],variable:'--font-sans'});
@@ -52,7 +53,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={cn("font-sans", geist.variable)}>
-      <body className={`${montserrat.variable} antialiased`}>{children}</body>
+      <body className={`${montserrat.variable} antialiased`}>
+        <StructuredData data={buildLocalBusinessStructuredData()} />
+        {children}
+      </body>
     </html>
   );
 }

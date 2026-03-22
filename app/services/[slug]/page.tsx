@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import StructuredData from "@/components/seo/StructuredData";
 import { notFound } from "next/navigation";
 import CtaBanner from "@/components/layout/CtaBanner";
 import PageHero from "@/components/layout/PageHero";
@@ -11,7 +12,11 @@ import {
   getServicePageProps,
   services,
 } from "@/lib/services";
-import { buildSeoMetadata } from "@/lib/seo";
+import {
+  buildBreadcrumbStructuredData,
+  buildSeoMetadata,
+  buildServiceStructuredData,
+} from "@/lib/seo";
 
 export function generateStaticParams() {
   return services.map((service) => ({ slug: service.slug }));
@@ -53,6 +58,16 @@ export default async function ServiceDetailPage({
 
   return (
     <main className="min-h-screen bg-white text-[#1f2a1f]">
+      <StructuredData
+        data={[
+          buildBreadcrumbStructuredData([
+            { name: "Home", path: "/" },
+            { name: "Services", path: "/services" },
+            { name: service.title, path: `/services/${service.slug}` },
+          ]),
+          buildServiceStructuredData(service),
+        ]}
+      />
       <SiteHeader activePage="services" />
       <PageHero
         eyebrow={servicePage.heroEyebrow}
