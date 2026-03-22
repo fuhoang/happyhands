@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import SupportChatWidget from "@/components/chat/SupportChatWidget";
 import StructuredData from "@/components/seo/StructuredData";
 import { Montserrat, Geist } from "next/font/google";
 import "./globals.css";
@@ -56,6 +57,7 @@ export default function RootLayout({
       <body className={`${montserrat.variable} antialiased`}>
         <StructuredData data={buildLocalBusinessStructuredData()} />
         {children}
+        <SupportChatWidget />
       </body>
     </html>
   );
