@@ -15,16 +15,16 @@ export const socialLinks = [
 ] as const;
 
 export const homeContent = {
-  eyebrow: "Bright energetic cleaning in your city",
+  eyebrow: "Trusted cleaning services across London and the Home Counties",
   intro:
-    "Happy Hands has been delivering exceptional cleaning services for over 20 years with a spotless reputation. We understand that high standards, consistency and trust are the cornerstones of a professional service that you can rely on, will return to and can recommend.",
+    "Happy Hands has been delivering professional cleaning services for over 20 years across London and the Home Counties. We help homes, offices, rental properties, and commercial sites stay clean, presentable, and professionally maintained with high standards, consistency, and trust.",
   bookingTitle: "Fast booking process",
   bookingCopy:
     "Share the property size, preferred day, and service type. Happy Hands will reply with a tailored quote.",
   servicesHeading:
-    "Cleaning packages built for homes, workspaces, and rental properties",
+    "Cleaning services for homes, offices, rental properties, and commercial spaces",
   servicesCopy:
-    "Choose the service that fits your space, then get a fast quote with a schedule that works for you.",
+    "Choose the cleaning service that fits your property, then get a fast quote and a schedule that works across London and the Home Counties.",
   whyHeading: "Cleaning that feels upbeat, dependable, and instantly visible.",
   whyCopy:
     "Happy Hands is built around consistent service, clear communication, and finishing details that stand out the moment someone walks in.",

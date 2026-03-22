@@ -12,7 +12,7 @@ import { buildSeoMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildSeoMetadata({
   title: "Cleaning Services Across London and the Home Counties",
   description:
-    "Happy Hands delivers domestic, office, retail, hospitality, event, and specialist cleaning services across London and the Home Counties.",
+    "Happy Hands delivers house cleaning, office cleaning, end of tenancy cleaning, retail, hospitality, event, and specialist cleaning services across London and the Home Counties.",
   path: "/",
 });
 

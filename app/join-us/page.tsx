@@ -8,9 +8,9 @@ import { RECRUITMENT_EMAIL_FALLBACK } from "@/lib/recruitment";
 import { buildSeoMetadata } from "@/lib/seo";
 
 export const metadata: Metadata = buildSeoMetadata({
-  title: "Join Happy Hands",
+  title: "Cleaner Jobs at Happy Hands",
   description:
-    "Apply to join Happy Hands as a cleaner and tell us about your experience, availability, and preferred working areas.",
+    "Apply for cleaner jobs with Happy Hands in London and tell us about your cleaning experience, availability, and preferred working areas.",
   path: "/join-us",
   image:
     "https://images.pexels.com/photos/6197044/pexels-photo-6197044.jpeg?auto=compress&cs=tinysrgb&w=1600",

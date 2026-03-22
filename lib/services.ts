@@ -325,9 +325,9 @@ export const servicePageContent: ServicePageContent = {
 
 export const servicesIndexContent: ServicesIndexContent = {
   heroEyebrow: "Happy Hands Services",
-  heroTitle: "Cleaning services for homes, businesses, events, and managed properties.",
+  heroTitle: "Cleaning services in London for homes, workplaces, events, and managed properties.",
   heroDescription:
-    "Explore the full Happy Hands service range and choose the cleaning support that fits your property, schedule, and operational needs.",
+    "Explore the full Happy Hands service range for domestic cleaning, office cleaning, end of tenancy cleaning, event support, and specialist cleaning across London and the Home Counties.",
   heroImage:
     "https://images.pexels.com/photos/6197120/pexels-photo-6197120.jpeg?auto=compress&cs=tinysrgb&w=1600",
 };

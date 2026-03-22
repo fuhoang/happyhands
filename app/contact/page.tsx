@@ -10,7 +10,7 @@ import { buildSeoMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildSeoMetadata({
   title: "Contact Happy Hands",
   description:
-    "Request a cleaning quote or speak to Happy Hands about domestic, commercial, event, and specialist cleaning services across London and the Home Counties.",
+    "Request a cleaning quote from Happy Hands for house cleaning, office cleaning, end of tenancy cleaning, event support, and specialist cleaning across London and the Home Counties.",
   path: "/contact",
   image:
     "https://images.pexels.com/photos/3183197/pexels-photo-3183197.jpeg?auto=compress&cs=tinysrgb&w=1600",
