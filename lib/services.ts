@@ -288,6 +288,19 @@ export const services: ServiceItem[] = [
   },
 ];
 
-export const serviceMap = Object.fromEntries(
-  services.map((service) => [service.slug, service]),
-) as Record<string, ServiceItem>;
+export const serviceMap = Object.fromEntries(services.map((service) => [service.slug, service])) as Record<
+  string,
+  ServiceItem
+>;
+
+export function getServiceBySlug(slug: string) {
+  return serviceMap[slug];
+}
+
+export function getServiceQuoteHref(service: ServiceItem) {
+  return `/contact?service=${encodeURIComponent(service.title)}#quote-request`;
+}
+
+export function getServiceCtaTitle(service: ServiceItem) {
+  return `Request a tailored quote for ${service.title.toLowerCase()}.`;
+}
